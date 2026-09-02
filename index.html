@@ -1,12 +1,14 @@
 <title>VVBusiness</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-  /* ===== merged shell: site <-> portal toggle (no back-bar; logout returns to the site) ===== */
+  /* ===== merged shell: site <-> portal toggle (nav stays on the login screen; hidden once signed in) ===== */
   html.portal-open, html.portal-open body{ overflow:hidden; }
-  html.portal-open .wsite{ display:none; }
-  #enterPortal{ position:fixed; inset:0; z-index:80; overflow:auto; -webkit-overflow-scrolling:touch; background:#F1F4F8; }
+  html.portal-open .wsite .page, html.portal-open .wsite footer{ display:none; }
+  html.portal-app .wsite{ display:none; }
+  #enterPortal{ position:fixed; top:0; left:0; right:0; bottom:0; z-index:80; overflow:auto; -webkit-overflow-scrolling:touch; background:#F1F4F8; }
   #enterPortal[hidden]{ display:none; }
   #enterPortal .pscope{ min-height:100%; }
+  html.portal-open:not(.portal-app) #login{ top:var(--navH,64px); }
   @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) #enterPortal{ background:#0B1220; } }
   :root[data-theme="dark"] #enterPortal{ background:#0B1220; }
 </style>
@@ -2974,7 +2976,7 @@ curl https://api.vvbusiness.io/v1/channels \
   var portalFrame=document.getElementById('portalFrame');
   var navBar=document.getElementById('nav');
   var docEl=document.documentElement;
-  function fitPortal(){ if(portalOv.hidden)return; portalOv.style.top = docEl.classList.contains('portal-app') ? '0px' : (navBar?navBar.offsetHeight:0)+'px'; }
+  function fitPortal(){ if(portalOv.hidden)return; var _h=(navBar?navBar.offsetHeight:64); docEl.style.setProperty('--navH',_h+'px'); portalOv.style.top = docEl.classList.contains('portal-app') ? '0px' : _h+'px'; }
   function openPortal(e){ if(e)e.preventDefault(); docEl.classList.remove('portal-app'); portalOv.hidden=false; docEl.classList.add('portal-open'); fitPortal(); }
   function closePortal(){ portalOv.hidden=true; portalOv.style.top=''; docEl.classList.remove('portal-open'); docEl.classList.remove('portal-app'); }
   window.addEventListener('resize',fitPortal);
@@ -2988,6 +2990,8 @@ curl https://api.vvbusiness.io/v1/channels \
   function requestAuthMode(mode){ try{ if(portalFrame) portalFrame.contentWindow.postMessage({vvb:'authMode',mode:mode},'*'); }catch(e){} try{ document.dispatchEvent(new CustomEvent('vvb:authmode',{detail:mode})); }catch(e){} }
   // merged single-page: the in-page "Back to website" bar asks us to close the portal
   document.addEventListener('vvb:backtosite',function(){ closePortal(); });
+  document.addEventListener('vvb:enteredapp',function(){ docEl.classList.add('portal-app'); fitPortal(); });
+  document.addEventListener('vvb:loggedout',function(){ docEl.classList.remove('portal-app'); fitPortal(); });
   document.querySelectorAll('a.btn').forEach(function(a){ var t=(a.textContent||'').trim(); if(PORTAL_TEXTS.indexOf(t)>=0){ var mode=(t==='Log in')?'login':'signup'; a.addEventListener('click',function(e){ openPortal(e); requestAuthMode(mode); }); } });
 
   /* ---- language switcher (English / 简体中文) ---- */
@@ -4282,7 +4286,7 @@ curl https://api.vvbusiness.io/v1/channels \
   // ===== Login overlay =====
   (function(){
     const loginEl=document.getElementById('login'); if(!loginEl)return;
-    function enterApp(){if(window.parent!==window){try{window.parent.postMessage({vvb:'enteredApp'},'*');}catch(e){}}loginEl.classList.add('hidden');setTimeout(()=>{loginEl.style.display='none';},420);window.scrollTo(0,0);setTimeout(()=>{try{window.__kybFirstRun&&window.__kybFirstRun();}catch(e){}},520);}
+    function enterApp(){if(window.parent!==window){try{window.parent.postMessage({vvb:'enteredApp'},'*');}catch(e){}}try{document.dispatchEvent(new CustomEvent('vvb:enteredapp'));}catch(e){}loginEl.classList.add('hidden');setTimeout(()=>{loginEl.style.display='none';},420);window.scrollTo(0,0);setTimeout(()=>{try{window.__kybFirstRun&&window.__kybFirstRun();}catch(e){}},520);}
     const tabs=[...loginEl.querySelectorAll('.tabs button')], panels=[...loginEl.querySelectorAll('.tabpanel')];
     tabs.forEach(t=>t.addEventListener('click',()=>{tabs.forEach(x=>{x.classList.remove('on');x.setAttribute('aria-selected','false');});t.classList.add('on');t.setAttribute('aria-selected','true');const k=t.dataset.tab;panels.forEach(p=>p.classList.toggle('on',p.dataset.panel===k));}));
     const pwToggle=document.getElementById('pwToggle'), pwField=document.getElementById('pwField'), emailBtn=document.getElementById('emailBtn');
