@@ -1863,7 +1863,7 @@ curl https://api.vvbusiness.io/v1/channels \
             <div class="dstep"><span class="dn">3</span>Deposit</div>
           </div>
           <div class="dep-s1-head">
-            <h3>Step 1: Choose a channel to deposit</h3>
+            <h3>Step 1: Choose a channel to deposit <span class="info-wrap" style="vertical-align:middle"><button class="info-dot" id="depInfo" type="button" aria-label="Why create a channel first?" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 11.5v4.5"/><path d="M12 8h.01"/></svg></button><div class="info-pop" id="depInfoPop" hidden><span class="ip-arrow"></span><b>Why create a channel first?</b>A channel ties each deposit to a known sender. You record who&rsquo;s transferring (a description &amp; their contact) before sharing the link, so every incoming payment is matched to an identified person we can verify &mdash; not an anonymous transfer. It keeps deposits traceable for compliance.</div></span></h3>
             <button class="btn primary" id="createChBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>Create Channel</button>
           </div>
           <div class="filter-bar">
@@ -3586,6 +3586,7 @@ curl https://api.vvbusiness.io/v1/channels \
   function tfPop(s){tfInfoPop.hidden=!s;tfInfo.setAttribute('aria-expanded',s?'true':'false');}
   tfInfo.addEventListener('click',e=>{e.stopPropagation();tfPop(tfInfoPop.hidden);});
   document.addEventListener('click',e=>{if(!tfInfoPop.hidden&&!e.target.closest('.info-wrap'))tfPop(false);});
+  (function(){var di=document.getElementById('depInfo'),dp=document.getElementById('depInfoPop');if(di&&dp){function dPop(s){dp.hidden=!s;di.setAttribute('aria-expanded',s?'true':'false');}di.addEventListener('click',function(e){e.stopPropagation();dPop(dp.hidden);});document.addEventListener('click',function(e){if(!dp.hidden&&!e.target.closest('.info-wrap'))dPop(false);});}})();
   function tfCalc(){const a=csdGet('tfAsset');$('tfSym').textContent=a;$('tfAvail').textContent='Available '+TFBAL[a]+' '+a;
     const amt=parseFloat(String($('tfAmt').value).replace(/,/g,''))||0;
     $('tfUsd').innerHTML='&asymp; $'+amt.toLocaleString('en',{maximumFractionDigits:0});
