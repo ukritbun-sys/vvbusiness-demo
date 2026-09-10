@@ -1614,6 +1614,50 @@ curl https://api.vvbusiness.io/v1/channels \
   .wsite .policy-card .pc-arrow{width:18px;height:18px;margin-left:auto;color:var(--muted);flex:0 0 auto;transition:color .15s,transform .15s}
   .wsite .policy-card:hover .pc-arrow{color:var(--brand);transform:translateX(2px)}
   .wsite .foot-addr{font-style:normal;color:var(--muted);font-size:13px;line-height:1.55;margin-top:12px}
+  /* ===== Legal reader (policy pages) ===== */
+  .wsite .legal-sec{padding:38px 0 96px}
+  .wsite .legal-back{display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:600;color:var(--muted);cursor:pointer;text-decoration:none;transition:color .15s}
+  .wsite .legal-back svg{width:16px;height:16px}
+  .wsite .legal-back:hover{color:var(--brand)}
+  .wsite .legal-head{max-width:820px;margin:24px 0 34px}
+  .wsite .legal-badge{width:52px;height:52px;border-radius:14px;background:var(--brand-tint);color:var(--brand);display:grid;place-items:center;margin-bottom:18px}
+  .wsite .legal-badge svg{width:26px;height:26px}
+  .wsite .legal-head h1{font-size:clamp(30px,4vw,44px);font-weight:800;letter-spacing:-.02em;line-height:1.08;margin:0 0 16px}
+  .wsite .legal-meta{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;color:var(--muted);background:var(--surface-2);border:1px solid var(--line);border-radius:999px;padding:6px 13px}
+  .wsite .legal-meta svg{width:15px;height:15px;flex:0 0 auto}
+  .wsite .legal-layout{display:grid;grid-template-columns:228px minmax(0,1fr);gap:58px;align-items:start}
+  .wsite .legal-layout.no-toc{grid-template-columns:minmax(0,1fr)}
+  @media(max-width:900px){.wsite .legal-layout{grid-template-columns:1fr;gap:24px}}
+  /* TOC */
+  .wsite .legal-toc{position:sticky;top:88px;align-self:start}
+  @media(max-width:900px){.wsite .legal-toc{position:static;border:1px solid var(--line);border-radius:14px;padding:16px 18px;background:var(--surface-2)}}
+  .wsite .ltoc-title{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+  .wsite .ltoc-nav{display:flex;flex-direction:column;border-left:2px solid var(--line);max-height:calc(100vh - 150px);overflow:auto}
+  @media(max-width:900px){.wsite .ltoc-nav{max-height:none;overflow:visible}}
+  .wsite .ltoc-link{font-size:13px;line-height:1.4;color:var(--body);cursor:pointer;padding:6px 0 6px 15px;margin-left:-2px;border-left:2px solid transparent;transition:color .15s,border-color .15s;text-decoration:none}
+  .wsite .ltoc-link:hover{color:var(--ink)}
+  .wsite .ltoc-link.active{color:var(--brand);border-left-color:var(--brand);font-weight:600}
+  /* Body */
+  .wsite .legal-body{max-width:760px;min-width:0}
+  .wsite .legal-lead{font-size:17px;line-height:1.72;color:var(--body);margin:0 0 18px}
+  .wsite .legal-p{font-size:15px;line-height:1.75;color:var(--body);margin:0 0 15px}
+  .wsite .legal-h2{font-size:21px;font-weight:700;letter-spacing:-.01em;color:var(--ink);margin:40px 0 13px;scroll-margin-top:90px}
+  .wsite .legal-body > .legal-h2:first-child{margin-top:4px}
+  .wsite .legal-h3{font-size:15.5px;font-weight:700;color:var(--ink);margin:26px 0 10px;scroll-margin-top:90px}
+  .wsite .legal-ul{margin:0 0 17px;padding:0;list-style:none;display:flex;flex-direction:column;gap:9px}
+  .wsite .legal-ul li{position:relative;padding-left:22px;font-size:15px;line-height:1.7;color:var(--body)}
+  .wsite .legal-ul li::before{content:"";position:absolute;left:3px;top:9px;width:6px;height:6px;border-radius:50%;background:var(--brand)}
+  .wsite .legal-ul li strong{color:var(--ink);font-weight:600}
+  .wsite .legal-addr{font-size:14.5px;line-height:1.7;color:var(--body);background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin:0 0 16px}
+  .wsite .legal-body a{color:var(--brand);font-weight:500;text-decoration:none;border-bottom:1px solid var(--brand-ring)}
+  .wsite .legal-body a:hover{border-bottom-color:var(--brand)}
+  .wsite .legal-tablewrap{overflow-x:auto;margin:0 0 18px}
+  .wsite .legal-table{border-collapse:collapse;width:100%;font-size:14px;min-width:420px}
+  .wsite .legal-table th,.wsite .legal-table td{border:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:top}
+  .wsite .legal-table th{background:var(--surface-2);font-weight:600;color:var(--ink)}
+  /* Foot */
+  .wsite .legal-foot{margin-top:44px;padding-top:24px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:14px 24px;align-items:center;justify-content:space-between}
+  .wsite .legal-foot p{font-size:14px;color:var(--body);margin:0}
 </style>
 
 <div class="page" id="page-about">
@@ -1659,16 +1703,780 @@ curl https://api.vvbusiness.io/v1/channels \
         <p class="about-lede">Our policies and legal documents. The Terms of Service and Privacy Policy are also linked in the footer.</p>
       </div>
       <div class="policy-grid">
-        <a class="policy-card reveal" href="https://doesnotexists.larksuite.com/docx/V744dHge9o7cwTx21nNjTlvqpBg" target="_blank" rel="noopener"><span class="pc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></span><h3>Legal Notice</h3><svg class="pc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
-        <a class="policy-card reveal" href="https://doesnotexists.larksuite.com/docx/DBgXdLIXLoheUaxkO7ujRDRIpYe" target="_blank" rel="noopener"><span class="pc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></span><h3>AML & CTF Policy</h3><svg class="pc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
-        <a class="policy-card reveal" href="https://doesnotexists.larksuite.com/docx/KsP8dYrVuoWl0Hx2Olsj5XQKpAg" target="_blank" rel="noopener"><span class="pc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></span><h3>Cookie Policy</h3><svg class="pc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
-        <a class="policy-card reveal" href="https://doesnotexists.larksuite.com/docx/A8sud6SMqo4I4Tx64ATjg0gxpdf" target="_blank" rel="noopener"><span class="pc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></span><h3>Complaints Procedure</h3><svg class="pc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
-        <a class="policy-card reveal" href="https://doesnotexists.larksuite.com/docx/EQ0ldwpiFoySOFxdM4Yj1oCppMg" target="_blank" rel="noopener"><span class="pc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></span><h3>Client Asset Protection</h3><svg class="pc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
-        <a class="policy-card reveal" href="https://doesnotexists.larksuite.com/docx/WJSpdpnfXopIi1xMBIqjwioZpEf" target="_blank" rel="noopener"><span class="pc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></span><h3>Risk Warnings</h3><svg class="pc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
-        <a class="policy-card reveal" href="https://doesnotexists.larksuite.com/docx/EoGvdnueRoK0ttxBNQnjfgzzpVV" target="_blank" rel="noopener"><span class="pc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></span><h3>Conflicts of Interest Policy</h3><svg class="pc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
-        <a class="policy-card reveal" href="https://doesnotexists.larksuite.com/docx/GQMedutlcoI09gxsg73j2ZMqpMd" target="_blank" rel="noopener"><span class="pc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></span><h3>Accessibility Statement</h3><svg class="pc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
-        <a class="policy-card reveal" href="https://doesnotexists.larksuite.com/docx/J1shdDaJcoD8VtxUK45jLGEKpPf" target="_blank" rel="noopener"><span class="pc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></span><h3>Environment Policy</h3><svg class="pc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
-        <a class="policy-card reveal" href="https://doesnotexists.larksuite.com/docx/O4cPdyCNpoCZY3xTS3sjUZZGptd" target="_blank" rel="noopener"><span class="pc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></span><h3>Service Description</h3><svg class="pc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+        <a class="policy-card reveal" data-page="policy-legal-notice" style="cursor:pointer"><span class="pc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 10.5V16M12 8h.01"/></svg></span><h3>Legal Notice</h3><svg class="pc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+        <a class="policy-card reveal" data-page="policy-aml-ctf" style="cursor:pointer"><span class="pc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="m20.5 20.5-4-4"/><path d="m8.6 11 1.7 1.7 3.1-3.3"/></svg></span><h3>AML &amp; CTF Policy</h3><svg class="pc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+        <a class="policy-card reveal" data-page="policy-cookies" style="cursor:pointer"><span class="pc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3a9 9 0 1 0 9 9 3.3 3.3 0 0 1-4-4 3.3 3.3 0 0 1-5-5z"/><circle cx="9" cy="12" r="1"/><circle cx="14" cy="14" r="1"/><circle cx="14.5" cy="9.5" r="1"/></svg></span><h3>Cookie Policy</h3><svg class="pc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+        <a class="policy-card reveal" data-page="policy-complaints" style="cursor:pointer"><span class="pc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M12 7v4M12 14h.01"/></svg></span><h3>Complaints Procedure</h3><svg class="pc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+        <a class="policy-card reveal" data-page="policy-asset-protection" style="cursor:pointer"><span class="pc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="10.5" width="18" height="10.5" rx="2"/><path d="M7 10.5V7a5 5 0 0 1 10 0v3.5"/><circle cx="12" cy="15.5" r="1.4"/></svg></span><h3>Client Asset Protection</h3><svg class="pc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+        <a class="policy-card reveal" data-page="policy-risk-warnings" style="cursor:pointer"><span class="pc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg></span><h3>Risk Warnings</h3><svg class="pc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+        <a class="policy-card reveal" data-page="policy-conflicts" style="cursor:pointer"><span class="pc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3v18"/><path d="M6 21h12"/><path d="M5 7h14"/><path d="M5 7 2.5 13a2.5 2.5 0 0 0 5 0zM19 7l-2.5 6a2.5 2.5 0 0 0 5 0z"/><path d="M12 4.5 5 7M12 4.5 19 7"/></svg></span><h3>Conflicts of Interest Policy</h3><svg class="pc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+        <a class="policy-card reveal" data-page="policy-accessibility" style="cursor:pointer"><span class="pc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="4.2" r="1.7"/><path d="M4.5 8.2h15M12 8.2v6m0 0-3.2 6.4M12 14.2l3.2 6.4"/></svg></span><h3>Accessibility Statement</h3><svg class="pc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+        <a class="policy-card reveal" data-page="policy-environment" style="cursor:pointer"><span class="pc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M11 20.5C6 20 3 16 3 11c5.5.3 9 2 10 7"/><path d="M11.5 20.5C11 12 14 5.5 21 3.5c1 6-1.5 14-9.5 17"/></svg></span><h3>Environment Policy</h3><svg class="pc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+        <a class="policy-card reveal" data-page="policy-service-description" style="cursor:pointer"><span class="pc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="7.2" height="7.2" rx="1.6"/><rect x="13.8" y="3" width="7.2" height="7.2" rx="1.6"/><rect x="3" y="13.8" width="7.2" height="7.2" rx="1.6"/><rect x="13.8" y="13.8" width="7.2" height="7.2" rx="1.6"/></svg></span><h3>Service Description</h3><svg class="pc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+<div class="page legal-page" id="page-policy-terms">
+  <section class="sec legal-sec">
+    <div class="wrap">
+      <a class="legal-back" data-page="policies"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5m6-6-6 6 6 6"/></svg>All policies</a>
+      <div class="legal-head reveal">
+        <div class="legal-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 15l2 2 4-4"/></svg></div>
+        <div class="about-eyebrow" style="margin-bottom:8px">Agreement</div>
+        <h1>Terms of Service</h1>
+        <div class="legal-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9h18M8 2.5v4M16 2.5v4"/></svg>Effective date: August 2026</div>
+      </div>
+      <div class="legal-layout">
+        <aside class="legal-toc">
+          <div class="ltoc-title">On this page</div>
+          <nav class="ltoc-nav">
+            <a class="ltoc-link" data-toc="policy-terms-s1">1 Acceptance of Terms</a>
+            <a class="ltoc-link" data-toc="policy-terms-s2">2 Eligibility</a>
+            <a class="ltoc-link" data-toc="policy-terms-s3">3 Services Description</a>
+            <a class="ltoc-link" data-toc="policy-terms-s4">4 Regulatory Framework</a>
+            <a class="ltoc-link" data-toc="policy-terms-s5">5 AML CTF and Compliance</a>
+            <a class="ltoc-link" data-toc="policy-terms-s6">6 Limitation of Liability</a>
+            <a class="ltoc-link" data-toc="policy-terms-s7">7 Suspension and Termination</a>
+            <a class="ltoc-link" data-toc="policy-terms-s8">8 Intellectual Property</a>
+            <a class="ltoc-link" data-toc="policy-terms-s9">9 Governing Law and Jurisdiction</a>
+            <a class="ltoc-link" data-toc="policy-terms-s10">10 Changes to Terms</a>
+            <a class="ltoc-link" data-toc="policy-terms-s11">11 Contact</a>
+            <a class="ltoc-link" data-toc="policy-terms-s12">12 Miscellaneous</a>
+          </nav>
+        </aside>
+        <article class="legal-body">
+        <p class="legal-lead">Welcome to Miushuaia AG ("Company," "we," "us," or "our"). These Terms of Service ("Terms") govern your access to and use of our services, including the VVBusiness (VVB) platform, VVRamp on-ramp and off-ramp services, and the Merchant Center dashboard (collectively, the "Services"). By accessing or using our Services, you agree to be bound by these Terms. If you do not agree, you may not use our Services.</p>
+        <h2 id="policy-terms-s1" class="legal-h2">1 Acceptance of Terms</h2>
+        <p class="legal-p">By accessing or using our Services, you confirm that you have read, understood and agree to these Terms. Our Privacy Policy at <a href="https://vvbusiness.io/policies/privacy-policy" target="_blank" rel="noopener">https://vvbusiness.io/policies/privacy-policy</a> explains how personal data is processed. Acknowledging that notice does not constitute consent to processing for which separate consent is required.</p>
+        <p class="legal-p">These Terms constitute a legally binding agreement between you ("User", "you" or "your") and Miushuaia AG, a company incorporated under Swiss law, with UID CHE-379.966.803 and registered office at Gubelstrasse 11, 6300 Zug, Switzerland.</p>
+        <h2 id="policy-terms-s2" class="legal-h2">2 Eligibility</h2>
+        <p class="legal-p">To access and use our Services, you must:</p>
+        <ul class="legal-ul"><li>be at least 18 years old;</li><li>be a legal entity (merchant) completing our onboarding procedure, including Know Your Business (KYB) verification;</li><li>comply with all applicable laws and regulatory requirements in your jurisdiction;</li><li>complete identity verification (KYC/KYB) in accordance with Anti-Money Laundering (AML) and Counter-Terrorist Financing (CTF) regulations, as outlined in Section 5.</li></ul>
+        <p class="legal-p">We reserve the right to refuse or restrict service where eligibility criteria are not met.</p>
+        <p class="legal-p">Services are available only to registered legal entities that satisfy our existing onboarding, jurisdictional, sanctions and risk requirements. Availability depends on the customer, the service and the applicable restrictions. Nothing on this Website grants access to a service in a jurisdiction where it is not lawfully available.</p>
+        <h2 id="policy-terms-s3" class="legal-h2">3 Services Description</h2>
+        <p class="legal-p">We provide crypto-asset related services through the VVBusiness platform, enabling merchants to manage crypto and fiat payments securely.</p>
+        <h3 class="legal-h3">3.1 On Ramp Services</h3>
+        <p class="legal-p">Allows you to purchase crypto-assets using fiat currency via VVRamp.</p>
+        <p class="legal-p">Transaction limits and processing times may vary based on KYB verification results, risk assessment, and regulatory requirements.</p>
+        <p class="legal-p">Applicable fees are disclosed in the Pricing Policy and Merchant Agreement.</p>
+        <h3 class="legal-h3">3.2 Off Ramp Services</h3>
+        <p class="legal-p">Allows you to sell crypto-assets and receive fiat currency via VVRamp.</p>
+        <p class="legal-p">Transaction limits, processing times, and fees are subject to verification, risk assessment, and applicable regulations.</p>
+        <h3 class="legal-h3">3.3 VVB Custodial Wallet</h3>
+        <p class="legal-p">Provides custodial storage of crypto-assets accessible via the Merchant Center dashboard. Wallet functionality is subject to compliance, security, and operational controls.</p>
+        <h3 class="legal-h3">3.4 Merchant Center Dashboard</h3>
+        <p class="legal-p">Provides tools for transaction monitoring, account management, reporting, and user administration. Access may be temporarily limited due to maintenance or security reasons.</p>
+        <h2 id="policy-terms-s4" class="legal-h2">4 Regulatory Framework</h2>
+        <p class="legal-p">Our Services are provided by Miushuaia AG under the applicable Swiss legal framework, including anti-money laundering, counter-terrorist financing and sanctions requirements. Mandatory rules in other relevant jurisdictions continue to apply where applicable.</p>
+        <p class="legal-p">Miushuaia AG is a member of VQF, a self-regulatory organisation recognised by the Swiss Financial Market Supervisory Authority FINMA, under membership number 101240. VQF supervises compliance with the Swiss Anti-Money Laundering Act.</p>
+        <h2 id="policy-terms-s5" class="legal-h2">5 AML CTF and Compliance</h2>
+        <p class="legal-p">We apply AML/CTF, sanctions screening and transaction monitoring measures in accordance with applicable law, including enhanced due diligence where required. Where the applicable reporting conditions are met, suspicious activity is reported to the Money Laundering Reporting Office Switzerland (MROS) or another competent authority as required by law.</p>
+        <p class="legal-p">Crypto-asset transfers may be subject to data sharing obligations under applicable Travel Rule requirements. Failure to provide required information may result in delayed, rejected, or blocked transactions.</p>
+        <h2 id="policy-terms-s6" class="legal-h2">6 Limitation of Liability</h2>
+        <p class="legal-p">To the maximum extent permitted by law, we are not liable for losses arising from:</p>
+        <ul class="legal-ul"><li>user negligence or misuse of Services;</li><li>blockchain network failures or third-party service providers;</li><li>regulatory or legal changes;</li><li>force majeure events.</li></ul>
+        <p class="legal-p">Our aggregate liability is limited to the fees paid by you to the Company in the preceding twelve (12) months, unless otherwise required by law.</p>
+        <h2 id="policy-terms-s7" class="legal-h2">7 Suspension and Termination</h2>
+        <p class="legal-p">We may suspend or terminate access to the Services where required by law, regulation, or risk considerations, including suspected violations of AML/CTF or sanctions obligations.</p>
+        <p class="legal-p">You may request termination by contacting <a href="mailto:support@vvbusiness.io">support@vvbusiness.io</a> , subject to settlement of outstanding obligations.</p>
+        <h2 id="policy-terms-s8" class="legal-h2">8 Intellectual Property</h2>
+        <p class="legal-p">All intellectual property related to the Services is owned by Miushuaia AG or the relevant rights holders and is used under applicable licences or authorisations. No rights are granted except as expressly stated.</p>
+        <h2 id="policy-terms-s9" class="legal-h2">9 Governing Law and Jurisdiction</h2>
+        <p class="legal-p">These Terms are governed by the substantive laws of Switzerland. Disputes arising from or in connection with these Terms are subject to the exclusive jurisdiction of the competent courts in Zug, Switzerland, subject to any mandatory law providing otherwise.</p>
+        <h2 id="policy-terms-s10" class="legal-h2">10 Changes to Terms</h2>
+        <p class="legal-p">We may update these Terms to reflect legal or operational changes. Material changes will be communicated in advance where required by law.</p>
+        <h2 id="policy-terms-s11" class="legal-h2">11 Contact</h2>
+        <p class="legal-p">For questions or support, contact us at:</p>
+        <p class="legal-addr">Email: <a href="mailto:support@vvbusiness.io">support@vvbusiness.io</a><br>Website: vvbusiness.io</p>
+        <h2 id="policy-terms-s12" class="legal-h2">12 Miscellaneous</h2>
+        <p class="legal-p">These Terms, together with the Merchant Agreement, Privacy Policy, Cookie Policy, and related policies, constitute the entire agreement between you and the Company. If any provision is held invalid, the remaining provisions remain in force.</p>
+        <p class="legal-p">These Terms apply to Services contracted with Miushuaia AG from their effective date. Publication of these Terms does not by itself transfer an existing agreement, balance, asset or liability from another entity. Any such transfer is governed by the applicable agreement and any required notice or consent.</p>
+          <div class="legal-foot">
+            <p>Questions about this policy? <a data-page="contact" style="color:var(--brand);font-weight:600;cursor:pointer">Contact us &rarr;</a></p>
+            <a class="legal-back legal-back-lo" data-page="policies"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5m6-6-6 6 6 6"/></svg>Back to all policies</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="page legal-page" id="page-policy-privacy">
+  <section class="sec legal-sec">
+    <div class="wrap">
+      <a class="legal-back" data-page="policies"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5m6-6-6 6 6 6"/></svg>All policies</a>
+      <div class="legal-head reveal">
+        <div class="legal-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 4 6v6c0 4.5 3 7 8 9 5-2 8-4.5 8-9V6z"/><rect x="9.2" y="11" width="5.6" height="4.5" rx="1"/><path d="M10.4 11V9.8a1.6 1.6 0 0 1 3.2 0V11"/></svg></div>
+        <div class="about-eyebrow" style="margin-bottom:8px">Data</div>
+        <h1>Privacy Policy</h1>
+        <div class="legal-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9h18M8 2.5v4M16 2.5v4"/></svg>Effective date: August 2026</div>
+      </div>
+      <div class="legal-layout">
+        <aside class="legal-toc">
+          <div class="ltoc-title">On this page</div>
+          <nav class="ltoc-nav">
+            <a class="ltoc-link" data-toc="policy-privacy-s1">1 Data Controller</a>
+            <a class="ltoc-link" data-toc="policy-privacy-s2">2 Scope of This Policy</a>
+            <a class="ltoc-link" data-toc="policy-privacy-s3">3 Personal Data We Collect</a>
+            <a class="ltoc-link" data-toc="policy-privacy-s4">4 Cookies and Similar Technologies</a>
+            <a class="ltoc-link" data-toc="policy-privacy-s5">5 How We Use Personal Data</a>
+            <a class="ltoc-link" data-toc="policy-privacy-s6">6 Sharing of Personal Data</a>
+            <a class="ltoc-link" data-toc="policy-privacy-s7">7 International Data Transfers</a>
+            <a class="ltoc-link" data-toc="policy-privacy-s8">8 Data Retention</a>
+            <a class="ltoc-link" data-toc="policy-privacy-s9">9 Your Rights</a>
+            <a class="ltoc-link" data-toc="policy-privacy-s10">10 Automated Decision Making</a>
+            <a class="ltoc-link" data-toc="policy-privacy-s11">11 Changes to This Policy</a>
+            <a class="ltoc-link" data-toc="policy-privacy-s12">12 Contact Us</a>
+          </nav>
+        </aside>
+        <article class="legal-body">
+        <p class="legal-lead">This Privacy Policy explains how VVBusiness, operated by Miushuaia AG (UID CHE-379.966.803) (the "Company", "we", "us"), collects, uses, stores, and shares personal data when you access or use the website vvbusiness.io and related services (the "Services").</p>
+        <p class="legal-p">We process personal data in accordance with the Swiss Federal Act on Data Protection (FADP) and its implementing ordinance, and other applicable data protection laws. The EU General Data Protection Regulation (GDPR) applies to processing within its scope; references to GDPR legal bases and rights in this Policy apply only to that processing.</p>
+        <h2 id="policy-privacy-s1" class="legal-h2">1 Data Controller</h2>
+        <p class="legal-p">The data controller responsible for your personal data is:</p>
+        <p class="legal-addr">Miushuaia AG<br>UID: CHE-379.966.803<br>Registered address: Gubelstrasse 11, 6300 Zug, Switzerland<br>Email: <a href="mailto:privacy@vvbusiness.io">privacy@vvbusiness.io</a></p>
+        <h2 id="policy-privacy-s2" class="legal-h2">2 Scope of This Policy</h2>
+        <p class="legal-p">Services are available only to registered legal entities that satisfy our existing onboarding, jurisdictional, sanctions and risk requirements. Availability depends on the customer, the service and the applicable restrictions. Nothing on this Website grants access to a service in a jurisdiction where it is not lawfully available. This Policy applies to:</p>
+        <ul class="legal-ul"><li>representatives, directors, and beneficial owners of business customers</li><li>Users interacting with the Website</li><li>individuals contacting us for support or compliance-related purposes</li></ul>
+        <p class="legal-p">VVBusiness does not provide services to retail customers.</p>
+        <p class="legal-p">We obtain personal data from you, the business you represent, authorised representatives, public registers and relevant verification, screening and service providers. Where records are lawfully received from a previous operator, we provide any additional information required by applicable law. This Policy does not by itself authorise that transfer.</p>
+        <h2 id="policy-privacy-s3" class="legal-h2">3 Personal Data We Collect</h2>
+        <p class="legal-p">a Web3 Authentication and Website Use</p>
+        <p class="legal-p">VVBusiness uses Web3-based authentication. We do not collect passwords or private keys.</p>
+        <p class="legal-p">Data processed may include:</p>
+        <ul class="legal-ul"><li>public wallet address</li><li>IP address</li><li>browser and device information</li><li>session identifiers</li><li>login timestamps</li></ul>
+        <p class="legal-p">Where the GDPR applies: contractual necessity under Article 6(1)(b) where you are personally party to the relevant contract; otherwise our legitimate interests under Article 6(1)(f) in operating secure business customer services and authenticating authorised representatives, subject to the required balancing assessment. The data is necessary to access the Services.</p>
+        <p class="legal-p">b Business Customer Due Diligence and AML Compliance</p>
+        <p class="legal-p">To comply with AML, sanctions, and counter-terrorist financing obligations, we process personal data of:</p>
+        <ul class="legal-ul"><li>company directors and representatives</li><li>ultimate beneficial owners (UBOs)</li><li>authorized signatories</li></ul>
+        <p class="legal-p">Data may include:</p>
+        <ul class="legal-ul"><li>name, date and place of birth</li><li>nationality and citizenship</li><li>residential address</li><li>identification document details</li><li>ownership and control information</li><li>sanctions and PEP screening results</li><li>transaction-related data</li></ul>
+        <p class="legal-p">Where the GDPR applies: Article 6(1)(c) where the obligation is grounded in applicable Union or Member State law; otherwise Article 6(1)(f), where available and following the required assessment, for proportionate compliance with Swiss AML and sanctions obligations. Special-category or criminal-offence data requires an additional applicable condition. The information is required for the relevant due diligence checks.</p>
+        <p class="legal-p">c Transaction and Operational Data</p>
+        <p class="legal-p">When providing crypto-asset related services, we process:</p>
+        <ul class="legal-ul"><li>transaction hashes and timestamps</li><li>wallet addresses involved in transactions</li><li>transaction amounts and crypto-asset types</li><li>risk and compliance indicators</li></ul>
+        <p class="legal-p">Where the GDPR applies: contractual necessity where the individual is party to the relevant contract; applicable legal obligations; and legitimate interests in executing, recording and securing business transactions, subject to the required assessments. The information is necessary for the relevant Services.</p>
+        <p class="legal-p">d Customer Support and Communications</p>
+        <p class="legal-p">When you contact us, we process:</p>
+        <ul class="legal-ul"><li>email address</li><li>content of communications</li><li>attachments you provide</li><li>correspondence history</li></ul>
+        <p class="legal-p">Where the GDPR applies: legitimate interests under Article 6(1)(f) in responding to enquiries and resolving issues, subject to balancing, or consent under Article 6(1)(a) where required. Contacting support is optional, although information may be necessary to resolve your request.</p>
+        <h2 id="policy-privacy-s4" class="legal-h2">4 Cookies and Similar Technologies</h2>
+        <p class="legal-p">VVBusiness uses cookies and similar technologies as described in our Cookie Policy. Cookies are used for security, Web3 session management, and website performance. We do not use cookies to access crypto wallets or private keys.</p>
+        <h2 id="policy-privacy-s5" class="legal-h2">5 How We Use Personal Data</h2>
+        <p class="legal-p">We process personal data to:</p>
+        <ul class="legal-ul"><li>provide and operate the Services</li><li>perform customer due diligence and risk assessments</li><li>monitor transactions and prevent fraud</li><li>comply with legal and regulatory obligations</li><li>ensure platform security and integrity</li><li>respond to inquiries and support requests</li></ul>
+        <h2 id="policy-privacy-s6" class="legal-h2">6 Sharing of Personal Data</h2>
+        <p class="legal-p">We may share personal data with:</p>
+        <ul class="legal-ul"><li>AML, sanctions screening, and blockchain analytics providers</li><li>IT and cloud service providers</li><li>auditors, legal advisors, and consultants</li></ul>
+        <p class="legal-p">VQF, MROS and other competent regulatory, law enforcement or judicial authorities, where disclosure is required or otherwise permitted by applicable law</p>
+        <p class="legal-p">Personal data is shared strictly on a need-to-know basis and subject to contractual and legal safeguards.</p>
+        <h2 id="policy-privacy-s7" class="legal-h2">7 International Data Transfers</h2>
+        <p class="legal-p">Personal data may be processed in Switzerland and in the foreign countries identified below. Disclosures abroad are made in accordance with Articles 16 and 17 FADP and, where applicable, GDPR transfer requirements. We assess whether the destination has an adequate level of protection and, where necessary, use recognised contractual safeguards with required adaptations and supplementary measures, or an applicable statutory exception.</p>
+        <p class="legal-p">You may contact <a href="mailto:privacy@vvbusiness.io">privacy@vvbusiness.io</a> for information about the relevant safeguards and, where applicable, a copy, subject to lawful redactions.</p>
+        <h2 id="policy-privacy-s8" class="legal-h2">8 Data Retention</h2>
+        <p class="legal-p">We retain personal data only for as long as necessary for the purposes described above:</p>
+        <ul class="legal-ul"><li><strong>AML records:</strong> Documents required under the Swiss Anti-Money Laundering Act are retained for ten years after termination of the business relationship or completion of the transaction, as applicable. Records may be retained for longer where required by law, a binding order or the establishment, exercise or defence of legal claims. Other personal data is retained only for as long as necessary for its purpose.</li><li><strong>Website and technical logs:</strong> retained for limited periods unless required for security or legal purposes</li><li><strong>Support communications:</strong> retained as necessary to resolve inquiries and meet legal obligations</li></ul>
+        <p class="legal-p">Records relating to services previously provided by another entity are handled according to the applicable retention obligations and any lawful transfer arrangements. Public blockchain records may remain publicly accessible and cannot generally be altered or erased by us.</p>
+        <h2 id="policy-privacy-s9" class="legal-h2">9 Your Rights</h2>
+        <p class="legal-p">Subject to applicable law, you have the right to:</p>
+        <ul class="legal-ul"><li>access your personal data</li><li>request rectification or erasure</li><li>restrict or object to processing</li><li>request data portability</li><li>withdraw consent where processing is based on consent</li><li>lodge a complaint with a supervisory authority</li><li>Requests can be submitted to <a href="mailto:privacy@vvbusiness.io">privacy@vvbusiness.io</a></li></ul>
+        <p class="legal-p">You may raise a data protection concern with the Federal Data Protection and Information Commissioner (FDPIC), Switzerland, at <a href="https://www.edoeb.admin.ch/en." target="_blank" rel="noopener">https://www.edoeb.admin.ch/en.</a> Where the GDPR or another applicable law gives you the right to complain to another supervisory authority, that right is unaffected.</p>
+        <h2 id="policy-privacy-s10" class="legal-h2">10 Automated Decision Making</h2>
+        <p class="legal-p">VVBusiness does not make decisions based solely on automated processing that produce legal effects concerning individuals.</p>
+        <h2 id="policy-privacy-s11" class="legal-h2">11 Changes to This Policy</h2>
+        <p class="legal-p">We may update this Privacy Policy from time to time. The latest version will always be published on vvbusiness.io , with the effective date clearly indicated.</p>
+        <h2 id="policy-privacy-s12" class="legal-h2">12 Contact Us</h2>
+        <p class="legal-p">For questions about this Privacy Policy or our data processing practices, contact us at:</p>
+        <p class="legal-p"><a href="mailto:privacy@vvbusiness.io">privacy@vvbusiness.io</a></p>
+          <div class="legal-foot">
+            <p>Questions about this policy? <a data-page="contact" style="color:var(--brand);font-weight:600;cursor:pointer">Contact us &rarr;</a></p>
+            <a class="legal-back legal-back-lo" data-page="policies"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5m6-6-6 6 6 6"/></svg>Back to all policies</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="page legal-page" id="page-policy-legal-notice">
+  <section class="sec legal-sec">
+    <div class="wrap">
+      <a class="legal-back" data-page="policies"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5m6-6-6 6 6 6"/></svg>All policies</a>
+      <div class="legal-head reveal">
+        <div class="legal-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 10.5V16M12 8h.01"/></svg></div>
+        <div class="about-eyebrow" style="margin-bottom:8px">Company</div>
+        <h1>Legal Notice</h1>
+        <div class="legal-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9h18M8 2.5v4M16 2.5v4"/></svg>Effective date: August 2026</div>
+      </div>
+      <div class="legal-layout">
+        <aside class="legal-toc">
+          <div class="ltoc-title">On this page</div>
+          <nav class="ltoc-nav">
+            <a class="ltoc-link" data-toc="policy-legal-notice-s1">Information Purpose</a>
+            <a class="ltoc-link" data-toc="policy-legal-notice-s2">Services and Onboarding</a>
+            <a class="ltoc-link" data-toc="policy-legal-notice-s3">Regulatory and Compliance Notice</a>
+            <a class="ltoc-link" data-toc="policy-legal-notice-s4">Intellectual Property and Copyright</a>
+            <a class="ltoc-link" data-toc="policy-legal-notice-s5">Disclaimer of Liability</a>
+            <a class="ltoc-link" data-toc="policy-legal-notice-s6">External Links</a>
+            <a class="ltoc-link" data-toc="policy-legal-notice-s7">Language</a>
+            <a class="ltoc-link" data-toc="policy-legal-notice-s8">Governing Law</a>
+          </nav>
+        </aside>
+        <article class="legal-body">
+        <p class="legal-p">This website vvbusiness.io (the "Website") is operated by:</p>
+        <p class="legal-addr">Miushuaia AG<br>UID: CHE-379.966.803<br>Registered address: Gubelstrasse 11, 6300 Zug, Switzerland<br>Email: <a href="mailto:support@vvbusiness.io">support@vvbusiness.io</a></p>
+        <h2 id="policy-legal-notice-s1" class="legal-h2">Information Purpose</h2>
+        <p class="legal-lead">The information provided on this Website is for general informational purposes only. Accessing or browsing this Website does not create a contractual relationship between you and Miushuaia AG.</p>
+        <p class="legal-p">Any contractual relationship is governed exclusively by the applicable Terms of Service , Merchant Agreement , and related policies, which must be accepted separately as part of the onboarding process.</p>
+        <h2 id="policy-legal-notice-s2" class="legal-h2">Services and Onboarding</h2>
+        <p class="legal-p">VVBusiness services are provided solely to business customers (legal entities) subject to successful onboarding, including AML/KYC/KYB verification under applicable Swiss law and other mandatory requirements.</p>
+        <p class="legal-p">Due to regulatory, risk, and compliance requirements, Miushuaia AG does not guarantee that all applicants will be onboarded or accepted as customers.</p>
+        <h2 id="policy-legal-notice-s3" class="legal-h2">Regulatory and Compliance Notice</h2>
+        <p class="legal-p">Miushuaia AG is a member of VQF, a self-regulatory organisation recognised by the Swiss Financial Market Supervisory Authority FINMA, under membership number 101240. VQF supervises compliance with the Swiss Anti-Money Laundering Act.</p>
+        <p class="legal-p">Nothing on this Website constitutes legal, financial, or investment advice.</p>
+        <h2 id="policy-legal-notice-s4" class="legal-h2">Intellectual Property and Copyright</h2>
+        <p class="legal-p">Content on this Website, including text, logos, trademarks, graphics, images, diagrams, software and layout, belongs to Miushuaia AG or the relevant rights holders and is used under applicable licences or authorisations. It is protected by applicable intellectual property laws.</p>
+        <p class="legal-p">No content may be copied, reproduced, distributed, modified, or used for commercial or non-commercial purposes without prior written consent, unless permitted by law.</p>
+        <h2 id="policy-legal-notice-s5" class="legal-h2">Disclaimer of Liability</h2>
+        <p class="legal-p">While we make reasonable efforts to ensure the accuracy of the information on this Website, Miushuaia AG makes no representations or warranties that the content is accurate, complete, current, or free of errors.</p>
+        <p class="legal-p">We shall not be liable for any direct or indirect damages arising from the use of, or reliance on, the information provided on this Website.</p>
+        <h2 id="policy-legal-notice-s6" class="legal-h2">External Links</h2>
+        <p class="legal-p">This Website may contain links to third-party websites. Miushuaia AG has no control over and assumes no responsibility for the content of external websites. The operators of such websites are solely responsible for their content.</p>
+        <h2 id="policy-legal-notice-s7" class="legal-h2">Language</h2>
+        <p class="legal-p">In the event of any discrepancy between the English version of this Website and any translation, the English version shall prevail.</p>
+        <h2 id="policy-legal-notice-s8" class="legal-h2">Governing Law</h2>
+        <p class="legal-p">This Legal Notice is governed by Swiss law, subject to applicable mandatory provisions.</p>
+          <div class="legal-foot">
+            <p>Questions about this policy? <a data-page="contact" style="color:var(--brand);font-weight:600;cursor:pointer">Contact us &rarr;</a></p>
+            <a class="legal-back legal-back-lo" data-page="policies"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5m6-6-6 6 6 6"/></svg>Back to all policies</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="page legal-page" id="page-policy-aml-ctf">
+  <section class="sec legal-sec">
+    <div class="wrap">
+      <a class="legal-back" data-page="policies"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5m6-6-6 6 6 6"/></svg>All policies</a>
+      <div class="legal-head reveal">
+        <div class="legal-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="m20.5 20.5-4-4"/><path d="m8.6 11 1.7 1.7 3.1-3.3"/></svg></div>
+        <div class="about-eyebrow" style="margin-bottom:8px">Compliance</div>
+        <h1>AML &amp; CTF Policy</h1>
+        <div class="legal-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9h18M8 2.5v4M16 2.5v4"/></svg>Effective date: August 2026</div>
+      </div>
+      <div class="legal-layout">
+        <aside class="legal-toc">
+          <div class="ltoc-title">On this page</div>
+          <nav class="ltoc-nav">
+            <a class="ltoc-link" data-toc="policy-aml-ctf-s1">Customer Due Diligence (CDD)</a>
+            <a class="ltoc-link" data-toc="policy-aml-ctf-s2">Risk Assessment</a>
+            <a class="ltoc-link" data-toc="policy-aml-ctf-s3">Ongoing Monitoring</a>
+            <a class="ltoc-link" data-toc="policy-aml-ctf-s4">Sanctions and Wallet Screening</a>
+            <a class="ltoc-link" data-toc="policy-aml-ctf-s5">Record Keeping</a>
+            <a class="ltoc-link" data-toc="policy-aml-ctf-s6">Reporting and Cooperation with Authorities</a>
+            <a class="ltoc-link" data-toc="policy-aml-ctf-s7">Data Protection</a>
+          </nav>
+        </aside>
+        <article class="legal-body">
+        <p class="legal-lead">Anti Money Laundering AML and Counter Terrorist Financing CTF Policy</p>
+        <p class="legal-p">Miushuaia AG (UID CHE-379.966.803), operating VVBusiness at vvbusiness.io (the "Company"), applies risk-based measures under the Swiss Anti-Money Laundering Act (AMLA), applicable implementing rules, relevant VQF requirements and applicable sanctions obligations, taking account of relevant FATF standards.</p>
+        <p class="legal-p">Miushuaia AG is a member of VQF, a self-regulatory organisation recognised by the Swiss Financial Market Supervisory Authority FINMA, under membership number 101240. VQF supervises compliance with the Swiss Anti-Money Laundering Act.</p>
+        <p class="legal-p">Services are available only to registered legal entities that satisfy our existing onboarding, jurisdictional, sanctions and risk requirements. Availability depends on the customer, the service and the applicable restrictions. Nothing on this Website grants access to a service in a jurisdiction where it is not lawfully available. We apply a risk-based approach to AML/CTF controls.</p>
+        <p class="legal-p">Key elements of our AML CTF framework include</p>
+        <h2 id="policy-aml-ctf-s1" class="legal-h2">Customer Due Diligence (CDD)</h2>
+        <p class="legal-p">Before establishing a business relationship, VVBusiness identifies and verifies its customers, including beneficial owners and authorized representatives. Customer information is obtained directly from the customer and verified using reliable and independent sources. Enhanced Due Diligence is applied where higher ML/TF risks are identified.</p>
+        <h2 id="policy-aml-ctf-s2" class="legal-h2">Risk Assessment</h2>
+        <p class="legal-p">The Company applies a risk-based approach to assess and manage money laundering and terrorist financing risks. Risk factors include customer profile, business activity, geographic exposure, transaction behavior, and product risk. AML measures are applied proportionately to the identified risk level.</p>
+        <h2 id="policy-aml-ctf-s3" class="legal-h2">Ongoing Monitoring</h2>
+        <p class="legal-p">VVBusiness conducts continuous monitoring of customer relationships and transactions throughout the business relationship. Transactions are reviewed to ensure they are consistent with the customer's profile, risk level, and declared business activity. Higher-risk customers and transactions are subject to enhanced monitoring.</p>
+        <h2 id="policy-aml-ctf-s4" class="legal-h2">Sanctions and Wallet Screening</h2>
+        <p class="legal-p">The company screens customers, beneficial owners, and crypto-asset wallets against applicable sanctions lists and uses blockchain analytics tools to identify exposure to illicit activity.</p>
+        <p class="legal-p">Crypto-asset transfers are subject to applicable originator and beneficiary information requirements. Required information is obtained, verified where required, retained and transmitted securely to eligible counterparties in accordance with applicable law. Missing or inconsistent information may result in delay, review or rejection.</p>
+        <h2 id="policy-aml-ctf-s5" class="legal-h2">Record Keeping</h2>
+        <p class="legal-p">Documents required under the Swiss Anti-Money Laundering Act are retained for ten years after termination of the business relationship or completion of the transaction, as applicable. Records may be retained for longer where required by law, a binding order or the establishment, exercise or defence of legal claims. Other personal data is retained only for as long as necessary for its purpose.</p>
+        <h2 id="policy-aml-ctf-s6" class="legal-h2">Reporting and Cooperation with Authorities</h2>
+        <p class="legal-p">Where the applicable reporting conditions are met, the Company reports suspected money laundering or terrorist financing to MROS and cooperates with competent authorities. Applicable confidentiality and restrictions on disclosure to affected persons are observed.</p>
+        <h2 id="policy-aml-ctf-s7" class="legal-h2">Data Protection</h2>
+        <p class="legal-p">All personal data collected for AML/CTF purposes is processed in accordance with applicable data protection laws and the Company's Privacy Policy.</p>
+        <p class="legal-p">This AML/CTF Policy summary is provided for informational purposes. Detailed internal procedures are maintained and applied within the Company.</p>
+          <div class="legal-foot">
+            <p>Questions about this policy? <a data-page="contact" style="color:var(--brand);font-weight:600;cursor:pointer">Contact us &rarr;</a></p>
+            <a class="legal-back legal-back-lo" data-page="policies"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5m6-6-6 6 6 6"/></svg>Back to all policies</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="page legal-page" id="page-policy-cookies">
+  <section class="sec legal-sec">
+    <div class="wrap">
+      <a class="legal-back" data-page="policies"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5m6-6-6 6 6 6"/></svg>All policies</a>
+      <div class="legal-head reveal">
+        <div class="legal-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3a9 9 0 1 0 9 9 3.3 3.3 0 0 1-4-4 3.3 3.3 0 0 1-5-5z"/><circle cx="9" cy="12" r="1"/><circle cx="14" cy="14" r="1"/><circle cx="14.5" cy="9.5" r="1"/></svg></div>
+        <div class="about-eyebrow" style="margin-bottom:8px">Data</div>
+        <h1>Cookie Policy</h1>
+        <div class="legal-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9h18M8 2.5v4M16 2.5v4"/></svg>Effective date: August 2026</div>
+      </div>
+      <div class="legal-layout">
+        <aside class="legal-toc">
+          <div class="ltoc-title">On this page</div>
+          <nav class="ltoc-nav">
+            <a class="ltoc-link" data-toc="policy-cookies-s1">Strictly Necessary Cookies</a>
+            <a class="ltoc-link" data-toc="policy-cookies-s2">Performance and Statistical Cookies</a>
+            <a class="ltoc-link" data-toc="policy-cookies-s3">Functional Cookies</a>
+            <a class="ltoc-link" data-toc="policy-cookies-s4">Marketing Cookies</a>
+            <a class="ltoc-link" data-toc="policy-cookies-s5">Changes to this Cookie Policy</a>
+            <a class="ltoc-link" data-toc="policy-cookies-s6">Contact us</a>
+          </nav>
+        </aside>
+        <article class="legal-body">
+        <p class="legal-lead">This Cookie Policy explains how VVBusiness , operated by Miushuaia AG (UID CHE-379.966.803), uses cookies and similar technologies ("Cookies") on the website vvbusiness.io (the "Website"). It also explains how you can manage your cookie preferences.</p>
+        <p class="legal-p">This Cookie Policy should be read together with our Privacy Policy, which provides further information about how we process personal data.</p>
+        <p class="legal-p">What are cookies</p>
+        <p class="legal-p">Cookies are small text files consisting of letters and numbers that are stored on your device when you visit a website. Cookies allow a website to recognise your device and store certain information about your preferences or interactions.</p>
+        <p class="legal-p">Some cookies are session cookies , which expire when you close your browser. Other cookies are persistent cookies , which remain on your device for a defined period or until deleted.</p>
+        <p class="legal-p">In addition to cookies, we may use similar technologies such as scripts, tags, and local storage, which serve comparable purposes. For simplicity, all such technologies are referred to as "Cookies" in this Policy.</p>
+        <p class="legal-p">How we use cookies</p>
+        <p class="legal-p">VVBusiness uses cookies to:</p>
+        <ul class="legal-ul"><li>ensure the Website functions securely and correctly</li><li>enable Web3-based authentication and session management</li><li>analyse Website usage and performance</li><li>remember user preferences</li><li>comply with legal and regulatory requirements</li></ul>
+        <p class="legal-p">VVBusiness does not use cookies to access your crypto wallet, private keys, or sign transactions. Wallet connections are handled through third-party Web3 providers and remain fully under the user's control.</p>
+        <p class="legal-p">Types of cookies we use</p>
+        <h2 id="policy-cookies-s1" class="legal-h2">Strictly Necessary Cookies</h2>
+        <p class="legal-p">These cookies are essential for the operation and security of the Website. They enable core functionality such as:</p>
+        <ul class="legal-ul"><li>secure Web3 session handling</li><li>fraud prevention and security controls</li><li>cookie consent management</li></ul>
+        <p class="legal-p">Strictly necessary cookies cannot be disabled through the cookie banner, as the Website would not function properly without them.</p>
+        <h2 id="policy-cookies-s2" class="legal-h2">Performance and Statistical Cookies</h2>
+        <p class="legal-p">These cookies collect aggregated and anonymised information about how visitors use the Website. They help us understand traffic patterns, page usage, and technical performance so we can improve the Website. These cookies do not directly identify individual users.</p>
+        <h2 id="policy-cookies-s3" class="legal-h2">Functional Cookies</h2>
+        <p class="legal-p">These cookies allow the Website to remember user preferences and settings, such as language selection or previously accepted options, to improve the user experience. Disabling these cookies may result in reduced functionality.</p>
+        <h2 id="policy-cookies-s4" class="legal-h2">Marketing Cookies</h2>
+        <p class="legal-p">VVBusiness does not use marketing or advertising cookies for behavioural advertising purposes. If this changes in the future, this Policy will be updated and consent will be obtained where required by law.</p>
+        <p class="legal-p">Third party cookies</p>
+        <p class="legal-p">Some cookies may be placed by third-party service providers that support the operation, security, or analytics of the Website. These third parties may process data in accordance with their own privacy and cookie policies.</p>
+        <p class="legal-p">VVBusiness does not control third-party cookies, and users are encouraged to review the relevant third-party policies for further information.</p>
+        <p class="legal-p">Managing cookie preferences</p>
+        <p class="legal-p">You can manage your cookie preferences at any time using the cookie banner available on the Website. You may accept or reject non-essential cookies and withdraw your consent at any time.</p>
+        <p class="legal-p">You can also control or delete cookies through your browser settings. Please note that blocking or deleting certain cookies may affect the functionality of the Website.</p>
+        <p class="legal-p">Information on managing cookies in popular browsers is available at:</p>
+        <ul class="legal-ul"><li><a href="https://www.allaboutcookies.org" target="_blank" rel="noopener">https://www.allaboutcookies.org</a></li><li><a href="https://www.aboutcookies.org" target="_blank" rel="noopener">https://www.aboutcookies.org</a></li><li>Links to external websites</li></ul>
+        <p class="legal-p">The Website may contain links to third-party websites. VVBusiness is not responsible for the content of such websites or the cookies they may use. Please refer to the respective privacy and cookie policies of those third parties.</p>
+        <h2 id="policy-cookies-s5" class="legal-h2">Changes to this Cookie Policy</h2>
+        <p class="legal-p">We may update this Cookie Policy from time to time to reflect changes in our practices or legal requirements. When updates are made, the "Effective date" will be revised and the updated version will be published on the Website.</p>
+        <h2 id="policy-cookies-s6" class="legal-h2">Contact us</h2>
+        <p class="legal-p">If you have questions or concerns regarding our use of cookies, please contact us at:</p>
+        <p class="legal-p"><a href="mailto:support@vvbusiness.io">support@vvbusiness.io</a></p>
+          <div class="legal-foot">
+            <p>Questions about this policy? <a data-page="contact" style="color:var(--brand);font-weight:600;cursor:pointer">Contact us &rarr;</a></p>
+            <a class="legal-back legal-back-lo" data-page="policies"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5m6-6-6 6 6 6"/></svg>Back to all policies</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="page legal-page" id="page-policy-complaints">
+  <section class="sec legal-sec">
+    <div class="wrap">
+      <a class="legal-back" data-page="policies"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5m6-6-6 6 6 6"/></svg>All policies</a>
+      <div class="legal-head reveal">
+        <div class="legal-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M12 7v4M12 14h.01"/></svg></div>
+        <div class="about-eyebrow" style="margin-bottom:8px">Support</div>
+        <h1>Complaints Procedure</h1>
+        <div class="legal-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9h18M8 2.5v4M16 2.5v4"/></svg>Effective date: August 2026</div>
+      </div>
+      <div class="legal-layout">
+        <aside class="legal-toc">
+          <div class="ltoc-title">On this page</div>
+          <nav class="ltoc-nav">
+            <a class="ltoc-link" data-toc="policy-complaints-s1">1 What is a complaint</a>
+            <a class="ltoc-link" data-toc="policy-complaints-s2">2 How to submit a complaint</a>
+            <a class="ltoc-link" data-toc="policy-complaints-s3">3 How we handle complaints</a>
+            <a class="ltoc-link" data-toc="policy-complaints-s4">4 Escalation</a>
+            <a class="ltoc-link" data-toc="policy-complaints-s5">5 Contact</a>
+          </nav>
+        </aside>
+        <article class="legal-body">
+        <p class="legal-lead">At Miushuaia AG ("we", "us"), we aim to provide reliable, high-quality services through VVBusiness . If something goes wrong, you can submit a complaint and we will handle it fairly, transparently, and as quickly as possible.</p>
+        <h2 id="policy-complaints-s1" class="legal-h2">1 What is a complaint</h2>
+        <p class="legal-p">A complaint is any expression of dissatisfaction relating to our Services, including (for example):</p>
+        <ul class="legal-ul"><li>issues related to fiat-to-crypto or crypto-to-fiat transactions;</li><li>delays, errors, or discrepancies in transactions;</li><li>problems with account access, verification, or security;</li><li>concerns about fees, pricing, or exchange rates;</li><li>dissatisfaction with customer support or communication;</li><li>allegations of misconduct or non-compliance with applicable legal or regulatory requirements.</li></ul>
+        <h2 id="policy-complaints-s2" class="legal-h2">2 How to submit a complaint</h2>
+        <p class="legal-p">You can submit a complaint through the following channels:</p>
+        <ul class="legal-ul"><li><strong>Email:</strong> <a href="mailto:support@vvbusiness.io">support@vvbusiness.io</a></li><li><strong>Online form (Help Center):</strong> <a href="https://vvbusiness.io/help-center" target="_blank" rel="noopener">https://vvbusiness.io/help-center</a></li></ul>
+        <p class="legal-p">To help us investigate efficiently, please include:</p>
+        <ul class="legal-ul"><li>your full name and contact details;</li><li>your company name and (if applicable) account ID / reference number;</li><li>a clear description of the issue (including relevant dates, times, and transaction details);</li><li>supporting documents (screenshots, transaction records, correspondence);</li><li>your preferred resolution or outcome.</li></ul>
+        <h2 id="policy-complaints-s3" class="legal-h2">3 How we handle complaints</h2>
+        <p class="legal-p">Step 1: Acknowledgement</p>
+        <p class="legal-p">We will acknowledge receipt of your complaint within 1 business day (usually by email) and provide a reference number.</p>
+        <p class="legal-p">Step 2: Assessment and Investigation</p>
+        <p class="legal-p">Your complaint will be assigned to an appropriate person/team for review. We may request additional information if needed. We will review relevant records, communications, and transaction details.</p>
+        <p class="legal-p">Step 3: Response and Resolution</p>
+        <p class="legal-p">We aim to provide a final response within 15 business days from acknowledgement. If the investigation is more complex and needs additional time, we will inform you of the delay and provide an update, and we will issue a final response no later than 35 business days , unless a longer period is required due to exceptional circumstances.</p>
+        <p class="legal-p">If the complaint is upheld, corrective actions may include (where applicable):</p>
+        <ul class="legal-ul"><li>correcting transaction errors or operational issues;</li><li>refunding fees where an error is confirmed;</li><li>implementing measures to prevent similar issues in the future.</li></ul>
+        <p class="legal-p">If the complaint is not upheld, we will explain the reasons clearly.</p>
+        <h2 id="policy-complaints-s4" class="legal-h2">4 Escalation</h2>
+        <p class="legal-p">If you are not satisfied with our final response, you may pursue remedies available under the applicable contract and Swiss law, subject to other mandatory rules. Concerns relating to compliance with AML obligations may be raised with VQF through its published contact channels at <a href="https://www.vqf.ch/en." target="_blank" rel="noopener">https://www.vqf.ch/en.</a> VQF supervision does not itself provide a court judgment or an award of compensation for a contractual dispute.</p>
+        <h2 id="policy-complaints-s5" class="legal-h2">5 Contact</h2>
+        <p class="legal-p">All complaints and complaint-related communication should be sent to:</p>
+        <p class="legal-p"><a href="mailto:support@vvbusiness.io">support@vvbusiness.io</a></p>
+          <div class="legal-foot">
+            <p>Questions about this policy? <a data-page="contact" style="color:var(--brand);font-weight:600;cursor:pointer">Contact us &rarr;</a></p>
+            <a class="legal-back legal-back-lo" data-page="policies"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5m6-6-6 6 6 6"/></svg>Back to all policies</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="page legal-page" id="page-policy-asset-protection">
+  <section class="sec legal-sec">
+    <div class="wrap">
+      <a class="legal-back" data-page="policies"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5m6-6-6 6 6 6"/></svg>All policies</a>
+      <div class="legal-head reveal">
+        <div class="legal-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="10.5" width="18" height="10.5" rx="2"/><path d="M7 10.5V7a5 5 0 0 1 10 0v3.5"/><circle cx="12" cy="15.5" r="1.4"/></svg></div>
+        <div class="about-eyebrow" style="margin-bottom:8px">Safeguarding</div>
+        <h1>Client Asset Protection</h1>
+        <div class="legal-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9h18M8 2.5v4M16 2.5v4"/></svg>Effective date: August 2026</div>
+      </div>
+      <div class="legal-layout no-toc">
+        <article class="legal-body">
+        <p class="legal-lead">Miushuaia AG places a high priority on safeguarding client assets and has implemented organisational and technical measures designed to protect client funds and crypto-assets in accordance with applicable legal and regulatory requirements.</p>
+        <h2 id="policy-asset-protection-s1" class="legal-h2">Safeguarding measures</h2>
+        <p class="legal-p">The measures applied to protect client assets may include, among others:</p>
+        <ul class="legal-ul"><li><strong>Segregation of assets:</strong> Client crypto-assets and funds are maintained separately from the Company's own assets to reduce the risk of misuse and to support asset protection in accordance with applicable regulations.</li><li><strong>Access controls and authorisation:</strong> Transactions involving client assets are subject to internal access controls and authorisation mechanisms designed to prevent unauthorised activity.</li><li><strong>Enhanced oversight for higher-risk activity:</strong> Transactions that exceed defined thresholds or present elevated risk indicators may be subject to additional review or verification before execution.</li><li><strong>Security and storage controls:</strong> The Company applies encryption, secure infrastructure, and access management practices intended to protect client assets and related data from unauthorised access, loss, or misuse.</li><li><strong>Ongoing monitoring and review:</strong> Safeguarding arrangements are periodically reviewed and updated in light of operational, security, and regulatory developments.</li></ul>
+        <h2 id="policy-asset-protection-s2" class="legal-h2">Risk disclosure</h2>
+        <p class="legal-p">While we implement measures designed to protect client assets, the use of crypto-assets involves inherent risks, including technological, operational, and external threats. No system can be guaranteed to be completely secure, and clients acknowledge these risks when using the Services.</p>
+        <p class="legal-p">This statement is provided for informational purposes and does not constitute a guarantee of asset safety beyond what is required under applicable law.</p>
+        <p class="legal-p">VQF membership concerns supervision of AML compliance. It is not a guarantee of asset safety, a deposit insurance scheme or an undertaking to compensate clients for losses. Any separate guarantee applies only according to its own terms and scope.</p>
+          <div class="legal-foot">
+            <p>Questions about this policy? <a data-page="contact" style="color:var(--brand);font-weight:600;cursor:pointer">Contact us &rarr;</a></p>
+            <a class="legal-back legal-back-lo" data-page="policies"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5m6-6-6 6 6 6"/></svg>Back to all policies</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="page legal-page" id="page-policy-risk-warnings">
+  <section class="sec legal-sec">
+    <div class="wrap">
+      <a class="legal-back" data-page="policies"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5m6-6-6 6 6 6"/></svg>All policies</a>
+      <div class="legal-head reveal">
+        <div class="legal-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg></div>
+        <div class="about-eyebrow" style="margin-bottom:8px">Disclosure</div>
+        <h1>Risk Warnings</h1>
+        <div class="legal-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9h18M8 2.5v4M16 2.5v4"/></svg>Effective date: August 2026</div>
+      </div>
+      <div class="legal-layout">
+        <aside class="legal-toc">
+          <div class="ltoc-title">On this page</div>
+          <nav class="ltoc-nav">
+            <a class="ltoc-link" data-toc="policy-risk-warnings-s1">Volatility Risk</a>
+            <a class="ltoc-link" data-toc="policy-risk-warnings-s2">Market and Liquidity Risk</a>
+            <a class="ltoc-link" data-toc="policy-risk-warnings-s3">Regulatory Risk</a>
+            <a class="ltoc-link" data-toc="policy-risk-warnings-s4">Technology and Security Risk</a>
+            <a class="ltoc-link" data-toc="policy-risk-warnings-s5">Operational and Third Party Risk</a>
+            <a class="ltoc-link" data-toc="policy-risk-warnings-s6">Legal and Compliance Risk</a>
+            <a class="ltoc-link" data-toc="policy-risk-warnings-s7">Tax Risk</a>
+            <a class="ltoc-link" data-toc="policy-risk-warnings-s8">No Guarantee</a>
+          </nav>
+        </aside>
+        <article class="legal-body">
+        <p class="legal-lead">Miushuaia AG provides crypto-asset related services to business customers only. Crypto-assets involve significant risks and may not be suitable for all users. This warning describes risks relevant to the Services under the applicable legal framework.</p>
+        <p class="legal-p">Nothing on this website or within our services constitutes investment, financial, legal, or tax advice. You are solely responsible for assessing whether the use of crypto-assets and related services is appropriate for your business. Where necessary, you should seek independent professional advice.</p>
+        <h2 id="policy-risk-warnings-s1" class="legal-h2">Volatility Risk</h2>
+        <p class="legal-p">Crypto-assets are subject to high price volatility. Their value may change rapidly and unpredictably due to market conditions, regulatory developments, technological changes, or other external factors. Significant losses may occur over short periods of time.</p>
+        <h2 id="policy-risk-warnings-s2" class="legal-h2">Market and Liquidity Risk</h2>
+        <p class="legal-p">Crypto-asset markets may experience low liquidity, market fragmentation, or abnormal trading conditions. This can result in:</p>
+        <ul class="legal-ul"><li>difficulty executing transactions at expected prices;</li><li>wide bid-ask spreads;</li><li>delays or inability to exit positions under certain conditions.</li></ul>
+        <h2 id="policy-risk-warnings-s3" class="legal-h2">Regulatory Risk</h2>
+        <p class="legal-p">The regulatory framework for crypto-assets is evolving and may differ across jurisdictions. Changes in laws, regulations, or supervisory practices may affect the availability, legality, or conditions of crypto-asset services and may result in restrictions, additional compliance obligations, or service limitations.</p>
+        <h2 id="policy-risk-warnings-s4" class="legal-h2">Technology and Security Risk</h2>
+        <p class="legal-p">Crypto-assets rely on blockchain and related technologies, which may be subject to:</p>
+        <ul class="legal-ul"><li>software bugs or vulnerabilities;</li><li>network congestion or failures;</li><li>cyberattacks, hacking, or other security incidents;</li><li>irreversible transactions once broadcast to the network.</li></ul>
+        <p class="legal-p">Loss of private keys, incorrect transaction details, or other user errors may result in permanent loss of crypto-assets.</p>
+        <h2 id="policy-risk-warnings-s5" class="legal-h2">Operational and Third Party Risk</h2>
+        <p class="legal-p">The provision of crypto-asset services involves operational risks, including system failures, human error, and reliance on third-party service providers such as payment processors, infrastructure providers, or blockchain networks. These risks may lead to service disruptions or delays.</p>
+        <h2 id="policy-risk-warnings-s6" class="legal-h2">Legal and Compliance Risk</h2>
+        <p class="legal-p">The legal status and treatment of crypto-assets may be uncertain in some jurisdictions. Disputes may arise regarding ownership, transfer, or enforceability of blockchain-based arrangements. Cross-border activities may be subject to conflicting legal requirements.</p>
+        <h2 id="policy-risk-warnings-s7" class="legal-h2">Tax Risk</h2>
+        <p class="legal-p">Tax treatment of crypto-asset transactions varies by jurisdiction and may change over time. You are responsible for understanding and complying with applicable tax obligations, including reporting and payment requirements.</p>
+        <h2 id="policy-risk-warnings-s8" class="legal-h2">No Guarantee</h2>
+        <p class="legal-p">While Miushuaia AG applies measures designed to ensure operational reliability and compliance, the use of crypto-assets involves inherent risks. No guarantee can be given that losses will not occur.</p>
+        <p class="legal-p">Use of the Services constitutes acknowledgment and acceptance of the risks described above.</p>
+          <div class="legal-foot">
+            <p>Questions about this policy? <a data-page="contact" style="color:var(--brand);font-weight:600;cursor:pointer">Contact us &rarr;</a></p>
+            <a class="legal-back legal-back-lo" data-page="policies"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5m6-6-6 6 6 6"/></svg>Back to all policies</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="page legal-page" id="page-policy-conflicts">
+  <section class="sec legal-sec">
+    <div class="wrap">
+      <a class="legal-back" data-page="policies"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5m6-6-6 6 6 6"/></svg>All policies</a>
+      <div class="legal-head reveal">
+        <div class="legal-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3v18"/><path d="M6 21h12"/><path d="M5 7h14"/><path d="M5 7 2.5 13a2.5 2.5 0 0 0 5 0zM19 7l-2.5 6a2.5 2.5 0 0 0 5 0z"/><path d="M12 4.5 5 7M12 4.5 19 7"/></svg></div>
+        <div class="about-eyebrow" style="margin-bottom:8px">Governance</div>
+        <h1>Conflicts of Interest Policy</h1>
+        <div class="legal-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9h18M8 2.5v4M16 2.5v4"/></svg>Effective date: August 2026</div>
+      </div>
+      <div class="legal-layout">
+        <aside class="legal-toc">
+          <div class="ltoc-title">On this page</div>
+          <nav class="ltoc-nav">
+            <a class="ltoc-link" data-toc="policy-conflicts-s1">Purpose and scope</a>
+            <a class="ltoc-link" data-toc="policy-conflicts-s2">Understanding Conflicts of Interest</a>
+            <a class="ltoc-link" data-toc="policy-conflicts-s3">Identification of Conflicts of Interest</a>
+            <a class="ltoc-link" data-toc="policy-conflicts-s4">Materiality of Conflicts of Interest</a>
+            <a class="ltoc-link" data-toc="policy-conflicts-s5">Managing Measures</a>
+            <a class="ltoc-link" data-toc="policy-conflicts-s6">Individual Conflicts of Interest Relating to External Engagements</a>
+            <a class="ltoc-link" data-toc="policy-conflicts-s7">Disclosure to Customers</a>
+            <a class="ltoc-link" data-toc="policy-conflicts-s8">Reporting</a>
+            <a class="ltoc-link" data-toc="policy-conflicts-s9">Roles and Responsibilities</a>
+            <a class="ltoc-link" data-toc="policy-conflicts-s10">Board of Directors Responsibilities</a>
+            <a class="ltoc-link" data-toc="policy-conflicts-s11">Monitoring and Review</a>
+          </nav>
+        </aside>
+        <article class="legal-body">
+        <h2 id="policy-conflicts-s1" class="legal-h2">Purpose and scope</h2>
+        <p class="legal-lead">This policy outlines the commitment of Miushuaia AG (hereinafter the Company) to ethical conduct and client well-being. This simplified version applies to all website users and Company's employees, contractors, and leadership.</p>
+        <h2 id="policy-conflicts-s2" class="legal-h2">Understanding Conflicts of Interest</h2>
+        <p class="legal-p">Individual Conflicts of Interest (hereinafter - CoI) arise when there are potential conflicts between an employee's private interests or personal relationships and their professional duties. These can also involve the interests of close family members or principals of the employee, to the extent that the employee is aware of them. Consideration is given to any personal or professional relationships from the past five years to assess whether an individual CoI exists.</p>
+        <p class="legal-p">The following are examples of potential conflicts, including those specific to our role as a provider of crypto-asset services:</p>
+        <p class="legal-p">Employee Transactions vs. Client Interests: An employee's personal crypto-asset transactions that could conflict with the interests of our clients, such as trading on non-public information or ahead of client orders.</p>
+        <p class="legal-p">Conflicts with Third Parties: An employee having a personal financial interest in a crypto project, vendor, or service provider that the Company is engaged with.</p>
+        <p class="legal-p">Preferential Treatment: Giving preferential service or access to certain clients, projects, or market participants over others, without a justified business reason.</p>
+        <p class="legal-p">Governance Roles: Conflicts that arise when an employee has a significant role in the governance of a decentralized project that our firm provides services for.</p>
+        <p class="legal-p">Conflicts with Our Firm: An employee's actions or interests that could be detrimental to the Company's integrity or reputation.</p>
+        <p class="legal-p">Recognizing and disclosing these potential conflicts ensures that all interactions remain transparent and in alignment with our ethical standards and applicable legal obligations and internal policies. Employees are encouraged to disclose any suspected conflicts to maintain integrity and trust within the organization.</p>
+        <h2 id="policy-conflicts-s3" class="legal-h2">Identification of Conflicts of Interest</h2>
+        <p class="legal-p">The Company has established effective processes and controls to identify, manage, and prevent conflicts of interest. Each employee is responsible for recognizing any potential conflicts in their work and promptly reporting them to their supervisor.</p>
+        <p class="legal-p">The Company maintains a Conflicts of Interest Register to document all identified conflicts. This register is a key component of our internal governance framework. Any subsidiaries and branches within the scope of this policy are required to manage their local CoI registers and provide extracts and relevant information annually, or upon request, to Group Compliance for centralized oversight.</p>
+        <p class="legal-p">To ensure the effectiveness of our controls, the CoI Register is regularly updated. Both permanent organizational and individual conflicts are subject to a formal review at least annually.</p>
+        <p class="legal-p">The annual review of organizational CoI is a critical step. Each business area, department, and subsidiary evaluates their registered conflicts to ensure all potential and existing conflicts are adequately addressed. This review confirms that the measures put in place to manage CoI remain appropriate and effective in addressing conflicts arising from our crypto-asset services and activities, including intragroup interactions.</p>
+        <h2 id="policy-conflicts-s4" class="legal-h2">Materiality of Conflicts of Interest</h2>
+        <p class="legal-p">Each identified conflict of interest (CoI) must be evaluated for materiality, categorizing it as either material or non-material. The assessment of materiality is a crucial step in our risk management process. This evaluation is conducted inherently, based on the potential risk of harm before any preventive or mitigating controls are implemented.</p>
+        <p class="legal-p">A conflict of interest is considered material when it is not insignificant and could reasonably lead to a probable outcome that would be detrimental to one or more clients, cause financial loss or liability for the Company, or result in significant reputational damage. The assessment of materiality takes into account the nature, scale, and complexity of our crypto-asset services and activities.</p>
+        <p class="legal-p">If a conflict is classified as material, it is imperative to implement mitigation measures and define corresponding Managing Measures to address the conflict effectively. Where a material conflict cannot be prevented or adequately managed, the Company is obligated to clearly disclose the general nature and sources of the conflict to the affected client. This disclosure will enable the client to make an informed decision on whether to proceed with the service.</p>
+        <p class="legal-p">The Company's governance body is ultimately responsible for ensuring that all material conflicts are either effectively managed or disclosed to clients.</p>
+        <h2 id="policy-conflicts-s5" class="legal-h2">Managing Measures</h2>
+        <p class="legal-p">For all identified material conflicts of interest (CoI), effective managing measures must be defined, documented, and implemented. These measures are designed to prevent or mitigate conflicts, with preventive measures prioritized as the first line of defense. If a conflict cannot be fully prevented, robust mitigating actions must be employed to minimize its impact.</p>
+        <p class="legal-p">Preventive Measures aim to eliminate the conflict before it can cause harm. Examples include segregating duties between business functions, establishing internal information barriers, and setting strict rules for personal crypto-asset transactions by employees.</p>
+        <p class="legal-p">Mitigating Measures aim to reduce the risk of harm once a conflict has been identified. This can include enhanced oversight, mandatory disclosure of the conflict to affected parties, or declining to perform a service if the conflict cannot be managed effectively.</p>
+        <p class="legal-p">Permanent conflicts require continuous or recurring managing measures that are reviewed at least annually to ensure their ongoing effectiveness. In contrast, non-permanent conflicts can typically be managed with one-time measures tailored to the specific instance.</p>
+        <p class="legal-p">By establishing and maintaining these managing measures, the Company aims to effectively mitigate the risks associated with conflicts of interest. This proactive approach ensures our compliance with both internal policies and regulatory standards, and it demonstrates our firm's commitment to protecting the best interests of its clients in the crypto-asset market.</p>
+        <h2 id="policy-conflicts-s6" class="legal-h2">Individual Conflicts of Interest Relating to External Engagements</h2>
+        <p class="legal-p">The Company is committed to ensuring that employees' external engagements do not create material conflicts of interest, damage the Company's reputation, or adversely impact employees' work duties and capabilities. To this end, all external engagements require pre-approval from the employee's direct supervisor.</p>
+        <p class="legal-p">Employees are prohibited from engaging in any external engagements that have not received prior approval, as well as from participating in offshore structures without explicit consent. It is the responsibility of each employee to seek approval from their supervisor for any external engagements before proceeding. Compliance should also be contacted for guidance before granting such approvals.</p>
+        <p class="legal-p">Any conflicts of interest arising from the roles or positions assigned to employees by the Company will be managed according to the principles governing institutional conflicts of interest. Employees are restricted from holding directorships in publicly listed entities without explicit approval.</p>
+        <p class="legal-p">Employees are restricted from holding directorships in publicly traded or listed companies, competitor firms, or other entities involved in financial services. Furthermore, external directorships in family-owned businesses or trusts will be reviewed on a case-by-case basis and require approval.</p>
+        <p class="legal-p">By establishing these guidelines, the Company aims to maintain a high standard of integrity and accountability in all external engagements, safeguarding both its reputation and the professional responsibilities of its employees.</p>
+        <h2 id="policy-conflicts-s7" class="legal-h2">Disclosure to Customers</h2>
+        <p class="legal-p">The Company acknowledges that it may not always be feasible to fully prevent or mitigate the risks associated with CoI that may affect customers. In such instances, disclosure becomes a necessary measure to inform customers of the identified CoI and any residual risks that remain.</p>
+        <p class="legal-p">When providing investment services, distributing insurance-based investment products, or offering foreign exchange market services, disclosure should be employed only as a last resort, after all other potential measures have been thoroughly explored and deemed insufficient.</p>
+        <p class="legal-p">The disclosure must be documented in writing, including a clear explanation of the general nature and source of the CoI, as well as the specific actions taken by the Company to mitigate these risks. However, disclosure is not permissible if it could compromise the interests of one or more customers or involve the revelation of confidential information.</p>
+        <p class="legal-p">In cases where the Company engages in services or activities beyond the specified categories that pertain to corporate clients, disclosure of CoI can be utilized to ensure fair treatment and assist customers in making informed decisions regarding their engagements with the Company.</p>
+        <p class="legal-p">By adhering to these principles, the Company strives to maintain transparency and uphold its commitment to ethical practices while safeguarding the interests of its customers.</p>
+        <h2 id="policy-conflicts-s8" class="legal-h2">Reporting</h2>
+        <p class="legal-p">The CEO and members of the Board of Directors must receive annual reports on CoI to ensure that all relevant conflicts are identified and managed effectively at the Company level. This reporting is essential for the CEO and the Board of Directors to oversee the successful implementation and ongoing maintenance of the directives related to CoI.</p>
+        <p class="legal-p">The review will be led by the Chief Compliance Officer (CCO), with participation from the Compliance function, legal counsel, and relevant members of the Board of Directors.</p>
+        <p class="legal-p">The annual report will provide insights into the CoI identified within the organization, detailing the measures taken to manage these conflicts and the effectiveness of those measures. This structured approach supports the Company's commitment to transparency and accountability in its operations, enabling informed decision-making by the leadership team.</p>
+        <h2 id="policy-conflicts-s9" class="legal-h2">Roles and Responsibilities</h2>
+        <p class="legal-p">All employees are required to report any identified CoI or changes to existing conflicts to their immediate supervisor or designated leader. Institutional conflicts of interest, along with any changes in circumstances regarding these conflicts, must be reported to the Head of Department. Such reporting must be done without undue delay to ensure timely management of the situation.</p>
+        <p class="legal-p">Consultants or individuals engaged in temporary assignments for the Company must also report any identified individual or institutional CoI to the relevant employee or supervisor overseeing their assignment. This individual will then be responsible for escalating the report in accordance with the procedures outlined earlier in this section.</p>
+        <p class="legal-p">The supervisor or leader receiving the CoI report is accountable for making decisions related to the management of the conflict and ensuring that all requirements set forth by this directive and supporting internal policies are followed appropriately.</p>
+        <h2 id="policy-conflicts-s10" class="legal-h2">Board of Directors Responsibilities</h2>
+        <p class="legal-p">The Board of Directors is ultimately responsible for ensuring the integrity and effectiveness of the Company's conflict of interest management framework. This includes setting the ethical tone at the top and fostering a strong culture of compliance.</p>
+        <p class="legal-p">The Board of Directors's core responsibilities are to establish, approve, and oversee the implementation of policies designed to identify, manage, and mitigate all actual and potential conflicts of interest, including those involving the private interests of its members.</p>
+        <p class="legal-p">To ensure transparency and compliance, members of the Board of Directors:</p>
+        <p class="legal-p">Must proactively identify and disclose any conflicts of interest without undue delay.</p>
+        <p class="legal-p">Must recuse themselves from decision-making processes on any matter where they have a conflict.</p>
+        <p class="legal-p">Are prohibited from holding directorships in companies that compete with the Company, unless those companies are part of the same group.</p>
+        <p class="legal-p">The Board of Directors will also ensure that the policy is regularly updated to reflect changes in regulations, business operations, and industry standards. They will ensure adequate resources and support are provided to implement these policies effectively, and they will regularly review the effectiveness of the entire framework.</p>
+        <p class="legal-p">This oversight confirms that any identified conflicts are addressed and managed transparently, safeguarding the interests of both clients and the Company.</p>
+        <h2 id="policy-conflicts-s11" class="legal-h2">Monitoring and Review</h2>
+        <p class="legal-p">The Company is committed to ensuring that our Public Conflicts of Interest Policy remains effective and relevant. We maintain a robust system of oversight to continuously monitor our framework and procedures.</p>
+        <p class="legal-p">The CCO is responsible for conducting regular reviews, with a comprehensive assessment performed at least annually. These reviews are designed to:</p>
+        <p class="legal-p">Evaluate the effectiveness of our conflict identification and mitigation measures.</p>
+        <p class="legal-p">Assess the completeness and accuracy of our Conflicts of Interest Register.</p>
+        <p class="legal-p">Identify any emerging risks or new conflicts in our operations.</p>
+        <p class="legal-p">The findings from these reviews, along with any necessary recommendations, are formally reported to the Board of Directors. This oversight ensures our policies are regularly updated to reflect changes in our business and the regulatory landscape, including applicable Swiss requirements.</p>
+        <p class="legal-p">Any significant amendments to this policy are documented and must be approved by the Board of Directors. This process ensures our conflict management framework remains strong and transparent, protecting the best interests of our clients and the integrity of our firm.</p>
+          <div class="legal-foot">
+            <p>Questions about this policy? <a data-page="contact" style="color:var(--brand);font-weight:600;cursor:pointer">Contact us &rarr;</a></p>
+            <a class="legal-back legal-back-lo" data-page="policies"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5m6-6-6 6 6 6"/></svg>Back to all policies</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="page legal-page" id="page-policy-accessibility">
+  <section class="sec legal-sec">
+    <div class="wrap">
+      <a class="legal-back" data-page="policies"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5m6-6-6 6 6 6"/></svg>All policies</a>
+      <div class="legal-head reveal">
+        <div class="legal-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="4.2" r="1.7"/><path d="M4.5 8.2h15M12 8.2v6m0 0-3.2 6.4M12 14.2l3.2 6.4"/></svg></div>
+        <div class="about-eyebrow" style="margin-bottom:8px">Inclusion</div>
+        <h1>Accessibility Statement</h1>
+        <div class="legal-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9h18M8 2.5v4M16 2.5v4"/></svg>Effective date: August 2026</div>
+      </div>
+      <div class="legal-layout">
+        <aside class="legal-toc">
+          <div class="ltoc-title">On this page</div>
+          <nav class="ltoc-nav">
+            <a class="ltoc-link" data-toc="policy-accessibility-s1">Measures to support accessibility</a>
+            <a class="ltoc-link" data-toc="policy-accessibility-s2">Ongoing improvements</a>
+            <a class="ltoc-link" data-toc="policy-accessibility-s3">Feedback and contact</a>
+          </nav>
+        </aside>
+        <article class="legal-body">
+        <p class="legal-lead">Miushuaia AG is committed to improving accessibility and ensuring that users, including people with disabilities, can access and use the VVBusiness website (vvbusiness.io) as effectively as possible.</p>
+        <p class="legal-p">We aim to design and maintain our website in a way that supports accessibility and usability for a wide range of users and assistive technologies.</p>
+        <h2 id="policy-accessibility-s1" class="legal-h2">Measures to support accessibility</h2>
+        <p class="legal-p">We have taken the following measures to support accessibility on our website:</p>
+        <ul class="legal-ul"><li><strong>Responsive design:</strong> The website is designed to function across different devices and screen sizes, including desktops, tablets, and mobile devices.</li><li><strong>Readable content:</strong> We strive to maintain sufficient color contrast and clear typography. Where images are used to convey information, descriptive alternative text is provided where appropriate.</li><li><strong>Keyboard accessibility:</strong> Interactive elements such as buttons, links, and forms are designed to be usable via keyboard navigation where technically feasible.</li><li><strong>Assistive technologies:</strong> The website is designed to be compatible with commonly used assistive technologies, such as screen readers and magnification tools.</li></ul>
+        <h2 id="policy-accessibility-s2" class="legal-h2">Ongoing improvements</h2>
+        <p class="legal-p">Accessibility is an ongoing process. We regularly review and improve the website's accessibility based on technical updates, internal testing, and user feedback.</p>
+        <h2 id="policy-accessibility-s3" class="legal-h2">Feedback and contact</h2>
+        <p class="legal-p">If you experience any difficulty accessing content on this website or have suggestions on how we can improve accessibility, please contact us at:</p>
+        <p class="legal-p"><a href="mailto:support@vvbusiness.io">support@vvbusiness.io</a></p>
+        <p class="legal-p">We will make reasonable efforts to review and address accessibility-related feedback.</p>
+        <p class="legal-p">This statement is provided for informational purposes and does not constitute a guarantee that the website will meet every accessibility standard in all circumstances.</p>
+          <div class="legal-foot">
+            <p>Questions about this policy? <a data-page="contact" style="color:var(--brand);font-weight:600;cursor:pointer">Contact us &rarr;</a></p>
+            <a class="legal-back legal-back-lo" data-page="policies"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5m6-6-6 6 6 6"/></svg>Back to all policies</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="page legal-page" id="page-policy-environment">
+  <section class="sec legal-sec">
+    <div class="wrap">
+      <a class="legal-back" data-page="policies"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5m6-6-6 6 6 6"/></svg>All policies</a>
+      <div class="legal-head reveal">
+        <div class="legal-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M11 20.5C6 20 3 16 3 11c5.5.3 9 2 10 7"/><path d="M11.5 20.5C11 12 14 5.5 21 3.5c1 6-1.5 14-9.5 17"/></svg></div>
+        <div class="about-eyebrow" style="margin-bottom:8px">Sustainability</div>
+        <h1>Environment Policy</h1>
+        <div class="legal-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9h18M8 2.5v4M16 2.5v4"/></svg>Effective date: August 2026</div>
+      </div>
+      <div class="legal-layout">
+        <aside class="legal-toc">
+          <div class="ltoc-title">On this page</div>
+          <nav class="ltoc-nav">
+            <a class="ltoc-link" data-toc="policy-environment-s1">1 Our Commitment to Sustainability</a>
+            <a class="ltoc-link" data-toc="policy-environment-s2">2 Energy Consumption and Operational Efficiency</a>
+            <a class="ltoc-link" data-toc="policy-environment-s3">3 Sustainability Initiatives</a>
+            <a class="ltoc-link" data-toc="policy-environment-s4">4 Environmental Impact of Crypto Assets Serviced</a>
+            <a class="ltoc-link" data-toc="policy-environment-s5">5 Continuous Improvement</a>
+            <a class="ltoc-link" data-toc="policy-environment-s6">6 Internal Controls and Organisational Measures</a>
+            <a class="ltoc-link" data-toc="policy-environment-s7">7 Contact Us</a>
+          </nav>
+        </aside>
+        <article class="legal-body">
+        <p class="legal-lead">Miushuaia AG aims to reduce the environmental impact of its operations and to provide useful information about the crypto-assets supported through VVBusiness and VVRamp.</p>
+        <h2 id="policy-environment-s1" class="legal-h2">1 Our Commitment to Sustainability</h2>
+        <p class="legal-p">We seek to improve energy efficiency, use equipment responsibly and consider environmental factors in operating our services. We aim to provide clear information about the environmental impact of the crypto-assets we support.</p>
+        <h2 id="policy-environment-s2" class="legal-h2">2 Energy Consumption and Operational Efficiency</h2>
+        <p class="legal-p">Our platforms use Amazon Web Services (AWS). We seek to use infrastructure efficiently and reduce unnecessary resource consumption. Environmental statements about third-party providers should be assessed using their current published information.</p>
+        <p class="legal-p">We seek to extend the useful life of hardware and arrange responsible recycling and disposal in accordance with applicable requirements.</p>
+        <h2 id="policy-environment-s3" class="legal-h2">3 Sustainability Initiatives</h2>
+        <p class="legal-p">We consider opportunities to reduce energy use and improve the environmental performance of our operations. Any statement about renewable electricity, carbon offsets or emissions reductions should be supported by information relevant to the activities concerned.</p>
+        <h2 id="policy-environment-s4" class="legal-h2">4 Environmental Impact of Crypto Assets Serviced</h2>
+        <p class="legal-p">The environmental impact of a crypto-asset depends in part on the network used and its consensus mechanism. Current services support USDC on the Polygon network. The applicable network and asset must always match the instructions shown for the transaction.</p>
+        <p class="legal-p">Where environmental information is provided, it should identify the network, the relevant measurement period, the methodology and the source. Network-wide energy use cannot be treated as a precise measure of the energy caused by an individual transfer. Estimates may change as network activity and infrastructure change.</p>
+        <p class="legal-p">Descriptions of environmental impact do not indicate that an asset is risk-free or suitable for a particular customer.</p>
+        <h2 id="policy-environment-s5" class="legal-h2">5 Continuous Improvement</h2>
+        <p class="legal-p">We review environmental information and operational practices as services and infrastructure develop, and consider relevant feedback from clients and service providers.</p>
+        <h2 id="policy-environment-s6" class="legal-h2">6 Internal Controls and Organisational Measures</h2>
+        <p class="legal-p">Employees involved in advisory services must not engage in proprietary trading.</p>
+        <p class="legal-p">Risk assessment and approval processes must be independent of business development teams.</p>
+        <p class="legal-p">Employees must disclose personal crypto-asset investments in accordance with internal policies.</p>
+        <h2 id="policy-environment-s7" class="legal-h2">7 Contact Us</h2>
+        <p class="legal-p">For enquiries or feedback about this policy, contact <a href="mailto:sustainability@vvbusiness.io">sustainability@vvbusiness.io</a>.</p>
+          <div class="legal-foot">
+            <p>Questions about this policy? <a data-page="contact" style="color:var(--brand);font-weight:600;cursor:pointer">Contact us &rarr;</a></p>
+            <a class="legal-back legal-back-lo" data-page="policies"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5m6-6-6 6 6 6"/></svg>Back to all policies</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="page legal-page" id="page-policy-service-description">
+  <section class="sec legal-sec">
+    <div class="wrap">
+      <a class="legal-back" data-page="policies"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5m6-6-6 6 6 6"/></svg>All policies</a>
+      <div class="legal-head reveal">
+        <div class="legal-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="7.2" height="7.2" rx="1.6"/><rect x="13.8" y="3" width="7.2" height="7.2" rx="1.6"/><rect x="3" y="13.8" width="7.2" height="7.2" rx="1.6"/><rect x="13.8" y="13.8" width="7.2" height="7.2" rx="1.6"/></svg></div>
+        <div class="about-eyebrow" style="margin-bottom:8px">Product</div>
+        <h1>Service Description</h1>
+        <div class="legal-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9h18M8 2.5v4M16 2.5v4"/></svg>Effective date: August 2026</div>
+      </div>
+      <div class="legal-layout">
+        <aside class="legal-toc">
+          <div class="ltoc-title">On this page</div>
+          <nav class="ltoc-nav">
+            <a class="ltoc-link" data-toc="policy-service-description-s1">1 Introduction</a>
+            <a class="ltoc-link" data-toc="policy-service-description-s2">2 Virtual Currency Exchange Service</a>
+            <a class="ltoc-link" data-toc="policy-service-description-s3">3 Custodial Wallet Infrastructure</a>
+            <a class="ltoc-link" data-toc="policy-service-description-s4">4 Supported Assets Fees</a>
+            <a class="ltoc-link" data-toc="policy-service-description-s5">5 Compliance and User Verification</a>
+            <a class="ltoc-link" data-toc="policy-service-description-s6">6 Operational Flows</a>
+          </nav>
+        </aside>
+        <article class="legal-body">
+        <h2 id="policy-service-description-s1" class="legal-h2">1 Introduction</h2>
+        <p class="legal-lead">Miushuaia AG (the "Company") provides infrastructure for the exchange of crypto-assets for funds. Our services are tailored exclusively for onboarded business entities (Merchants). The Company operates under the applicable Swiss legal framework. Access remains subject to existing onboarding, jurisdictional and compliance requirements.</p>
+        <h2 id="policy-service-description-s2" class="legal-h2">2 Virtual Currency Exchange Service</h2>
+        <p class="legal-p">The Company provides a high-speed exchange. We do not offer fiat storage or "banking-style" fiat balances; instead, we facilitate direct, real-time conversion.</p>
+        <p class="legal-p">Fiat-to-Crypto: Upon receipt of funds from a Merchant's verified business bank account, the Company performs an immediate exchange and transfers the resulting crypto-assets to the designated Merchant or end-user wallet.</p>
+        <p class="legal-p">Crypto-to-Fiat: When a Merchant initiates an exchange to fiat, the crypto-assets are converted instantly. The resulting funds are immediately dispatched to the Merchant's pre-verified external business bank account.</p>
+        <p class="legal-p">Settlement Policy: All fiat transactions are processed on a "pass-through" basis. The Company does not hold or store fiat currency on behalf of clients.</p>
+        <h2 id="policy-service-description-s3" class="legal-h2">3 Custodial Wallet Infrastructure</h2>
+        <p class="legal-p">We provide secure custody and management of crypto-assets through dedicated Merchant Wallets.</p>
+        <p class="legal-p">Asset Segregation: All client assets are held in segregated custodial wallets, ensuring a clear distinction between the Company's operational funds and client holdings.</p>
+        <p class="legal-p">Security: Private keys are managed via industry-leading security protocols. The Company maintains full control over the execution of transfers to ensure high levels of traceability.</p>
+        <p class="legal-p">Supported Networks: Currently, the Company supports the Polygon (MATIC) network.</p>
+        <p class="legal-p">Operations: Merchants can receive, store, and transfer supported crypto-assets. All withdrawals are subject to transaction screening and compliance with "Travel Rule" requirements.</p>
+        <h2 id="policy-service-description-s4" class="legal-h2">4 Supported Assets Fees</h2>
+        <p class="legal-p">The Company maintains a curated list of assets and a transparent pricing model.</p>
+        <p class="legal-p">Currencies: EUR, USD, and USDC (Polygon).</p>
+        <p class="legal-p">Service Fees: We offer competitive rates for Retail integrations and Enterprise API clients. To maintain full transparency, our current fee schedule is hosted on our dedicated Fee Schedule Page.</p>
+        <h2 id="policy-service-description-s5" class="legal-h2">5 Compliance and User Verification</h2>
+        <p class="legal-p">B2B Exclusivity: We only provide services to verified business entities.</p>
+        <p class="legal-p">Mandatory KYC/KYB: As a "Zero-Threshold" provider, the Company requires full identity verification for all participants before any transaction is initiated. We do not support anonymous or "occasional" transactions.</p>
+        <p class="legal-p">Automated Monitoring: Every transaction undergoes real-time sanctions screening and blockchain forensics.</p>
+        <h2 id="policy-service-description-s6" class="legal-h2">6 Operational Flows</h2>
+        <p class="legal-p">Deposits: Crypto-assets are credited to the Merchant Wallet upon required blockchain confirmations.</p>
+        <p class="legal-p">Withdrawals: Initiated via the secure Platform dashboard; requires a verified destination address.</p>
+        <p class="legal-p">Instant Execution: Exchanges are processed automatically if risk parameters are met. Any transaction triggering a compliance alert is held for manual review by our Compliance Team to ensure regulatory safety.</p>
+          <div class="legal-foot">
+            <p>Questions about this policy? <a data-page="contact" style="color:var(--brand);font-weight:600;cursor:pointer">Contact us &rarr;</a></p>
+            <a class="legal-back legal-back-lo" data-page="policies"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5m6-6-6 6 6 6"/></svg>Back to all policies</a>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -1687,7 +2495,7 @@ curl https://api.vvbusiness.io/v1/channels \
       <div class="foot-col"><h4>Product</h4><a data-page="product">Crypto Payment</a><a data-page="product">Batch Payout</a><a data-page="product">Wallet</a><a data-page="product">VVRamp</a><a data-page="product">OTC</a></div>
       <div class="foot-col"><h4>Solutions</h4><a data-page="product">Cross-border</a><a data-page="product">Local transfers</a><a data-page="product">Payroll payouts</a></div>
       <div class="foot-col"><h4>Developers</h4><a data-page="developer">API docs</a><a data-page="developer">Service description</a></div>
-      <div class="foot-col"><h4>Company</h4><a data-page="about">About Us</a><a data-page="pricing">Pricing</a><a href="https://doesnotexists.larksuite.com/docx/KqFGdnHXVo1nD4xMeqcjM79YpWc" target="_blank" rel="noopener">Terms of Service</a><a href="https://doesnotexists.larksuite.com/docx/PniudVEA2oK2WUxiCvej8KfNpEz" target="_blank" rel="noopener">Privacy Policy</a><a data-page="policies">All Policies</a><a href="mailto:Support@vvbusiness.io">Support@vvbusiness.io</a></div>
+      <div class="foot-col"><h4>Company</h4><a data-page="about">About Us</a><a data-page="pricing">Pricing</a><a data-page="policy-terms">Terms of Service</a><a data-page="policy-privacy">Privacy Policy</a><a data-page="policies">All Policies</a><a href="mailto:Support@vvbusiness.io">Support@vvbusiness.io</a></div>
     </div>
     <div class="foot-bot">
       <span>© 2026 Miushuaia AG</span>
@@ -3217,7 +4025,7 @@ curl https://api.vvbusiness.io/v1/channels \
   document.querySelectorAll('.faq-q').forEach(function(q){ q.addEventListener('click',function(){ q.parentElement.classList.toggle('open'); }); });
 
   /* ======== ROUTING ======== */
-  var PAGES=['home','product','pricing','developer','about','contact','policies'];
+  var PAGES=['home','product','pricing','developer','about','contact','policies','policy-terms','policy-privacy','policy-legal-notice','policy-aml-ctf','policy-cookies','policy-complaints','policy-asset-protection','policy-risk-warnings','policy-conflicts','policy-accessibility','policy-environment','policy-service-description'];
   function goPage(name,skipScroll){
     if(PAGES.indexOf(name)<0)name='home';
     if(portalOv && !portalOv.hidden) closePortal();
@@ -3231,6 +4039,38 @@ curl https://api.vvbusiness.io/v1/channels \
   }
   document.querySelectorAll('[data-page]').forEach(function(el){
     el.addEventListener('click',function(e){ e.preventDefault(); goPage(el.dataset.page); });
+
+  /* ===== Legal reader: TOC smooth-scroll + scroll-spy ===== */
+  (function(){
+    function run(){
+      var links=[].slice.call(document.querySelectorAll('.ltoc-link'));
+      if(!links.length) return;
+      document.querySelectorAll('.legal-toc').forEach(function(toc){
+        toc.addEventListener('click',function(e){
+          var a=e.target.closest('.ltoc-link'); if(!a) return;
+          e.preventDefault();
+          var el=document.getElementById(a.getAttribute('data-toc'));
+          if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+        });
+      });
+      if('IntersectionObserver' in window){
+        var byId={};
+        links.forEach(function(a){ byId[a.getAttribute('data-toc')]=a; });
+        var spy=new IntersectionObserver(function(es){
+          es.forEach(function(e){
+            if(!e.isIntersecting) return;
+            var a=byId[e.target.id]; if(!a) return;
+            var nav=a.closest('.ltoc-nav');
+            if(nav) nav.querySelectorAll('.ltoc-link.active').forEach(function(x){ x.classList.remove('active'); });
+            a.classList.add('active');
+          });
+        },{rootMargin:'-90px 0px -72% 0px',threshold:0});
+        document.querySelectorAll('.legal-h2[id]').forEach(function(h){ spy.observe(h); });
+      }
+    }
+    if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',run);
+    else run();
+  })();
   });
 
   /* ---- contact form (front-end demo; wire to a backend/email service in production) ---- */
