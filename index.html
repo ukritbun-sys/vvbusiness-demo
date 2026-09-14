@@ -1415,7 +1415,7 @@
             <div class="panel on" data-panel="collect"><h3>Collect</h3><p>Create a payment channel, share the link or QR, and settle the moment your customer pays. Every channel is bound to a KYB&rsquo;d contact.</p><div class="tour-list"><div class="tl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Payment links, QR codes, and a REST API</div><div class="tl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Each channel tied to a verified payer</div><div class="tl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Instant settlement to your dollar balance</div></div></div>
             <div class="panel" data-panel="payout"><h3>Batch Payout</h3><p>Upload a spreadsheet of recipients, review the validated rows, and approve the whole run with one signature. VVBusiness disburses to everyone at once.</p><div class="tour-list"><div class="tl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Thousands of recipients from one file</div><div class="tl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Address validation &amp; whitelist checks</div><div class="tl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>You sign to authorize, try it &rarr;</div></div></div>
             <div class="panel" data-panel="wallet"><h3>Wallet &amp; balances</h3><p>One dollar balance in UCoin, with USDT, USDC and more underneath. Deposit, withdraw, and see every transaction in a clean ledger.</p><div class="tour-list"><div class="tl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Total, available &amp; unavailable at a glance</div><div class="tl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Whitelisted address book for withdrawals</div><div class="tl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Full activity history &amp; receipts</div></div></div>
-            <div class="panel" data-panel="ramp"><h3>Exchange &amp; VVRamp</h3><p>Move between dollars and crypto on demand. On-ramp USD to USDC/USDT, cash out to your bank, or convert between assets, at rates you can see.</p><div class="tour-list"><div class="tl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>On-ramp &amp; off-ramp USD &harr; crypto</div><div class="tl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Convert between supported assets</div><div class="tl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Transparent, no-spread-games pricing</div></div></div>
+            <div class="panel" data-panel="ramp"><h3>Exchange &amp; VVRamp</h3><p>Move between dollars and crypto on demand. On-ramp USD to USDC/USDT, cash out to your bank, or convert between assets, at rates you can see.</p><div class="tour-list"><div class="tl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>On-ramp &amp; off-ramp USD &harr; crypto</div><div class="tl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Convert between supported assets</div><div class="tl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Transparent, no-spread-games pricing</div></div><a class="btn pri" data-page="vvramp" style="margin-top:24px">Open VVRamp<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" style="margin-left:2px"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a></div>
             <div class="panel" data-panel="otc"><h3>OTC desk</h3><p>Moving a large amount? Request a quote and our desk replies with a firm rate you can accept, no slippage, no order-book guesswork.</p><div class="tour-list"><div class="tl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Request-for-quote on 20+ currencies</div><div class="tl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Firm rates, settled to your balance</div><div class="tl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Full order log &amp; status tracking</div></div></div>
           </div>
           <div class="mock">
@@ -2477,6 +2477,368 @@ curl https://api.vvbusiness.io/v1/channels \
     </div>
   </section>
 </div>
+
+
+<style>
+  /* ===== VVRamp on/off-ramp widget ===== */
+  .wsite .vvr-sec{padding:40px 0 96px}
+  .wsite .vvr-back{display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:600;color:var(--muted);cursor:pointer;text-decoration:none;transition:color .15s}
+  .wsite .vvr-back svg{width:16px;height:16px}
+  .wsite .vvr-back:hover{color:var(--brand)}
+  .wsite .vvr-head{text-align:center;max-width:600px;margin:26px auto 30px}
+  .wsite .vvr-head .about-eyebrow{display:inline-flex}
+  .wsite .vvr-head h1{font-size:clamp(28px,3.8vw,42px);font-weight:800;letter-spacing:-.025em;margin:12px 0 12px}
+  .wsite .vvr-head .about-lede{margin:0 auto}
+  .wsite .vvr-widget{max-width:440px;margin:0 auto;background:var(--surface);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow-lg);padding:22px 22px 20px;position:relative;overflow:hidden;min-height:360px}
+  .wsite .ramp-view{display:none}
+  .wsite .ramp-view.on{display:block}
+  /* tabs */
+  .wsite .ramp-tabs{display:flex;gap:24px;border-bottom:1px solid var(--line);margin:-2px 0 20px}
+  .wsite .ramp-tab{appearance:none;background:none;border:0;padding:0 0 12px;font-family:var(--sans);font-size:15px;font-weight:600;color:var(--muted);cursor:pointer;position:relative;top:1px;border-bottom:2px solid transparent;transition:color .15s}
+  .wsite .ramp-tab:hover{color:var(--body)}
+  .wsite .ramp-tab.on{color:var(--ink);border-bottom-color:var(--brand)}
+  /* field */
+  .wsite .ramp-field{background:var(--surface-2);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+  .wsite .rf-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:5px;min-height:18px}
+  .wsite .rf-label{font-size:12.5px;color:var(--muted);font-weight:500}
+  .wsite .rf-badge{font-size:11px;font-weight:700;color:var(--pos-ink);background:var(--pos-tint);border-radius:20px;padding:3px 9px;white-space:nowrap}
+  .wsite .rf-badge[hidden]{display:none}
+  .wsite .rf-row{display:flex;align-items:center;gap:10px}
+  .wsite .rf-amt{flex:1 1 auto;min-width:0;border:0;background:none;font-family:var(--display);font-weight:700;font-size:26px;color:var(--ink);letter-spacing:-.02em;padding:0}
+  .wsite .rf-amt:focus{outline:none}
+  .wsite .rf-sel{display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--line-2);border-radius:30px;padding:6px 11px 6px 7px;cursor:pointer;flex:0 0 auto;transition:border-color .15s}
+  .wsite .rf-sel:hover{border-color:var(--brand)}
+  .wsite .rf-ic{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-size:14px;font-weight:800;color:#fff;flex:0 0 auto;line-height:1}
+  .wsite .rf-ic.flag{background:none!important;font-size:22px}
+  .wsite .rf-code{font-size:14px;font-weight:700;color:var(--ink);line-height:1.05;text-align:left}
+  .wsite .rf-net{font-size:10px;color:var(--muted);font-weight:500;display:block;margin-top:1px}
+  .wsite .rf-cv{color:var(--muted);flex:0 0 auto;display:grid}
+  .wsite .rf-cv svg{width:14px;height:14px;display:block}
+  /* swap divider */
+  .wsite .ramp-swap{display:flex;align-items:center;justify-content:center;height:0;position:relative;z-index:1}
+  .wsite .ramp-swap span{width:34px;height:34px;border-radius:50%;background:var(--surface);border:1px solid var(--line);display:grid;place-items:center;color:var(--brand);margin:-3px 0}
+  .wsite .ramp-swap svg{width:16px;height:16px}
+  /* timer */
+  .wsite .ramp-timer{display:flex;align-items:center;justify-content:flex-end;gap:5px;font-size:11.5px;color:var(--muted);margin:12px 2px 4px}
+  .wsite .ramp-timer svg{width:13px;height:13px}
+  /* order summary */
+  .wsite .ramp-order{border-top:1px solid var(--line);padding-top:12px;margin-top:8px}
+  .wsite .ro-head{display:flex;justify-content:space-between;gap:12px;font-size:13px;font-weight:600;color:var(--ink);margin-bottom:9px}
+  .wsite .ro-head span:last-child{color:var(--body);font-weight:500;text-align:right}
+  .wsite .ro-line{display:flex;justify-content:space-between;gap:12px;font-size:12.5px;color:var(--muted);margin:6px 0}
+  .wsite .ro-line b{color:var(--ink);font-weight:700}
+  .wsite .ro-line s{color:var(--muted);margin-right:5px}
+  .wsite .ro-line .pos{color:var(--pos-ink);font-weight:700}
+  /* cta */
+  .wsite .ramp-cta{width:100%;margin-top:16px;height:50px;border:0;border-radius:28px;background:var(--brand);color:#fff;font-family:var(--sans);font-size:15.5px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:var(--shadow-brand);transition:background .2s,transform .12s}
+  .wsite .ramp-cta:hover{background:var(--brand-deep);transform:translateY(-1px)}
+  .wsite .ramp-cta svg{width:16px;height:16px}
+  /* payment icons + powered */
+  .wsite .ramp-pays{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:16px;flex-wrap:wrap}
+  .wsite .ramp-pays .pay{height:22px;padding:0 8px;border:1px solid var(--line);border-radius:5px;display:inline-flex;align-items:center;font-size:10px;font-weight:800;color:var(--muted);background:var(--surface);letter-spacing:.02em}
+  .wsite .ramp-powered{text-align:center;font-size:11px;color:var(--muted);margin-top:12px}
+  .wsite .ramp-powered b{color:var(--body);font-weight:700}
+  /* picker popover */
+  .wsite .ramp-picker{position:absolute;inset:0;background:var(--surface);z-index:5;display:none;flex-direction:column;padding:18px 18px 12px}
+  .wsite .ramp-picker.on{display:flex}
+  .wsite .rp-head{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+  .wsite .rp-head button{appearance:none;background:none;border:0;color:var(--muted);cursor:pointer;padding:4px;display:grid;place-items:center;border-radius:8px}
+  .wsite .rp-head button:hover{background:var(--surface-2);color:var(--ink)}
+  .wsite .rp-head button svg{width:18px;height:18px}
+  .wsite .rp-head h4{font-size:15px;font-weight:700;color:var(--ink);margin:0}
+  .wsite .rp-search{width:100%;border:1px solid var(--line-2);border-radius:10px;padding:9px 12px;font-size:13.5px;color:var(--ink);background:var(--surface-2);margin-bottom:8px;font-family:inherit}
+  .wsite .rp-search:focus{outline:none;border-color:var(--brand)}
+  .wsite .rp-list{overflow:auto;flex:1 1 auto;margin:0 -6px;min-height:0}
+  .wsite .rp-item{display:flex;align-items:center;gap:11px;width:100%;padding:10px 12px;border:0;background:none;cursor:pointer;border-radius:10px;text-align:left;font-family:inherit}
+  .wsite .rp-item:hover{background:var(--surface-2)}
+  .wsite .rp-item .rf-ic{width:30px;height:30px;font-size:15px}
+  .wsite .rp-item .nm{font-size:14px;font-weight:600;color:var(--ink)}
+  .wsite .rp-item .sub{font-size:11.5px;color:var(--muted);font-weight:500;display:block;margin-top:1px}
+  /* review */
+  .wsite .rv-back{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);cursor:pointer;background:none;border:0;padding:0;margin-bottom:14px;font-family:inherit}
+  .wsite .rv-back:hover{color:var(--brand)}
+  .wsite .rv-back svg{width:15px;height:15px}
+  .wsite .rv-title{font-size:18px;font-weight:800;color:var(--ink);margin:0 0 14px}
+  .wsite .rv-sum{background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:16px}
+  .wsite .rv-row{display:flex;justify-content:space-between;gap:12px;font-size:13px;margin:7px 0;color:var(--muted)}
+  .wsite .rv-row b{color:var(--ink);font-weight:700;text-align:right}
+  .wsite .rv-row.big{font-size:15px;padding-top:10px;margin-top:10px;border-top:1px solid var(--line)}
+  .wsite .rv-pm-h{font-size:11.5px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin:0 0 9px}
+  .wsite .rv-pm{display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
+  .wsite .pm-opt{display:flex;align-items:center;gap:11px;border:1px solid var(--line-2);border-radius:11px;padding:11px 13px;cursor:pointer;transition:border-color .15s,background .15s;background:var(--surface);font-family:inherit;text-align:left}
+  .wsite .pm-opt:hover{border-color:var(--brand-ring)}
+  .wsite .pm-opt.on{border-color:var(--brand);background:var(--brand-tint)}
+  .wsite .pm-ic{width:34px;height:23px;border-radius:5px;border:1px solid var(--line);display:grid;place-items:center;font-size:8.5px;font-weight:800;color:var(--body);background:var(--surface);flex:0 0 auto;letter-spacing:.02em}
+  .wsite .pm-nm{font-size:13.5px;font-weight:600;color:var(--ink);flex:1}
+  .wsite .pm-rd{width:18px;height:18px;border-radius:50%;border:2px solid var(--line-2);flex:0 0 auto}
+  .wsite .pm-opt.on .pm-rd{border-color:var(--brand);background:radial-gradient(circle at center,var(--brand) 0 4px,transparent 5px)}
+  /* success */
+  .wsite .rv-success{text-align:center;padding:22px 6px 8px}
+  .wsite .rv-ok{width:64px;height:64px;border-radius:50%;background:var(--pos-tint);color:var(--pos-ink);display:grid;place-items:center;margin:0 auto 16px}
+  .wsite .rv-ok svg{width:32px;height:32px}
+  .wsite .rv-success h3{font-size:20px;font-weight:800;color:var(--ink);margin:0 0 8px}
+  .wsite .rv-success p{font-size:13.5px;color:var(--body);margin:0 auto;max-width:36ch;line-height:1.6}
+  .wsite .rv-success p b{color:var(--ink)}
+  .wsite .rv-demo{font-size:11.5px;color:var(--muted);background:var(--surface-2);border:1px solid var(--line);border-radius:8px;padding:8px 12px;margin:16px 0 20px;display:inline-block}
+  @media (max-width:520px){.wsite .vvr-widget{padding:18px 16px}.wsite .rf-amt{font-size:23px}}
+</style>
+<div class="page" id="page-vvramp">
+  <section class="sec vvr-sec">
+    <div class="wrap">
+      <a class="vvr-back" data-page="product"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5m6-6-6 6 6 6"/></svg>Back to Product</a>
+      <div class="vvr-head reveal">
+        <div class="about-eyebrow">VVRamp</div>
+        <h1>Buy &amp; sell crypto, instantly</h1>
+        <p class="about-lede">On-ramp from your local currency to stablecoins, or cash out to your bank &mdash; at transparent rates with no spread games.</p>
+      </div>
+      <div class="vvr-widget reveal" id="vvrWidget" data-mode="buy">
+        <!-- QUOTE -->
+        <div class="ramp-view on" data-view="quote">
+          <div class="ramp-tabs">
+            <button class="ramp-tab on" type="button" data-mode="buy">Buy Crypto</button>
+            <button class="ramp-tab" type="button" data-mode="sell">Sell Crypto</button>
+          </div>
+          <div class="ramp-field">
+            <div class="rf-top"><span class="rf-label" id="topLabel">You pay</span><span class="rf-badge" id="topBadge" hidden></span></div>
+            <div class="rf-row">
+              <input class="rf-amt" id="topAmt" inputmode="decimal" autocomplete="off" spellcheck="false" value="2352.87">
+              <button class="rf-sel" id="topSel" type="button"></button>
+            </div>
+          </div>
+          <div class="ramp-swap"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14m0 0-5-5m5 5 5-5"/></svg></span></div>
+          <div class="ramp-field">
+            <div class="rf-top"><span class="rf-label" id="botLabel">You receive (estimate)</span></div>
+            <div class="rf-row">
+              <input class="rf-amt" id="botAmt" readonly value="0">
+              <button class="rf-sel" id="botSel" type="button"></button>
+            </div>
+          </div>
+          <div class="ramp-timer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7.5V12l3 2"/></svg>Rate refreshes in <b id="rampCd" style="margin:0 3px;color:var(--body)">15</b>s</div>
+          <div class="ramp-order">
+            <div class="ro-head"><span>Your order</span><span id="roSum">&mdash;</span></div>
+            <div class="ro-line"><span id="roRate">&mdash;</span><span id="roRate2"></span></div>
+            <div class="ro-line"><span>Processing fee</span><span id="roFee">&mdash;</span></div>
+            <div class="ro-line"><span>Network fee</span><span id="roNet">&asymp; 0</span></div>
+          </div>
+          <button class="ramp-cta" id="rampCta" type="button">Proceed<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button>
+          <div class="ramp-pays">
+            <span class="pay">VISA</span><span class="pay">Mastercard</span><span class="pay">Apple&nbsp;Pay</span><span class="pay">G&nbsp;Pay</span><span class="pay">Bank</span>
+          </div>
+          <div class="ramp-powered">Powered by <b>VVRamp</b> &middot; a VVBusiness service</div>
+          <!-- picker -->
+          <div class="ramp-picker" id="rampPicker">
+            <div class="rp-head"><button type="button" id="rpBack"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5m6-6-6 6 6 6"/></svg></button><h4 id="rpTitle">Select</h4></div>
+            <input class="rp-search" id="rpSearch" placeholder="Search" autocomplete="off">
+            <div class="rp-list" id="rpList"></div>
+          </div>
+        </div>
+        <!-- REVIEW -->
+        <div class="ramp-view" data-view="review">
+          <button class="rv-back" type="button" id="rvBack"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5m6-6-6 6 6 6"/></svg>Back</button>
+          <h3 class="rv-title" id="rvTitle">Review your order</h3>
+          <div class="rv-sum">
+            <div class="rv-row"><span id="rvPayL">You pay</span><b id="rvPay">&mdash;</b></div>
+            <div class="rv-row"><span id="rvGetL">You receive</span><b id="rvGet">&mdash;</b></div>
+            <div class="rv-row"><span>Rate</span><b id="rvRate">&mdash;</b></div>
+            <div class="rv-row"><span>Processing fee</span><b id="rvFee">&mdash;</b></div>
+            <div class="rv-row big"><span id="rvTotalL">Total</span><b id="rvTotal">&mdash;</b></div>
+          </div>
+          <div class="rv-pm-h">Pay with</div>
+          <div class="rv-pm" id="rvPm">
+            <button class="pm-opt on" type="button" data-pm="card"><span class="pm-ic">CARD</span><span class="pm-nm">Debit / credit card</span><span class="pm-rd"></span></button>
+            <button class="pm-opt" type="button" data-pm="Apple Pay"><span class="pm-ic">APAY</span><span class="pm-nm">Apple Pay</span><span class="pm-rd"></span></button>
+            <button class="pm-opt" type="button" data-pm="bank transfer"><span class="pm-ic">BANK</span><span class="pm-nm">Bank transfer</span><span class="pm-rd"></span></button>
+          </div>
+          <button class="ramp-cta" id="rvConfirm" type="button">Confirm &amp; pay</button>
+        </div>
+        <!-- SUCCESS -->
+        <div class="ramp-view" data-view="success">
+          <div class="rv-success">
+            <div class="rv-ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg></div>
+            <h3 id="scTitle">Order placed</h3>
+            <p id="scMsg">&mdash;</p>
+            <div class="rv-demo">Demo only &mdash; no real funds move. Connect a VVBusiness account to go live.</div>
+            <button class="ramp-cta" id="scDone" type="button" style="max-width:230px;margin:0 auto">Buy more crypto</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<script>
+/* VVRamp on/off-ramp widget (front-end demo; wire to VVRamp quote API in production) */
+(function(){
+  var W = document.getElementById('vvrWidget');
+  if(!W) return;
+  function g(id){ return document.getElementById(id); }
+
+  // mock market data: fiat.u = 1 unit in USD ; crypto.u = 1 unit in USD
+  var FIAT = [
+    {c:'USD',f:'🇺🇸',u:1,s:'$'},
+    {c:'HKD',f:'🇭🇰',u:0.1282,s:'HK$'},
+    {c:'SGD',f:'🇸🇬',u:0.741,s:'S$'},
+    {c:'EUR',f:'🇪🇺',u:1.083,s:'€'},
+    {c:'GBP',f:'🇬🇧',u:1.271,s:'£'},
+    {c:'THB',f:'🇹🇭',u:0.0281,s:'฿'},
+    {c:'MYR',f:'🇲🇾',u:0.212,s:'RM'},
+    {c:'IDR',f:'🇮🇩',u:0.0000625,s:'Rp'},
+    {c:'PHP',f:'🇵🇭',u:0.0176,s:'₱'},
+    {c:'INR',f:'🇮🇳',u:0.0120,s:'₹'},
+    {c:'AED',f:'🇦🇪',u:0.2723,s:'AED'},
+    {c:'JPY',f:'🇯🇵',u:0.0067,s:'¥'}
+  ];
+  var CRYPTO = [
+    {c:'USDC',n:'BSC',u:1.0,col:'#2775CA',g:'$'},
+    {c:'USDC',n:'Ethereum',u:1.0,col:'#2775CA',g:'$'},
+    {c:'USDT',n:'Tron',u:1.0,col:'#26A17B',g:'₮'},
+    {c:'USDT',n:'BSC',u:1.0,col:'#26A17B',g:'₮'},
+    {c:'ETH',n:'Ethereum',u:3180,col:'#627EEA',g:'Ξ'},
+    {c:'BTC',n:'Bitcoin',u:63800,col:'#F7931A',g:'₿'}
+  ];
+  var st = { mode:'buy', fiat:FIAT[1], crypto:CRYPTO[0], amt:2352.87, pm:'card' };
+
+  function stable(c){ return c.c==='USDC'||c.c==='USDT'; }
+  function fmt(n,d){ if(!isFinite(n)) n=0; return n.toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d}); }
+  function cdec(c){ return c.u>=10000?6:(c.u>=100?4:2); }
+  var ARROW='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>';
+  var CHEV='<span class="rf-cv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></span>';
+
+  function fiatIc(x){ return '<span class="rf-ic flag">'+x.f+'</span>'; }
+  function cryptoIc(x){ return '<span class="rf-ic" style="background:'+x.col+'">'+x.g+'</span>'; }
+  function selHTML(kind,x){
+    if(kind==='fiat') return fiatIc(x)+'<span class="rf-code">'+x.c+'</span>'+CHEV;
+    return cryptoIc(x)+'<span class="rf-code">'+x.c+'<span class="rf-net">'+x.n+'</span></span>'+CHEV;
+  }
+
+  function calc(){
+    var amt=st.amt, fee=stable(st.crypto)?0:0.01;
+    var priceFiat = st.crypto.u/st.fiat.u; // 1 crypto in fiat
+    var cryptoAmt, fiatAmt, feeFiat;
+    if(st.mode==='buy'){
+      fiatAmt=amt; var usd=amt*st.fiat.u; cryptoAmt=(usd/st.crypto.u)*(1-fee); feeFiat=fiatAmt*fee;
+    } else {
+      cryptoAmt=amt; var usd2=amt*st.crypto.u; var gross=usd2/st.fiat.u; fiatAmt=gross*(1-fee); feeFiat=gross*fee;
+    }
+    return {fee:fee, cryptoAmt:cryptoAmt, fiatAmt:fiatAmt, priceFiat:priceFiat, feeFiat:feeFiat};
+  }
+
+  function render(){
+    var r=calc(), cd=cdec(st.crypto);
+    // selectors
+    if(st.mode==='buy'){ g('topSel').innerHTML=selHTML('fiat',st.fiat); g('botSel').innerHTML=selHTML('crypto',st.crypto); }
+    else { g('topSel').innerHTML=selHTML('crypto',st.crypto); g('botSel').innerHTML=selHTML('fiat',st.fiat); }
+    // labels
+    g('topLabel').textContent = st.mode==='buy' ? 'You pay' : 'You sell';
+    g('botLabel').textContent = 'You receive (estimate)';
+    // badge (buy + stablecoin = no fees)
+    var badge=g('topBadge');
+    if(st.mode==='buy' && stable(st.crypto)){ badge.hidden=false; badge.textContent='Buy '+st.crypto.c+' · No fees'; }
+    else badge.hidden=true;
+    // receive amount
+    g('botAmt').value = st.mode==='buy' ? fmt(r.cryptoAmt,cd) : fmt(r.fiatAmt,2);
+    // order summary
+    g('roSum').textContent = st.mode==='buy'
+      ? fmt(r.cryptoAmt,cd)+' '+st.crypto.c+' for '+fmt(r.fiatAmt,2)+' '+st.fiat.c
+      : fmt(r.cryptoAmt,cd)+' '+st.crypto.c+' to '+fmt(r.fiatAmt,2)+' '+st.fiat.c;
+    g('roRate').textContent='1 '+st.crypto.c;
+    g('roRate2').textContent='≈ '+fmt(r.priceFiat,2)+' '+st.fiat.c;
+    if(r.fee===0) g('roFee').innerHTML='<s>'+st.fiat.s+' '+fmt(r.fiatAmt*0.009,2)+'</s> <b class="pos">FREE</b>';
+    else g('roFee').innerHTML='<b>'+st.fiat.s+' '+fmt(r.feeFiat,2)+'</b>';
+    g('roNet').textContent='≈ 0 '+(st.mode==='buy'?st.crypto.c:st.fiat.c);
+    // cta
+    g('rampCta').innerHTML=(st.mode==='buy'?'Proceed · Buy ':'Proceed · Sell ')+st.crypto.c+ARROW;
+  }
+
+  // ----- picker -----
+  var pk=g('rampPicker'), pickKind=null;
+  function buildList(q){
+    q=(q||'').toLowerCase();
+    var arr = pickKind==='fiat'?FIAT:CRYPTO, html='';
+    arr.forEach(function(it,idx){
+      var key = pickKind==='fiat'?it.c:(it.c+' '+it.n);
+      if(q && key.toLowerCase().indexOf(q)<0) return;
+      var ic = pickKind==='fiat'?fiatIc(it):cryptoIc(it);
+      var nm = pickKind==='fiat'
+        ? '<span class="nm">'+it.c+'</span>'
+        : '<span class="nm">'+it.c+'<span class="sub">'+it.n+' network</span></span>';
+      html+='<button class="rp-item" type="button" data-i="'+idx+'">'+ic+nm+'</button>';
+    });
+    g('rpList').innerHTML=html;
+  }
+  function openPicker(kind){ pickKind=kind; g('rpTitle').textContent=kind==='fiat'?'Select currency':'Select crypto'; g('rpSearch').value=''; buildList(''); pk.classList.add('on'); try{g('rpSearch').focus();}catch(e){} }
+  function closePicker(){ pk.classList.remove('on'); }
+  g('topSel').addEventListener('click',function(){ openPicker(st.mode==='buy'?'fiat':'crypto'); });
+  g('botSel').addEventListener('click',function(){ openPicker(st.mode==='buy'?'crypto':'fiat'); });
+  g('rpBack').addEventListener('click',closePicker);
+  g('rpSearch').addEventListener('input',function(){ buildList(this.value); });
+  g('rpList').addEventListener('click',function(e){
+    var b=e.target.closest('.rp-item'); if(!b) return;
+    var it=(pickKind==='fiat'?FIAT:CRYPTO)[+b.getAttribute('data-i')];
+    if(pickKind==='fiat') st.fiat=it; else st.crypto=it;
+    closePicker(); render();
+  });
+
+  // ----- amount input -----
+  g('topAmt').addEventListener('input',function(){
+    var v=parseFloat(this.value.replace(/[^0-9.]/g,'')); st.amt=isFinite(v)?v:0; render();
+  });
+
+  // ----- tabs / mode -----
+  function setMode(m){
+    st.mode=m; W.setAttribute('data-mode',m);
+    [].forEach.call(document.querySelectorAll('.ramp-tab'),function(t){ t.classList.toggle('on',t.getAttribute('data-mode')===m); });
+    st.amt = (m==='buy'?2352.87:1000); g('topAmt').value=String(st.amt);
+    render();
+  }
+  [].forEach.call(document.querySelectorAll('.ramp-tab'),function(t){ t.addEventListener('click',function(){ setMode(t.getAttribute('data-mode')); }); });
+
+  // ----- views -----
+  function showView(v){ [].forEach.call(W.querySelectorAll('.ramp-view'),function(x){ x.classList.toggle('on',x.getAttribute('data-view')===v); }); }
+
+  function fillReview(){
+    var r=calc(), cd=cdec(st.crypto);
+    g('rvTitle').textContent = st.mode==='buy'?'Review your purchase':'Review your sale';
+    g('rvPayL').textContent = st.mode==='buy'?'You pay':'You sell';
+    g('rvPay').textContent = st.mode==='buy' ? (st.fiat.s+' '+fmt(r.fiatAmt,2)+' '+st.fiat.c) : (fmt(r.cryptoAmt,cd)+' '+st.crypto.c);
+    g('rvGet').textContent = st.mode==='buy' ? (fmt(r.cryptoAmt,cd)+' '+st.crypto.c+' · '+st.crypto.n) : (st.fiat.s+' '+fmt(r.fiatAmt,2)+' '+st.fiat.c);
+    g('rvRate').textContent = '1 '+st.crypto.c+' ≈ '+fmt(r.priceFiat,2)+' '+st.fiat.c;
+    g('rvFee').textContent = r.fee===0 ? 'FREE' : (st.fiat.s+' '+fmt(r.feeFiat,2));
+    g('rvTotalL').textContent = st.mode==='buy'?'Total to pay':'Total to receive';
+    g('rvTotal').textContent = st.fiat.s+' '+fmt(r.fiatAmt,2)+' '+st.fiat.c;
+  }
+  g('rampCta').addEventListener('click',function(){ fillReview(); showView('review'); });
+  g('rvBack').addEventListener('click',function(){ showView('quote'); });
+  [].forEach.call(document.querySelectorAll('.pm-opt'),function(o){ o.addEventListener('click',function(){
+    document.querySelectorAll('.pm-opt').forEach(function(x){ x.classList.remove('on'); }); o.classList.add('on'); st.pm=o.getAttribute('data-pm');
+  }); });
+  g('rvConfirm').addEventListener('click',function(){
+    var r=calc(), cd=cdec(st.crypto);
+    g('scTitle').textContent = st.mode==='buy'?'Purchase confirmed':'Sale confirmed';
+    g('scMsg').innerHTML = st.mode==='buy'
+      ? 'Paid '+st.fiat.s+' '+fmt(r.fiatAmt,2)+' '+st.fiat.c+' by '+st.pm+'. <b>'+fmt(r.cryptoAmt,cd)+' '+st.crypto.c+'</b> on '+st.crypto.n+' will settle to your VVBusiness balance.'
+      : 'Selling <b>'+fmt(r.cryptoAmt,cd)+' '+st.crypto.c+'</b>. '+st.fiat.s+' '+fmt(r.fiatAmt,2)+' '+st.fiat.c+' will arrive to your bank by '+st.pm+'.';
+    showView('success');
+  });
+  g('scDone').addEventListener('click',function(){ showView('quote'); });
+
+  // reset to quote whenever the page is opened via any [data-page="vvramp"] control
+  [].forEach.call(document.querySelectorAll('[data-page="vvramp"]'),function(el){ el.addEventListener('click',function(){ setTimeout(function(){ showView('quote'); closePicker(); },0); }); });
+
+  // cosmetic rate-refresh countdown
+  var cn=15;
+  setInterval(function(){
+    var pg=document.getElementById('page-vvramp');
+    if(!pg || !pg.classList.contains('on')) return;
+    cn--; if(cn<=0) cn=15;
+    var e=g('rampCd'); if(e) e.textContent=cn;
+  },1000);
+
+  // init
+  g('topAmt').value=String(st.amt);
+  render();
+})();
+</script>
+
 </main>
 
 <!-- ===== FOOTER ===== -->
@@ -4021,7 +4383,7 @@ curl https://api.vvbusiness.io/v1/channels \
   document.querySelectorAll('.faq-q').forEach(function(q){ q.addEventListener('click',function(){ q.parentElement.classList.toggle('open'); }); });
 
   /* ======== ROUTING ======== */
-  var PAGES=['home','product','pricing','developer','about','contact','policies','policy-terms','policy-privacy','policy-legal-notice','policy-aml-ctf','policy-cookies','policy-complaints','policy-asset-protection','policy-risk-warnings','policy-conflicts','policy-accessibility','policy-environment','policy-service-description'];
+  var PAGES=['home','product','pricing','developer','about','contact','policies','policy-terms','policy-privacy','policy-legal-notice','policy-aml-ctf','policy-cookies','policy-complaints','policy-asset-protection','policy-risk-warnings','policy-conflicts','policy-accessibility','policy-environment','policy-service-description','vvramp'];
   function goPage(name,skipScroll){
     if(PAGES.indexOf(name)<0)name='home';
     if(portalOv && !portalOv.hidden) closePortal();
