@@ -1250,7 +1250,7 @@
     <span class="logo brandlogo" data-page="home" role="img" aria-label="VVBusiness"></span>
     <nav class="nav-links">
       
-      <a data-page="product">Product</a>
+      <div class="nav-mega" id="navMega"><a class="nav-mega-trigger" data-page="product">Product<svg class="mega-cv" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></a><div class="mega-panel"><div class="mega-col"><div class="mega-h">Accept &amp; hold</div><a class="mega-item" data-page="product" data-tab="collect"><span class="mi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="7" height="7" rx="1.2"/><rect x="14" y="3" width="7" height="7" rx="1.2"/><rect x="3" y="14" width="7" height="7" rx="1.2"/><path d="M14 14h3v3M21 14v7h-7v-3"/></svg></span><span class="mi-tx"><span class="mi-tt">Crypto Payment</span><span class="mi-sub">Accept crypto &amp; local transfers</span></span></a><a class="mega-item" data-page="product" data-tab="wallet"><span class="mi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="6" width="18" height="13" rx="2.5"/><path d="M3 10.5h18"/><circle cx="16.5" cy="14.5" r="1.2"/></svg></span><span class="mi-tx"><span class="mi-tt">Wallet &amp; balances</span><span class="mi-sub">Hold and manage dollar balances</span></span></a></div><div class="mega-col"><div class="mega-h">Move money</div><a class="mega-item" data-page="product" data-tab="payout"><span class="mi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="5" cy="12" r="2.2"/><circle cx="19" cy="5.5" r="2.2"/><circle cx="19" cy="18.5" r="2.2"/><path d="m7 11 10-4.5M7 13l10 4.5"/></svg></span><span class="mi-tx"><span class="mi-tt">Batch Payout</span><span class="mi-sub">Pay thousands from one file</span></span></a><a class="mega-item" data-page="vvramp"><span class="mi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="m16 3 4 4-4 4"/><path d="M20 7H9a5 5 0 0 0-5 5"/><path d="m8 21-4-4 4-4"/><path d="M4 17h11a5 5 0 0 0 5-5"/></svg></span><span class="mi-tx"><span class="mi-tt">VVRamp</span><span class="mi-sub">Buy, sell &amp; cash out crypto</span></span></a><a class="mega-item" data-page="product" data-tab="otc"><span class="mi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 9.5 12 4l9 5.5"/><path d="M5 9.5V20h14V9.5"/><path d="M9.5 20v-6h5v6"/></svg></span><span class="mi-tx"><span class="mi-tt">OTC desk</span><span class="mi-sub">Large trades at quoted rates</span></span></a></div><div class="mega-col"><div class="mega-h">Build &amp; scale</div><a class="mega-item" data-page="developer"><span class="mi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8.5 7 3.5 12l5 5"/><path d="m15.5 7 5 5-5 5"/></svg></span><span class="mi-tx"><span class="mi-tt">Developer API</span><span class="mi-sub">REST API, webhooks &amp; SDKs</span></span></a><a class="mega-item" data-page="pricing"><span class="mi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20.5 13.3 12.8 21a1.5 1.5 0 0 1-2.1 0l-7-7a1.5 1.5 0 0 1-.4-1V4.6A1.6 1.6 0 0 1 4.9 3h7.4a1.5 1.5 0 0 1 1.1.4l7 7a1.5 1.5 0 0 1 0 2.1Z"/><circle cx="8" cy="8" r="1.2"/></svg></span><span class="mi-tx"><span class="mi-tt">Pricing</span><span class="mi-sub">Transparent, volume-based</span></span></a></div></div></div>
       <a data-page="pricing">Pricing</a>
       <a data-page="developer">Developers</a>
       <a data-page="about">About Us</a>
@@ -2839,6 +2839,52 @@ curl https://api.vvbusiness.io/v1/channels \
 })();
 </script>
 
+
+<style>
+  /* ===== nav mega-menu (Products) ===== */
+  .wsite .nav-mega{position:relative;display:inline-flex;align-items:center}
+  .wsite .nav-mega-trigger{display:inline-flex;align-items:center;gap:4px;cursor:pointer}
+  .wsite .nav-mega-trigger .mega-cv{width:15px;height:15px;transition:transform .18s,color .18s;color:var(--muted)}
+  .wsite .nav-mega:hover .nav-mega-trigger,.wsite .nav-mega:focus-within .nav-mega-trigger{color:var(--ink)}
+  .wsite .nav-mega:hover .mega-cv,.wsite .nav-mega:focus-within .mega-cv{transform:rotate(180deg);color:var(--brand)}
+  .wsite .mega-panel{position:absolute;top:100%;left:-24px;width:min(720px,86vw);background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow-lg);padding:22px 22px 18px;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 18px;opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .16s ease,transform .16s ease,visibility .16s;z-index:130}
+  .wsite .mega-panel::before{content:"";position:absolute;top:-16px;left:0;right:0;height:16px}
+  .wsite .nav-mega:hover .mega-panel,.wsite .nav-mega:focus-within .mega-panel{opacity:1;visibility:visible;transform:none}
+  .wsite .nav-mega.mega-closing .mega-panel{opacity:0!important;visibility:hidden!important;transform:translateY(-6px)!important}
+  .wsite .mega-col{min-width:0}
+  .wsite .mega-h{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:2px 10px 6px}
+  .wsite .mega-item{display:flex;align-items:flex-start;gap:11px;padding:9px 10px;border-radius:11px;text-decoration:none;transition:background .12s}
+  .wsite .mega-item:hover{background:var(--surface-2)}
+  .wsite .mega-item .mi-ic{width:34px;height:34px;border-radius:9px;background:var(--brand-tint);color:var(--brand);display:grid;place-items:center;flex:0 0 auto;transition:background .12s,color .12s}
+  .wsite .mega-item:hover .mi-ic{background:var(--brand);color:#fff}
+  .wsite .mega-item .mi-ic svg{width:18px;height:18px}
+  .wsite .mega-item .mi-tx{display:flex;flex-direction:column;min-width:0}
+  .wsite .mega-item .mi-tt{font-size:14px;font-weight:600;color:var(--ink);line-height:1.2}
+  .wsite .mega-item .mi-sub{font-size:12px;color:var(--muted);margin-top:2px;line-height:1.3}
+  @media (max-width:900px){.wsite .nav-mega .mega-panel{display:none}}
+</style>
+<script>
+/* Nav mega-menu: deep-link product items into the right tour tab, and close after click */
+(function(){
+  var mega = document.getElementById('navMega');
+  if(!mega) return;
+  mega.querySelectorAll('.mega-item, .nav-mega-trigger').forEach(function(a){
+    a.addEventListener('click', function(){
+      // dismiss the panel right after a choice (cursor may still be over it)
+      mega.classList.add('mega-closing');
+      setTimeout(function(){ mega.classList.remove('mega-closing'); }, 320);
+      var tab = a.getAttribute('data-tab');
+      if(!tab) return;                       // VVRamp / Developer / Pricing / overview navigate normally
+      setTimeout(function(){                 // after goPage() has shown the product page
+        var t = document.querySelector('#tourTabs .tab[data-tab="' + tab + '"]');
+        if(t) t.click();                     // activate the matching tour tab (+ its panel/mock)
+        var tt = document.getElementById('tourTabs');
+        if(tt) tt.scrollIntoView({ behavior:'smooth', block:'start' });
+      }, 45);
+    });
+  });
+})();
+</script>
 </main>
 
 <!-- ===== FOOTER ===== -->
