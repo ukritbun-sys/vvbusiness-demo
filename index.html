@@ -1139,7 +1139,7 @@
 
   /* ===== LOGIN (overlay, dismisses into the portal) ===== */
   .pscope #login{position:fixed;inset:0;z-index:1000;background:var(--canvas);overflow-y:auto;transition:opacity .4s}
-  /* Website bar — shown only when the portal is opened standalone; hidden when embedded in the website */
+  /* Website bar - shown only when the portal is opened standalone; hidden when embedded in the website */
   .pscope .webnav{display:none}
   html.stand .webnav{display:flex;align-items:center;justify-content:space-between;gap:16px;position:fixed;top:0;left:0;right:0;height:56px;z-index:1300;padding:0 22px;background:var(--surface);border-bottom:1px solid var(--line)}
   .pscope .webnav .wn-logo{font-family:var(--display);font-weight:800;font-size:19px;letter-spacing:-.02em;color:var(--ink);text-decoration:none}
@@ -2589,7 +2589,7 @@ curl https://api.vvbusiness.io/v1/channels \
       <div class="vvr-head reveal">
         <div class="about-eyebrow">VVRamp</div>
         <h1>Buy &amp; sell crypto, instantly</h1>
-        <p class="about-lede">On-ramp from your local currency to stablecoins, or cash out to your bank &mdash; at transparent rates with no spread games.</p>
+        <p class="about-lede">On-ramp from your local currency to stablecoins, or cash out to your bank, at transparent rates with no spread games.</p>
       </div>
       <div class="vvr-widget reveal" id="vvrWidget" data-mode="buy">
         <!-- QUOTE -->
@@ -2615,9 +2615,9 @@ curl https://api.vvbusiness.io/v1/channels \
           </div>
           <div class="ramp-timer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7.5V12l3 2"/></svg>Rate refreshes in <b id="rampCd" style="margin:0 3px;color:var(--body)">15</b>s</div>
           <div class="ramp-order">
-            <div class="ro-head"><span>Your order</span><span id="roSum">&mdash;</span></div>
-            <div class="ro-line"><span id="roRate">&mdash;</span><span id="roRate2"></span></div>
-            <div class="ro-line"><span>Processing fee</span><span id="roFee">&mdash;</span></div>
+            <div class="ro-head"><span>Your order</span><span id="roSum">-</span></div>
+            <div class="ro-line"><span id="roRate">-</span><span id="roRate2"></span></div>
+            <div class="ro-line"><span>Processing fee</span><span id="roFee">-</span></div>
             <div class="ro-line"><span>Network fee</span><span id="roNet">&asymp; 0</span></div>
           </div>
           <button class="ramp-cta" id="rampCta" type="button">Proceed<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button>
@@ -2637,11 +2637,11 @@ curl https://api.vvbusiness.io/v1/channels \
           <button class="rv-back" type="button" id="rvBack"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5m6-6-6 6 6 6"/></svg>Back</button>
           <h3 class="rv-title" id="rvTitle">Review your order</h3>
           <div class="rv-sum">
-            <div class="rv-row"><span id="rvPayL">You pay</span><b id="rvPay">&mdash;</b></div>
-            <div class="rv-row"><span id="rvGetL">You receive</span><b id="rvGet">&mdash;</b></div>
-            <div class="rv-row"><span>Rate</span><b id="rvRate">&mdash;</b></div>
-            <div class="rv-row"><span>Processing fee</span><b id="rvFee">&mdash;</b></div>
-            <div class="rv-row big"><span id="rvTotalL">Total</span><b id="rvTotal">&mdash;</b></div>
+            <div class="rv-row"><span id="rvPayL">You pay</span><b id="rvPay">-</b></div>
+            <div class="rv-row"><span id="rvGetL">You receive</span><b id="rvGet">-</b></div>
+            <div class="rv-row"><span>Rate</span><b id="rvRate">-</b></div>
+            <div class="rv-row"><span>Processing fee</span><b id="rvFee">-</b></div>
+            <div class="rv-row big"><span id="rvTotalL">Total</span><b id="rvTotal">-</b></div>
           </div>
           <div class="rv-pm-h">Pay with</div>
           <div class="rv-pm" id="rvPm">
@@ -2656,8 +2656,8 @@ curl https://api.vvbusiness.io/v1/channels \
           <div class="rv-success">
             <div class="rv-ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg></div>
             <h3 id="scTitle">Order placed</h3>
-            <p id="scMsg">&mdash;</p>
-            <div class="rv-demo">Demo only &mdash; no real funds move. Connect a VVBusiness account to go live.</div>
+            <p id="scMsg">-</p>
+            <div class="rv-demo">Demo only. No real funds move. Connect a VVBusiness account to go live.</div>
             <button class="ramp-cta" id="scDone" type="button" style="max-width:230px;margin:0 auto">Buy more crypto</button>
           </div>
         </div>
@@ -3048,7 +3048,7 @@ curl https://api.vvbusiness.io/v1/channels \
   <a class="wn-logo" href="https://claude.ai/code/artifact/40d59e93-1e69-4cd1-b537-c2ad93e7c3af" target="_blank" rel="noopener">V<b>V</b>Business</a>
   <a class="wn-back" href="https://claude.ai/code/artifact/40d59e93-1e69-4cd1-b537-c2ad93e7c3af" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg><span>Back to website</span></a>
 </div>
-<div id="onboard" hidden><div class="ob-card"><div class="ob-progress" id="obProgress" hidden><span class="ob-dot"></span><span class="ob-dot"></span></div><div class="ob-step" data-step="password" hidden><div class="ob-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4.5" y="10.5" width="15" height="10" rx="2.2"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/><circle cx="12" cy="15.3" r="1.25"/></svg></div><h1>Create a password</h1><p>Secure your VVBusiness account. You&rsquo;ll use this with your email to sign in next time.</p><label class="ob-l" for="obPw">Password</label><input class="ob-in" id="obPw" type="password" placeholder="At least 8 characters" autocomplete="new-password"><label class="ob-l" for="obPw2">Confirm password</label><input class="ob-in" id="obPw2" type="password" placeholder="Re-enter password" autocomplete="new-password"><div class="ob-err" id="obPwErr" hidden></div><button class="ob-btn" id="obPwNext" type="button">Continue</button></div><div class="ob-step" data-step="merchant" hidden><div class="ob-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4.5 10.8V20h15v-9.2"/><path d="M3 6h18l-1.1 4a2.1 2.1 0 0 1-4.1-.2 2.1 2.1 0 0 1-4.4 0 2.1 2.1 0 0 1-4.4 0A2.1 2.1 0 0 1 4.1 10Z"/><path d="M10 20v-4.5h4V20"/></svg></div><h1>Name your business</h1><p>This is how your business appears across VVBusiness &mdash; on your dashboard, payment pages and payouts.</p><label class="ob-l" for="obName">Merchant name</label><input class="ob-in" id="obName" type="text" placeholder="e.g. Meridian Commerce" autocomplete="organization"><div class="ob-err" id="obNameErr" hidden></div><button class="ob-btn" id="obNameNext" type="button">Continue to dashboard</button></div></div></div>
+<div id="onboard" hidden><div class="ob-card"><div class="ob-progress" id="obProgress" hidden><span class="ob-dot"></span><span class="ob-dot"></span></div><div class="ob-step" data-step="password" hidden><div class="ob-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4.5" y="10.5" width="15" height="10" rx="2.2"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/><circle cx="12" cy="15.3" r="1.25"/></svg></div><h1>Create a password</h1><p>Secure your VVBusiness account. You&rsquo;ll use this with your email to sign in next time.</p><label class="ob-l" for="obPw">Password</label><input class="ob-in" id="obPw" type="password" placeholder="At least 8 characters" autocomplete="new-password"><label class="ob-l" for="obPw2">Confirm password</label><input class="ob-in" id="obPw2" type="password" placeholder="Re-enter password" autocomplete="new-password"><div class="ob-err" id="obPwErr" hidden></div><button class="ob-btn" id="obPwNext" type="button">Continue</button></div><div class="ob-step" data-step="merchant" hidden><div class="ob-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4.5 10.8V20h15v-9.2"/><path d="M3 6h18l-1.1 4a2.1 2.1 0 0 1-4.1-.2 2.1 2.1 0 0 1-4.4 0 2.1 2.1 0 0 1-4.4 0A2.1 2.1 0 0 1 4.1 10Z"/><path d="M10 20v-4.5h4V20"/></svg></div><h1>Name your business</h1><p>This is how your business appears across VVBusiness, shown on your dashboard, payment pages and payouts.</p><label class="ob-l" for="obName">Merchant name</label><input class="ob-in" id="obName" type="text" placeholder="e.g. Meridian Commerce" autocomplete="organization"><div class="ob-err" id="obNameErr" hidden></div><button class="ob-btn" id="obNameNext" type="button">Continue to dashboard</button></div></div></div>
 <div id="login">
   <div class="auth">
     <section class="hero">
@@ -3071,7 +3071,7 @@ curl https://api.vvbusiness.io/v1/channels \
         <h1>Accept crypto.<br>Settle in <span class="g">dollars.</span><br>Pay out anywhere.</h1>
         <ul class="feats">
           <li><span class="ic"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span>Every payment settles in <b>UCoin, 1:1 with the dollar</b></span></li>
-          <li><span class="ic"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span>Batch payouts to <b>any wallet address</b> &mdash; not just users on the same exchange</span></li>
+          <li><span class="ic"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span>Batch payouts to <b>any wallet address</b>, not just users on the same exchange</span></li>
           <li><span class="ic"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><span>One dashboard for <b>money in, money out</b>, and disputes</span></li>
         </ul>
       </div>
@@ -3283,7 +3283,7 @@ curl https://api.vvbusiness.io/v1/channels \
             <div class="dstep"><span class="dn">3</span>Deposit</div>
           </div>
           <div class="dep-s1-head">
-            <h3>Step 1: Choose a channel to deposit <span class="info-wrap" style="vertical-align:middle"><button class="info-dot" id="depInfo" type="button" aria-label="Why create a channel first?" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 11.5v4.5"/><path d="M12 8h.01"/></svg></button><div class="info-pop" id="depInfoPop" hidden><span class="ip-arrow"></span><b>Why create a channel first?</b>A channel ties each deposit to a known sender. You record who&rsquo;s transferring (a description &amp; their contact) before sharing the link, so every incoming payment is matched to an identified person we can verify &mdash; not an anonymous transfer. It keeps deposits traceable for compliance.</div></span></h3>
+            <h3>Step 1: Choose a channel to deposit <span class="info-wrap" style="vertical-align:middle"><button class="info-dot" id="depInfo" type="button" aria-label="Why create a channel first?" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 11.5v4.5"/><path d="M12 8h.01"/></svg></button><div class="info-pop" id="depInfoPop" hidden><span class="ip-arrow"></span><b>Why create a channel first?</b>A channel ties each deposit to a known sender. You record who&rsquo;s transferring (a description &amp; their contact) before sharing the link, so every incoming payment is matched to an identified person we can verify, not an anonymous transfer. It keeps deposits traceable for compliance.</div></span></h3>
             <button class="btn primary" id="createChBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>Create Channel</button>
           </div>
           <div class="filter-bar">
@@ -3417,7 +3417,7 @@ curl https://api.vvbusiness.io/v1/channels \
         </div>
         <div class="otc-banner" id="bankPickBanner" hidden>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="12" r="9"/><path d="M12 11.5v5"/><path d="M12 8h.01"/></svg>
-          <div class="ob-t" style="flex:1"><b>Select a bank account for your OTC request.</b> Choose where settlement should land &mdash; we&rsquo;ll take you back to the quote.</div>
+          <div class="ob-t" style="flex:1"><b>Select a bank account for your OTC request.</b> Choose where settlement should land, and we&rsquo;ll take you back to the quote.</div>
           <button class="btn" id="bankPickCancel" style="flex:0 0 auto;height:34px">Cancel</button>
         </div>
         <section class="card">
@@ -3550,7 +3550,7 @@ curl https://api.vvbusiness.io/v1/channels \
         </div>
         <div class="otc-banner">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="12" r="9"/><path d="M12 11.5v5"/><path d="M12 8h.01"/></svg>
-          <div class="ob-t"><b>Request a firm quote from our OTC desk.</b> Tell us what you want to buy or sell (USDT / USDC) and the currency to settle in &mdash; the desk replies with the exact rate and fee for you to accept. 23 fiat currencies. Desk hours 24/5.</div>
+          <div class="ob-t"><b>Request a firm quote from our OTC desk.</b> Tell us what you want to buy or sell (USDT / USDC) and the currency to settle in, and the desk replies with the exact rate and fee for you to accept. 23 fiat currencies. Desk hours 24/5.</div>
         </div>
         <section class="card">
           <div class="filter-bar">
@@ -3607,7 +3607,7 @@ curl https://api.vvbusiness.io/v1/channels \
 
         <div class="warn-banner">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4m0 4h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h16.9a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>
-          <div class="wb-txt"><b>Add all recipient addresses to your Address Book</b> before uploading &mdash; non-whitelisted recipients are skipped automatically.</div>
+          <div class="wb-txt"><b>Add all recipient addresses to your Address Book</b> before uploading; non-whitelisted recipients are skipped automatically.</div>
           <button class="btn primary" data-go="ab" style="height:34px;padding:0 14px">Add to Address Book</button>
         </div>
 
@@ -3639,7 +3639,7 @@ curl https://api.vvbusiness.io/v1/channels \
             <div class="file-meta"><b>batch_payout_2026-08.xlsx</b><div class="sub">25 records detected &middot; <span class="g">23 valid</span> &middot; <span class="a">2 need attention</span></div></div>
             <button class="btn" id="payReupload">Re-upload</button>
           </div>
-          <div class="pay-warn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4m0 4h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h16.9a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg><div><b>2 recipients can&rsquo;t be paid yet</b> &mdash; an invalid wallet address (row 14) and a recipient not on your whitelist (row 21). Only whitelisted recipients are paid; add them to the Address Book, or they&rsquo;ll be skipped.</div></div>
+          <div class="pay-warn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4m0 4h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h16.9a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg><div><b>2 recipients can&rsquo;t be paid yet</b>: an invalid wallet address (row 14) and a recipient not on your whitelist (row 21). Only whitelisted recipients are paid; add them to the Address Book, or they&rsquo;ll be skipped.</div></div>
           <div style="overflow-x:auto"><table class="tbl">
             <thead><tr><th>Row</th><th>Recipient / Wallet</th><th>Order ID</th><th>Currency</th><th>Network</th><th style="text-align:right">Amount</th><th style="text-align:right">Validation</th></tr></thead>
             <tbody id="payReviewBody"></tbody>
@@ -3697,12 +3697,12 @@ curl https://api.vvbusiness.io/v1/channels \
           <div style="overflow-x:auto"><table class="tbl">
             <thead><tr><th data-i18n="s_user">User</th><th data-i18n="s_email">Email</th><th data-i18n="s_role">Role</th><th data-i18n="s_status">Status</th><th data-i18n="s_lastactive">Last active</th><th style="text-align:right" data-i18n="s_operation">Operation</th></tr></thead>
             <tbody id="urBody">
-              <tr><td><div class="prod-cell"><span class="avatar" style="width:28px;height:28px;font-size:11px">NT</span><b style="color:var(--ink);font-weight:600">Nattapong T.</b></div></td><td style="color:var(--body)">natt@meridiancommerce.com</td><td><span class="role-tag owner">Owner</span></td><td><span class="status done"><span class="k"></span>Active</span></td><td style="color:var(--muted)">Now</td><td style="text-align:right"><span class="op-link">&mdash;</span></td></tr>
+              <tr><td><div class="prod-cell"><span class="avatar" style="width:28px;height:28px;font-size:11px">NT</span><b style="color:var(--ink);font-weight:600">Nattapong T.</b></div></td><td style="color:var(--body)">natt@meridiancommerce.com</td><td><span class="role-tag owner">Owner</span></td><td><span class="status done"><span class="k"></span>Active</span></td><td style="color:var(--muted)">Now</td><td style="text-align:right"><span class="op-link">-</span></td></tr>
               <tr><td><div class="prod-cell"><span class="avatar" style="width:28px;height:28px;font-size:11px;background:linear-gradient(135deg,#0E9F6E,#34C88A)">SP</span><b style="color:var(--ink);font-weight:600">Somchai P.</b></div></td><td style="color:var(--body)">somchai@meridiancommerce.com</td><td><span class="role-tag admin">Admin</span></td><td><span class="status done"><span class="k"></span>Active</span></td><td style="color:var(--muted)">2h ago</td><td style="text-align:right"><span class="op-link">Edit role</span></td></tr>
               <tr><td><div class="prod-cell"><span class="avatar" style="width:28px;height:28px;font-size:11px;background:linear-gradient(135deg,#C4740A,#E0932F)">WC</span><b style="color:var(--ink);font-weight:600">Wei Chen</b></div></td><td style="color:var(--body)">wei@meridiancommerce.com</td><td><span class="role-tag">Finance</span></td><td><span class="status done"><span class="k"></span>Active</span></td><td style="color:var(--muted)">Yesterday</td><td style="text-align:right"><span class="op-link">Edit role</span></td></tr>
               <tr><td><div class="prod-cell"><span class="avatar" style="width:28px;height:28px;font-size:11px;background:linear-gradient(135deg,#7A5CFF,#9B7BFF)">MK</span><b style="color:var(--ink);font-weight:600">Maya K.</b></div></td><td style="color:var(--body)">maya@meridiancommerce.com</td><td><span class="role-tag">Developer</span></td><td><span class="status done"><span class="k"></span>Active</span></td><td style="color:var(--muted)">3d ago</td><td style="text-align:right"><span class="op-link">Edit role</span></td></tr>
               <tr><td><div class="prod-cell"><span class="avatar" style="width:28px;height:28px;font-size:11px;background:linear-gradient(135deg,#3264FF,#5C86FF)">AL</span><b style="color:var(--ink);font-weight:600">Alex L.</b></div></td><td style="color:var(--body)">alex@meridiancommerce.com</td><td><span class="role-tag">Support</span></td><td><span class="status done"><span class="k"></span>Active</span></td><td style="color:var(--muted)">1w ago</td><td style="text-align:right"><span class="op-link">Edit role</span></td></tr>
-              <tr><td><div class="prod-cell"><span class="avatar" style="width:28px;height:28px;font-size:11px;background:var(--inset);color:var(--muted)">?</span><b style="color:var(--muted);font-weight:600">finance2@meridiancommerce.com</b></div></td><td style="color:var(--muted)">&mdash;</td><td><span class="role-tag">Finance</span></td><td><span class="status pend"><span class="k"></span>Invited</span></td><td style="color:var(--muted)">&mdash;</td><td style="text-align:right"><span class="op-link">Resend</span></td></tr>
+              <tr><td><div class="prod-cell"><span class="avatar" style="width:28px;height:28px;font-size:11px;background:var(--inset);color:var(--muted)">?</span><b style="color:var(--muted);font-weight:600">finance2@meridiancommerce.com</b></div></td><td style="color:var(--muted)">-</td><td><span class="role-tag">Finance</span></td><td><span class="status pend"><span class="k"></span>Invited</span></td><td style="color:var(--muted)">-</td><td style="text-align:right"><span class="op-link">Resend</span></td></tr>
             </tbody>
           </table></div>
         </section>
@@ -3764,15 +3764,15 @@ curl https://api.vvbusiness.io/v1/channels \
   <div class="drawer-body">
     <div class="d-status"><span class="status pend" id="odStatusPill"><span class="k"></span><span id="odStatus">Pending</span></span></div>
     <div class="dl-grid">
-      <div class="dl"><label>Created date</label><b id="odDate">&mdash;</b></div>
-      <div class="dl"><label>Request ID</label><b class="mono" id="odId">&mdash;</b></div>
+      <div class="dl"><label>Created date</label><b id="odDate">-</b></div>
+      <div class="dl"><label>Request ID</label><b class="mono" id="odId">-</b></div>
     </div>
     <div class="d-sec">Transaction Details</div>
     <div class="dl-grid">
       <div class="dl"><label>Type</label><b id="odType">Buy</b></div>
-      <div class="dl"><label>Transaction Amount</label><b id="odAmt">&mdash;</b></div>
-      <div class="dl"><label>Exchange Rate</label><b id="odRate">&mdash;</b></div>
-      <div class="dl"><label>Fee</label><b id="odFee">&mdash;</b></div>
+      <div class="dl"><label>Transaction Amount</label><b id="odAmt">-</b></div>
+      <div class="dl"><label>Exchange Rate</label><b id="odRate">-</b></div>
+      <div class="dl"><label>Fee</label><b id="odFee">-</b></div>
     </div>
     <div id="odAction" hidden></div>
   </div>
@@ -3882,7 +3882,7 @@ curl https://api.vvbusiness.io/v1/channels \
       <div class="kyb-done">
         <div class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></div>
         <h2>Verification submitted</h2>
-        <p>Thanks &mdash; we&rsquo;ve received your details and documents. Our team will review them within 1&ndash;2 business days. You can keep using VVBusiness in the meantime.</p>
+        <p>Thanks. We&rsquo;ve received your details and documents. Our team will review them within 1&ndash;2 business days. You can keep using VVBusiness in the meantime.</p>
         <button class="btn primary" id="kybFinish" style="min-width:200px;justify-content:center;height:46px;border-radius:24px">Go to dashboard</button>
       </div>
     </div>
@@ -3975,7 +3975,7 @@ curl https://api.vvbusiness.io/v1/channels \
         <div class="dep-addr"><span class="a">0x7A9f4C2b8E1d6F3a0B5c9D8e7F2a1B4c6D8e0F3a</span><button class="cp" data-copy>Copy</button></div>
       </div>
       <div class="dep-qr"><div class="qr"><svg viewBox="0 0 100 100" shape-rendering="crispEdges"><rect width="100" height="100" fill="#fff"/><g fill="#0C1732"><path d="M8 8h22v22H8zM12 12v14h14V12z M16 16h6v6h-6z"/><path d="M70 8h22v22H70zM74 12v14h14V12z M78 16h6v6h-6z"/><path d="M8 70h22v22H8zM12 74v14h14V74z M16 78h6v6h-6z"/><rect x="38" y="8" width="5" height="5"/><rect x="48" y="8" width="5" height="5"/><rect x="38" y="18" width="5" height="5"/><rect x="57" y="12" width="5" height="5"/><rect x="38" y="38" width="5" height="5"/><rect x="48" y="43" width="5" height="5"/><rect x="58" y="38" width="5" height="5"/><rect x="68" y="48" width="5" height="5"/><rect x="78" y="38" width="5" height="5"/><rect x="88" y="43" width="5" height="5"/><rect x="12" y="38" width="5" height="5"/><rect x="20" y="48" width="5" height="5"/><rect x="12" y="58" width="5" height="5"/><rect x="38" y="58" width="5" height="5"/><rect x="48" y="63" width="5" height="5"/><rect x="58" y="68" width="5" height="5"/><rect x="43" y="78" width="5" height="5"/><rect x="53" y="88" width="5" height="5"/><rect x="68" y="70" width="5" height="5"/><rect x="80" y="70" width="5" height="5"/><rect x="88" y="78" width="5" height="5"/><rect x="70" y="82" width="5" height="5"/></g></svg></div></div>
-      <div class="note2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><div><b>No sender details needed.</b> Send from any wallet or exchange &mdash; we match the transfer to your account and convert it to UCoin on arrival. USDC on Polygon only.</div></div>
+      <div class="note2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><div><b>No sender details needed.</b> Send from any wallet or exchange, and we match the transfer to your account and convert it to UCoin on arrival. USDC on Polygon only.</div></div>
     </div>
   </div>
 </div>
@@ -4003,7 +4003,7 @@ curl https://api.vvbusiness.io/v1/channels \
         <div class="fld2"><label>Wallet address</label><input class="txt-in mono" id="naAddr" placeholder="0x&hellip;"></div>
         <div class="fld2"><label>Label / name</label><input class="txt-in" id="naName" placeholder="e.g. Treasury cold wallet"></div>
         <div class="fld2"><label>Network</label><div class="csd" id="naNet"></div></div>
-        <div class="note2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 4 6v6c0 4.5 3 7 8 9 5-2 8-4.5 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg><div><b>Adding an address needs your Web3 signature.</b> Whitelisting means funds can only ever go to addresses you&rsquo;ve cryptographically approved &mdash; VVBusiness never holds your key.</div></div>
+        <div class="note2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 4 6v6c0 4.5 3 7 8 9 5-2 8-4.5 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg><div><b>Adding an address needs your Web3 signature.</b> Whitelisting means funds can only ever go to addresses you&rsquo;ve cryptographically approved. VVBusiness never holds your key.</div></div>
         <button class="mbtn" id="naSign">Add to Address Book</button>
       </div>
       <div class="mstep" data-step="review">
@@ -4198,7 +4198,7 @@ curl https://api.vvbusiness.io/v1/channels \
     <div class="modal-b">
       <p style="font-size:13px;color:var(--muted);margin:0 0 4px;line-height:1.5">Scan this with the wallet you want to sign with. It becomes an <b style="color:var(--ink)">approval method</b> for withdrawals and payouts.</p>
       <div class="dep-qr"><div class="qr"><svg viewBox="0 0 100 100" shape-rendering="crispEdges"><rect width="100" height="100" fill="#fff"/><g fill="#0C1732"><path d="M8 8h22v22H8zM12 12v14h14V12z M16 16h6v6h-6z"/><path d="M70 8h22v22H70zM74 12v14h14V12z M78 16h6v6h-6z"/><path d="M8 70h22v22H8zM12 74v14h14V74z M16 78h6v6h-6z"/><rect x="38" y="8" width="5" height="5"/><rect x="48" y="8" width="5" height="5"/><rect x="38" y="18" width="5" height="5"/><rect x="57" y="12" width="5" height="5"/><rect x="38" y="38" width="5" height="5"/><rect x="48" y="43" width="5" height="5"/><rect x="58" y="38" width="5" height="5"/><rect x="68" y="48" width="5" height="5"/><rect x="78" y="38" width="5" height="5"/><rect x="88" y="43" width="5" height="5"/><rect x="12" y="38" width="5" height="5"/><rect x="20" y="48" width="5" height="5"/><rect x="12" y="58" width="5" height="5"/><rect x="38" y="58" width="5" height="5"/><rect x="48" y="63" width="5" height="5"/><rect x="58" y="68" width="5" height="5"/><rect x="43" y="78" width="5" height="5"/><rect x="53" y="88" width="5" height="5"/><rect x="68" y="70" width="5" height="5"/><rect x="80" y="70" width="5" height="5"/><rect x="88" y="78" width="5" height="5"/><rect x="70" y="82" width="5" height="5"/></g></svg></div></div>
-      <div class="note2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 4 6v6c0 4.5 3 7 8 9 5-2 8-4.5 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg><div>The wallet is a <b>signing key, not a funding source</b>. Connecting it never moves funds &mdash; it only lets you approve actions with your own key.</div></div>
+      <div class="note2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 4 6v6c0 4.5 3 7 8 9 5-2 8-4.5 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg><div>The wallet is a <b>signing key, not a funding source</b>. Connecting it never moves funds; it only lets you approve actions with your own key.</div></div>
     </div>
   </div>
 </div>
@@ -4211,7 +4211,7 @@ curl https://api.vvbusiness.io/v1/channels \
       <div class="mstep on" data-step="form">
         <div class="sig-ic" style="margin:0 auto 16px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
         <div class="fld2"><label>Name this device</label><input class="txt-in" id="pkName" placeholder="e.g. MacBook Pro" value="MacBook Pro"></div>
-        <div class="note2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 11.5v4.5"/><path d="M12 8h.01"/></svg><div>Your browser will ask for Face ID, Touch ID or your security key next. The passkey stays on this device &mdash; VVBusiness never receives it.</div></div>
+        <div class="note2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 11.5v4.5"/><path d="M12 8h.01"/></svg><div>Your browser will ask for Face ID, Touch ID or your security key next. The passkey stays on this device, and VVBusiness never receives it.</div></div>
         <button class="mbtn" id="pkContinue">Continue</button>
       </div>
       <div class="mstep" data-step="done">
@@ -4285,7 +4285,7 @@ curl https://api.vvbusiness.io/v1/channels \
         <div class="fld2"><label>Wallet address</label><input class="txt-in mono" id="aAddr" placeholder="0x&hellip;"></div>
         <div class="fld2"><label>Name / label</label><input class="txt-in" id="aName" placeholder="e.g. Acme Corp Payroll"></div>
         <div class="fld2"><label>Network</label><select class="txt-in" id="aNet"><option>Polygon</option><option>TRON</option><option>Ethereum</option><option>BSC</option></select></div>
-        <div class="note2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 4 6v6c0 4.5 3 7 8 9 5-2 8-4.5 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg><div><b>Whitelisting needs your Web3 signature.</b> Funds can only ever go to addresses you&rsquo;ve cryptographically approved &mdash; VVBusiness never holds your key.</div></div>
+        <div class="note2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 4 6v6c0 4.5 3 7 8 9 5-2 8-4.5 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg><div><b>Whitelisting needs your Web3 signature.</b> Funds can only ever go to addresses you&rsquo;ve cryptographically approved. VVBusiness never holds your key.</div></div>
         <button class="mbtn" id="aSign">Add to Address Book</button>
       </div>
       <div class="mstep" data-step="done">
@@ -4411,7 +4411,7 @@ curl https://api.vvbusiness.io/v1/channels \
     "Home":"首页","Product":"产品","Pricing":"价格","Developers":"开发者","Log in":"登录","Get started":"开始使用","Sign up":"注册","Talk to sales":"联系销售",
     "Contact sales":"联系销售","Contact Us":"联系我们","Let’s talk.":"聊聊吧。","Tell us about your business and a payments specialist gets back to you within one business day. Collecting crypto, running batch payouts, or moving size through OTC, we’ll map it to the right setup.":"介绍一下您的业务，支付专家会在一个工作日内与您联系。无论是接收加密货币、批量代付，还是通过 OTC 进行大额交易，我们都会为您匹配合适的方案。","Email sales directly":"直接联系销售","Response time":"响应时间","Within one business day":"一个工作日内","Global coverage":"全球覆盖","Settlement in 20+ currencies, payouts to 100+ countries":"支持 20+ 种货币结算，向 100+ 个国家付款","Full name":"姓名","Work email":"工作邮箱","Company":"公司","Phone":"电话","(optional)":"（可选）","What can we help with?":"我们能为您做些什么？","Accepting crypto & fiat payments":"接收加密货币与法币付款","Batch payouts":"批量代付","OTC & large trades":"OTC 与大额交易","Fiat & virtual accounts":"法币与虚拟账户","Pricing & volume":"价格与交易量","Something else":"其他","How can we help?":"请描述您的需求","Send to sales":"发送给销售","By submitting, you agree to be contacted by VVBusiness about your enquiry.":"提交即表示您同意 VVBusiness 就您的咨询与您联系。","Message sent":"消息已发送","Thanks! Your message is on its way to our sales team. We’ll reply within one business day.":"感谢！您的消息正在发送给我们的销售团队。我们将在一个工作日内回复。","Send another message":"再发送一条",
     "Accept crypto.":"接收加密货币。","Settle in":"结算为","dollars.":"美元。","Pay out anywhere.":"随处付款。",
-    "The payment gateway for businesses that want crypto’s reach without its volatility. Take USDT, USDC, or a local transfer, funds settle instantly to a dollar balance, then pay one recipient or a thousand.":"为希望获得加密货币的覆盖范围、又不愿承受其波动性的企业打造的支付网关。接收 USDT、USDC 或本地转账——资金即时结算为美元余额——即可向一位或上千位收款人付款。",
+    "The payment gateway for businesses that want crypto’s reach without its volatility. Take USDT, USDC, or a local transfer, funds settle instantly to a dollar balance, then pay one recipient or a thousand.":"为希望获得加密货币的覆盖范围、又不愿承受其波动性的企业打造的支付网关。接收 USDT、USDC 或本地转账，资金即时结算为美元余额，即可向一位或上千位收款人付款。",
     "Start accepting payments":"开始收款","See how it works":"了解运作方式",
     "Your balance":"您的余额","Brazil":"巴西","Vendor":"供应商","Supplier":"供货商","Contractor":"承包商","9,997 more":"其余 9,997 位","Your bank":"您的银行","Cash out in USD":"以美元提现","Send payout":"发起付款",
     "Tap a rail":"点按通道","to drop in a payment, then send a payout.":"注入一笔款项，然后发起付款。",
@@ -4419,24 +4419,24 @@ curl https://api.vvbusiness.io/v1/channels \
     "The wedge":"核心优势","Crypto’s reach. None of crypto’s headaches.":"加密货币的覆盖范围，没有加密货币的烦恼。",
     "Your customers pay how they want. You never touch a volatile asset, hold a private key, or ask your finance team to learn what a gas fee is.":"让客户以自己喜欢的方式付款。您无需接触波动性资产、保管私钥，也不必让财务团队去弄懂什么是 gas 费。",
     "Volatility":"价格波动","watching the price":"盯盘","Settled to dollars the instant it arrives":"到账即刻结算为美元",
-    "Private keys":"私钥","self-custody risk":"自托管风险","You sign to approve, we never custody":"由您签名批准——我们从不托管",
+    "Private keys":"私钥","self-custody risk":"自托管风险","You sign to approve, we never custody":"由您签名批准，我们从不托管",
     "Disputes":"争议","no recourse":"无从追索","Chargebacks & refunds built in":"内置拒付与退款",
     "“Which chain?”":"“用哪条链？”","rail confusion":"通道困惑","We abstract the rails away":"我们屏蔽底层通道",
     "The model":"运作模式","Money in. Held in dollars. Out to anyone.":"资金流入。以美元持有。付给任何人。",
     "The whole gateway is three verbs. Here’s what each one actually does for your finance team.":"整个网关就是三个动作。看看每一个能为您的财务团队做什么。",
     "Accept":"接收","Get paid in crypto or fiat":"以加密货币或法币收款",
-    "USDT, USDC, or a local fiat transfer. Share a payment link, drop in an API call, or show a QR, customers pay how they want.":"USDT、USDC 或本地法币转账。分享收款链接、调用 API 或展示二维码——客户随心付款。",
+    "USDT, USDC, or a local fiat transfer. Share a payment link, drop in an API call, or show a QR, customers pay how they want.":"USDT、USDC 或本地法币转账。分享收款链接、调用 API 或展示二维码，客户随心付款。",
     "Settle":"结算","Volatility stops at your door":"波动止于门外",
-    "Every payment lands as UCoin, always worth a dollar. You hold value, not a coin that can move overnight.":"每一笔款项都以 UCoin 到账——始终价值一美元。您持有的是价值，而非一夜之间价格骤变的币。",
+    "Every payment lands as UCoin, always worth a dollar. You hold value, not a coin that can move overnight.":"每一笔款项都以 UCoin 到账，始终价值一美元。您持有的是价值，而非一夜之间价格骤变的币。",
     "Pay out":"付款","Pay 1,000 people from one file":"一个文件向一千人付款",
-    "Upload a spreadsheet, approve it with your key, and VVBusiness disburses to everyone at once, or cash out to your bank.":"上传表格，用您的密钥批准，VVBusiness 便会一次性向所有人发放——或提现到您的银行。",
+    "Upload a spreadsheet, approve it with your key, and VVBusiness disburses to everyone at once, or cash out to your bank.":"上传表格，用您的密钥批准，VVBusiness 便会一次性向所有人发放，或提现到您的银行。",
     "Batch of 999":"999 笔批量",
     "How it works":"运作方式","From your customer to your bank, in three moves.":"从您的客户到您的银行，三步搞定。",
-    "The same flow you watched above, now with the mechanism. No blockchain knowledge required at any step.":"就是您上面看到的流程——这次讲讲原理。全程无需任何区块链知识。",
+    "The same flow you watched above, now with the mechanism. No blockchain knowledge required at any step.":"就是您上面看到的流程，这次讲讲原理。全程无需任何区块链知识。",
     "Accept the payment":"接收款项",
     "Your customer sends USDT, USDC, or a local fiat transfer to a payment channel you create. Each channel is tied to a verified contact, so you always know who’s paying.":"客户向您创建的收款通道发送 USDT、USDC 或本地法币转账。每条通道都绑定一位已验证的联系人，因此您始终知道是谁付款。",
     "value in":"资金流入","Settle to dollars":"结算为美元",
-    "The moment funds arrive, VVBusiness converts them to UCoin, a balance always worth a dollar. Volatility never reaches your books.":"资金一到，VVBusiness 立即将其转换为 UCoin——始终价值一美元的余额。波动永远不会进入您的账本。",
+    "The moment funds arrive, VVBusiness converts them to UCoin, a balance always worth a dollar. Volatility never reaches your books.":"资金一到，VVBusiness 立即将其转换为 UCoin，始终价值一美元的余额。波动永远不会进入您的账本。",
     "held as dollars":"以美元持有","Pay out or cash out":"付款或提现",
     "Disburse to thousands of recipients from a spreadsheet, or withdraw to your own bank. You approve every payout with a signature only you can make.":"从一张表格向成千上万位收款人发放，或提现到您自己的银行。每笔付款都由只有您能做出的签名来批准。",
     "value out":"资金流出",
@@ -4444,58 +4444,58 @@ curl https://api.vvbusiness.io/v1/channels \
     "If your money crosses a border or a currency, the rails are usually the hard part. VVBusiness is the easy part.":"只要资金跨越国界或货币，通道往往是最难的部分。VVBusiness 就是简单的那部分。",
     "Cross-border SMBs":"跨境中小企业","Invoice in crypto, collect from anywhere, and hold the value in dollars instead of chasing wires and FX spreads.":"以加密货币开票、随处收款，并以美元持有价值，无需再追着电汇和汇差跑。",
     "Sellers on local rails":"使用本地通道的卖家","Accept a local instant transfer at checkout and settle straight into a dollar balance you can spend globally.":"在结账时接受本地即时转账，直接结算为可全球使用的美元余额。",
-    "SEA marketplaces":"东南亚市场平台","Take payments from many buyers, and split settlements to many sellers, all from one balance, one dashboard.":"向众多买家收款，再向众多卖家分账——全部在一个余额、一个后台完成。",
-    "Contractor & payroll payouts":"承包商与薪资发放","Pay thousands of contractors across countries from a single spreadsheet, approved once, sent at once.":"用一张表格向多国的数千名承包商付款——一次批准，一次发出。",
+    "SEA marketplaces":"东南亚市场平台","Take payments from many buyers, and split settlements to many sellers, all from one balance, one dashboard.":"向众多买家收款，再向众多卖家分账，全部在一个余额、一个后台完成。",
+    "Contractor & payroll payouts":"承包商与薪资发放","Pay thousands of contractors across countries from a single spreadsheet, approved once, sent at once.":"用一张表格向多国的数千名承包商付款，一次批准，一次发出。",
     "Crypto-native treasuries":"加密原生财资团队","Keep operating in stablecoins, but gain fiat off-ramps, batch payouts, and a compliance layer your CFO will sign off on.":"继续以稳定币运营，同时获得法币出金、批量付款，以及能让您 CFO 放心签字的合规层。",
-    "…and your use case":"……以及您的场景","If money needs to come in as crypto and leave as dollars, or the reverse, the rails are already built.":"如果资金需要以加密货币进、以美元出——或反过来——通道已经就绪。","Talk to us →":"联系我们 →",
-    "“Finance teams don’t change rails on a whim, they change them when the new one is calmer, clearer, and cheaper. That’s the bar we build to.”":"“财务团队不会心血来潮就更换通道——只有当新通道更从容、更清晰、更省钱时才会更换。这就是我们的标准。”",
+    "…and your use case":"……以及您的场景","If money needs to come in as crypto and leave as dollars, or the reverse, the rails are already built.":"如果资金需要以加密货币进、以美元出，或反过来，通道已经就绪。","Talk to us →":"联系我们 →",
+    "“Finance teams don’t change rails on a whim, they change them when the new one is calmer, clearer, and cheaper. That’s the bar we build to.”":"“财务团队不会心血来潮就更换通道，只有当新通道更从容、更清晰、更省钱时才会更换。这就是我们的标准。”",
     "The VVBusiness team":"VVBusiness 团队","· replace with a customer quote once live":"· 上线后替换为真实客户评价",
-    "Settlement currencies supported":"支持结算的货币","Countries reachable for payouts":"可付款覆盖的国家","Rails in one gateway, Crypto & fiat":"一个网关的两条通道——加密货币与法币","Dollar settlement, always pegged":"美元结算，始终锚定",
+    "Settlement currencies supported":"支持结算的货币","Countries reachable for payouts":"可付款覆盖的国家","Rails in one gateway, Crypto & fiat":"一个网关的两条通道，加密货币与法币","Dollar settlement, always pegged":"美元结算，始终锚定",
     "Put crypto to work like it’s just money.":"让加密货币像普通资金一样为您所用。","Start accepting payments in minutes, with high-volume payouts and OTC built in.":"几分钟即可开始收款，大额付款与 OTC 一应俱全。",
     "The product":"产品","One login for the whole":"一个登录，管理整个","money operation.":"资金运营。",
-    "Not a wallet bolted onto a checkout. A full treasury for money that moves in crypto and out in dollars, collect, settle, hold, exchange, and pay out from one dashboard.":"不是给结账页硬装一个钱包，而是一整套面向“以加密货币进、以美元出”资金的财资系统——在一个后台完成收款、结算、持有、兑换与付款。",
+    "Not a wallet bolted onto a checkout. A full treasury for money that moves in crypto and out in dollars, collect, settle, hold, exchange, and pay out from one dashboard.":"不是给结账页硬装一个钱包，而是一整套面向“以加密货币进、以美元出”资金的财资系统，在一个后台完成收款、结算、持有、兑换与付款。",
     "Read the API docs":"阅读 API 文档",
     "Collect":"收款","Crypto Payment":"加密支付","Batch Payout":"批量付款","Wallet & balances":"钱包与余额","Exchange & VVRamp":"兑换与 VVRamp","OTC desk":"OTC 交易台",
     "Create a payment channel, share the link or QR, and settle the moment your customer pays. Every channel is bound to a KYB’d contact.":"创建收款通道，分享链接或二维码，客户付款即刻结算。每条通道都绑定一位完成 KYB 的联系人。",
     "Payment links, QR codes, and a REST API":"收款链接、二维码与 REST API","Each channel tied to a verified payer":"每条通道绑定一位已验证付款人","Instant settlement to your dollar balance":"即时结算至您的美元余额",
     "Upload a spreadsheet of recipients, review the validated rows, and approve the whole run with one signature. VVBusiness disburses to everyone at once.":"上传收款人表格，核对校验通过的行，用一次签名批准整批。VVBusiness 一次性向所有人发放。",
-    "Thousands of recipients from one file":"一个文件，数千位收款人","Address validation & whitelist checks":"地址校验与白名单检查","You sign to authorize, try it →":"由您签名授权——来试试 →",
+    "Thousands of recipients from one file":"一个文件，数千位收款人","Address validation & whitelist checks":"地址校验与白名单检查","You sign to authorize, try it →":"由您签名授权，来试试 →",
     "One dollar balance in UCoin, with USDT, USDC and more underneath. Deposit, withdraw, and see every transaction in a clean ledger.":"一个以 UCoin 计的美元余额，下面还有 USDT、USDC 等资产。存入、提取，并在清晰的账本中查看每一笔交易。",
     "Total, available & unavailable at a glance":"总额、可用与不可用一目了然","Whitelisted address book for withdrawals":"用于提现的白名单地址簿","Full activity history & receipts":"完整活动记录与凭证",
-    "Move between dollars and crypto on demand. On-ramp USD to USDC/USDT, cash out to your bank, or convert between assets, at rates you can see.":"按需在美元与加密货币之间转换。将美元入金为 USDC/USDT、提现到银行，或在资产之间兑换——汇率清晰可见。",
+    "Move between dollars and crypto on demand. On-ramp USD to USDC/USDT, cash out to your bank, or convert between assets, at rates you can see.":"按需在美元与加密货币之间转换。将美元入金为 USDC/USDT、提现到银行，或在资产之间兑换，汇率清晰可见。",
     "On-ramp & off-ramp USD ↔ crypto":"美元 ↔ 加密货币入金与出金","Convert between supported assets":"在支持的资产之间兑换","Transparent, no-spread-games pricing":"透明定价，不玩点差",
-    "Moving a large amount? Request a quote and our desk replies with a firm rate you can accept, no slippage, no order-book guesswork.":"需要大额交易？发起询价，我们的交易台会给出可接受的确定报价——没有滑点，无需揣摩订单簿。",
+    "Moving a large amount? Request a quote and our desk replies with a firm rate you can accept, no slippage, no order-book guesswork.":"需要大额交易？发起询价，我们的交易台会给出可接受的确定报价，没有滑点，无需揣摩订单簿。",
     "Request-for-quote on 20+ currencies":"支持 20+ 种货币询价","Firm rates, settled to your balance":"确定报价，结算至您的余额","Full order log & status tracking":"完整订单记录与状态追踪",
     "Security & control":"安全与掌控","You approve every payout. We never hold your keys.":"每笔付款都由您批准。我们从不保管您的密钥。",
-    "KYB verification, whitelisted addresses, and a signature only you can make. Control is not a setting, it’s the architecture.":"KYB 验证、白名单地址，以及只有您能做出的签名。掌控不是一个开关——而是架构本身。",
+    "KYB verification, whitelisted addresses, and a signature only you can make. Control is not a setting, it’s the architecture.":"KYB 验证、白名单地址，以及只有您能做出的签名。掌控不是一个开关，而是架构本身。",
     "Sign to approve":"签名批准","Every payout and withdrawal is authorized by you signing with your own wallet or passkey. A code alone never releases funds.":"每一笔付款和提现都由您用自己的钱包或通行密钥签名授权。仅凭验证码永远无法放款。",
     "KYB & whitelists":"KYB 与白名单","Business verification on onboarding, and an address book of pre-approved destinations. Money can only go where you’ve allowed it.":"入驻时进行企业验证，并维护一份预先批准的收款地址簿。资金只能流向您允许的地方。",
     "Settled, not exposed":"已结算，不暴露","Funds convert to a dollar-pegged balance the instant they land. Your treasury never sits in a volatile asset waiting to be swept.":"资金一到即转换为锚定美元的余额。您的资金永远不会停留在等待归集的波动性资产中。",
     "Regulated & accountable":"受监管、可问责","Operated by UAB Wanel, registered in Lithuania and a former registered VASP, now pursuing authorization under the EU’s MiCA regulation.":"由在立陶宛注册的 UAB Wanel 运营，曾为注册的 VASP，现正申请欧盟 MiCA 法规下的授权。",
     "See the whole platform in action.":"看看整个平台如何运作。","Spin up a sandbox, or have us walk your team through a live payout.":"开通沙盒环境，或让我们带您的团队走一遍真实付款流程。","See pricing":"查看价格",
     "Priced like infrastructure.":"像基础设施一样定价。","No spread games.":"不玩点差把戏。",
-    "Transparent per-transaction pricing. No custody fees, and no quiet markup on your settlement rate, the number you see is the number you get.":"透明的按笔定价。没有托管费，也不会在结算汇率上悄悄加价——您看到的数字就是您得到的数字。",
-    "Pay-as-you-go, from":"按量付费，低至","/ transaction":"/ 每笔交易","No monthly minimum, no custody fees":"无月度最低消费，无托管费","Settlement at the rate you see, no hidden spread":"按您看到的汇率结算——无隐藏点差","Volume & OTC pricing for larger flows":"大额资金享量级与 OTC 定价",
+    "Transparent per-transaction pricing. No custody fees, and no quiet markup on your settlement rate, the number you see is the number you get.":"透明的按笔定价。没有托管费，也不会在结算汇率上悄悄加价，您看到的数字就是您得到的数字。",
+    "Pay-as-you-go, from":"按量付费，低至","/ transaction":"/ 每笔交易","No monthly minimum, no custody fees":"无月度最低消费，无托管费","Settlement at the rate you see, no hidden spread":"按您看到的汇率结算，无隐藏点差","Volume & OTC pricing for larger flows":"大额资金享量级与 OTC 定价",
     "What you never pay for":"您永远不必支付","Custody & wallet fees":"托管与钱包费用","Hidden FX spread on settlement":"结算时的隐藏汇差","Setup or per-recipient payout fees":"开通费或按收款人计的付款费",
-    "Fees at a glance":"费用一览","Illustrative rates for review, final pricing is confirmed on your plan.":"供审阅的示意费率——最终价格以您的方案为准。",
+    "Fees at a glance":"费用一览","Illustrative rates for review, final pricing is confirmed on your plan.":"供审阅的示意费率，最终价格以您的方案为准。",
     "Service":"服务","Detail":"说明","Fee":"费用",
     "Accept crypto":"接收加密货币","Accept local transfer":"接收本地转账","Local bank rail":"本地银行通道","Convert to UCoin on arrival":"到账即转换为 UCoin","Included":"已包含",
     "Batch payout":"批量付款","Per run, any number of recipients":"每批不限收款人数量","From 0.5%*":"低至 0.5%*","From 1.5%*":"低至 1.5%*","From 1.5 USDC*":"低至 1.5 USDC*","From 0.3%*":"低至 0.3%*","Cash out to bank":"提现到银行","Off-ramp to your account":"出金到您的账户","Large trades, firm-quoted":"大额交易，确定报价","Custom":"定制",
     "Questions finance teams ask.":"财务团队常问的问题。",
     "Is there a monthly fee or minimum?":"有月费或最低消费吗？","No. Pricing is pay-as-you-go per transaction, with no monthly minimum and no custody fees. Volume and OTC pricing kicks in automatically as your flow grows.":"没有。定价按笔计费，无月度最低消费，也无托管费。随着您的资金量增长，量级与 OTC 定价会自动生效。",
-    "How is the settlement rate set?":"结算汇率如何确定？","You settle to UCoin, a dollar-pegged balance (1 UCoin ≈ $1.00). We don’t bake a hidden spread into that rate, the per-transaction fee is the whole cost.":"您结算为 UCoin，一种锚定美元的余额（1 UCoin ≈ $1.00）。我们不会在该汇率中暗含点差——按笔费用就是全部成本。",
+    "How is the settlement rate set?":"结算汇率如何确定？","You settle to UCoin, a dollar-pegged balance (1 UCoin ≈ $1.00). We don’t bake a hidden spread into that rate, the per-transaction fee is the whole cost.":"您结算为 UCoin，一种锚定美元的余额（1 UCoin ≈ $1.00）。我们不会在该汇率中暗含点差，按笔费用就是全部成本。",
     "Which currencies and rails do you support?":"你们支持哪些货币和通道？","USDT and USDC, and local bank transfers, settling across 20+ currencies with payouts reachable in 100+ countries. More rails are added over time.":"USDT 和 USDC，以及本地银行转账，支持 20+ 种货币结算，付款可覆盖 100+ 个国家。更多通道会陆续接入。",
     "How fast do payouts arrive?":"付款多久到账？","On-chain payouts settle within minutes once you approve the batch. Bank cash-outs follow the destination rail’s timing (often same-day for supported corridors).":"批准整批后，链上付款几分钟内到账。银行提现取决于目标通道的时效（在支持的通道上通常当日到账）。",
-    "Do you custody our funds or keys?":"你们会托管我们的资金或密钥吗？","You authorize every payout by signing with your own wallet or passkey, VVBusiness never holds your key, and a code alone never releases funds.":"每笔付款都由您用自己的钱包或通行密钥签名授权——VVBusiness 从不保管您的密钥，仅凭验证码也永远无法放款。",
+    "Do you custody our funds or keys?":"你们会托管我们的资金或密钥吗？","You authorize every payout by signing with your own wallet or passkey, VVBusiness never holds your key, and a code alone never releases funds.":"每笔付款都由您用自己的钱包或通行密钥签名授权，VVBusiness 从不保管您的密钥，仅凭验证码也永远无法放款。",
     "Ready when you are.":"随时为您准备就绪。","Start on pay-as-you-go, with volume and OTC pricing available.":"从按量付费开始，提供量级与 OTC 定价。",
-    "A payments API your engineers will actually enjoy.":"一套让工程师真正用得顺手的支付 API。","Create payment channels, disburse batch payouts, and reconcile settlements, all over a clean REST API with webhooks, a sandbox, and idempotent requests. Ship in an afternoon.":"创建收款通道、发放批量付款、对账结算——全部通过简洁的 REST API 完成，配有 webhook、沙盒与幂等请求。一个下午即可上线。",
+    "A payments API your engineers will actually enjoy.":"一套让工程师真正用得顺手的支付 API。","Create payment channels, disburse batch payouts, and reconcile settlements, all over a clean REST API with webhooks, a sandbox, and idempotent requests. Ship in an afternoon.":"创建收款通道、发放批量付款、对账结算，全部通过简洁的 REST API 完成，配有 webhook、沙盒与幂等请求。一个下午即可上线。",
     "Read the docs":"阅读文档","Get API keys":"获取 API 密钥",
     "Built for builders":"为开发者打造","Everything you expect from a modern API.":"现代 API 该有的一切。",
     "Predictable resources for channels, payments, payouts, balances and quotes. JSON in, JSON out.":"面向通道、支付、付款、余额与报价的可预测资源。JSON 进，JSON 出。",
-    "Real-time events for payment.settled, payout.completed, and dispute.opened, signed and replayable.":"payment.settled、payout.completed、dispute.opened 等实时事件——带签名且可重放。",
+    "Real-time events for payment.settled, payout.completed, and dispute.opened, signed and replayable.":"payment.settled、payout.completed、dispute.opened 等实时事件，带签名且可重放。",
     "Sandbox":"沙盒环境","A full test environment with simulated payments and payouts. Build and QA before a cent moves.":"一个带有模拟支付与付款的完整测试环境。在任何真实资金流动前完成开发与测试。",
-    "Idempotency":"幂等","Safe retries with idempotency keys, a dropped connection never double-charges or double-pays.":"借助幂等键安全重试——连接中断也绝不会重复扣款或重复付款。",
-    "Signed payouts":"签名付款","Payout batches are authorized with an on-device signature, the API never moves funds on its own.":"批量付款通过设备端签名授权——API 绝不会自行动用资金。",
+    "Idempotency":"幂等","Safe retries with idempotency keys, a dropped connection never double-charges or double-pays.":"借助幂等键安全重试，连接中断也绝不会重复扣款或重复付款。",
+    "Signed payouts":"签名付款","Payout batches are authorized with an on-device signature, the API never moves funds on its own.":"批量付款通过设备端签名授权，API 绝不会自行动用资金。",
     "SDKs & snippets":"SDK 与代码片段","Node, Python, and Go helpers, plus a Postman collection to go from zero to first payment fast.":"提供 Node、Python 和 Go 的辅助库，以及 Postman 集合，助您快速完成第一笔付款。",
     "API reference →":"API 参考 →","Status →":"状态 →","Changelog →":"更新日志 →","Service description →":"服务说明 →",
     "Start building today.":"今天就开始构建。","Grab a sandbox key and make your first test payment in minutes.":"获取沙盒密钥，几分钟内完成您的第一笔测试付款。",
@@ -4696,7 +4696,7 @@ curl https://api.vvbusiness.io/v1/channels \
     var bn=document.getElementById('bankPickBanner');if(bn)bn.hidden=!otcPickMode;
     var t=document.getElementById('bankTotal');if(t)t.textContent=BANKS.length;}
   (function(){var add=document.getElementById('bankAddBtn');if(add)add.addEventListener('click',function(){['bkNick','bkHolder','bkBank','bkAcct','bkSwift','bkCode','bkAddr','bkInter'].forEach(function(id){var e=document.getElementById(id);if(e)e.value='';});document.querySelectorAll('#moBank .mstep').forEach(function(m){m.classList.toggle('on',m.dataset.step==='form');});openMo('moBank');});
-    var ba=document.getElementById('bkAdd');if(ba)ba.addEventListener('click',function(){var nick=(document.getElementById('bkNick').value||'').trim()||'New bank account';BANKS.unshift({nick:nick,holder:(document.getElementById('bkHolder').value||'').trim()||'Meridian Commerce Ltd',bank:(document.getElementById('bkBank').value||'').trim()||'Bank',acct:(document.getElementById('bkAcct').value||'').trim()||'000-000000-000',swift:(document.getElementById('bkSwift').value||'').trim()||'—',code:(document.getElementById('bkCode').value||'').trim()||'—',cur:document.getElementById('bkCur').value,st:'pending',date:'just added'});renderBanks();document.querySelectorAll('#moBank .mstep').forEach(function(m){m.classList.toggle('on',m.dataset.step==='done');});});
+    var ba=document.getElementById('bkAdd');if(ba)ba.addEventListener('click',function(){var nick=(document.getElementById('bkNick').value||'').trim()||'New bank account';BANKS.unshift({nick:nick,holder:(document.getElementById('bkHolder').value||'').trim()||'Meridian Commerce Ltd',bank:(document.getElementById('bkBank').value||'').trim()||'Bank',acct:(document.getElementById('bkAcct').value||'').trim()||'000-000000-000',swift:(document.getElementById('bkSwift').value||'').trim()||'-',code:(document.getElementById('bkCode').value||'').trim()||'-',cur:document.getElementById('bkCur').value,st:'pending',date:'just added'});renderBanks();document.querySelectorAll('#moBank .mstep').forEach(function(m){m.classList.toggle('on',m.dataset.step==='done');});});
     renderBanks();
     {var _bpc=document.getElementById('bankPickCancel');if(_bpc)_bpc.addEventListener('click',function(){otcBankPickCancel();});}
     var _ll=document.querySelector('#login .logo');if(_ll){_ll.style.cursor='pointer';_ll.title='Back to website';_ll.addEventListener('click',function(){try{document.dispatchEvent(new CustomEvent('vvb:backtosite'));}catch(e){}});}
@@ -4856,7 +4856,7 @@ curl https://api.vvbusiness.io/v1/channels \
       <td><span class="mono" style="font-size:12px">${o.id.slice(0,10)}...${o.id.slice(-4)}</span></td>
       <td>${o.type}</td>
       <td style="text-align:right"><span class="num">${o.amt}</span></td>
-      <td style="text-align:right">${o.type==='Withdraw'?'<span class="num dim">&mdash;</span>':'<span class="num">'+o.rec+'</span>'}</td>
+      <td style="text-align:right">${o.type==='Withdraw'?'<span class="num dim">-</span>':'<span class="num">'+o.rec+'</span>'}</td>
       <td><span class="net">${o.net}</span></td>
       <td style="text-align:right"><span class="num dim">${o.fee}</span></td>
       <td><span class="op-link" data-order="${i}">Detail</span></td></tr>`).join('');
@@ -5002,7 +5002,7 @@ curl https://api.vvbusiness.io/v1/channels \
     {st:'Settled',date:'18:10 11/08',id:'PAY-20260811-1948',cust:'Initech Partner',amt:'$5,000.00',settled:'5,000.00',method:'Crypto',type:'Payment',net:'Polygon',fee:'0.00 UCoin',from:'0x4d81...c223',to:'Settlement (UCoin)',desc:'Crypto payment via payment link'}
   ];
   PAYMENTS.forEach((p,i)=>p.i=i);
-  function payRow(p,preview){return `<tr><td><span class="status ${stMap[p.st]||'done'}"><span class="k"></span>${p.st}</span></td><td>${p.date}</td><td><span class="mono" style="font-size:12px">${p.id}</span></td><td>${p.cust}</td><td style="text-align:right"><span class="num">${p.amt}</span></td><td style="text-align:right">${p.settled?`<span class="num">${p.settled} UCoin</span>`:'<span class="num dim">&mdash;</span>'}</td><td><span class="net">${p.method}</span></td>${preview?'':`<td><span class="op-link" data-pay="${p.i}">Detail</span></td>`}</tr>`;}
+  function payRow(p,preview){return `<tr><td><span class="status ${stMap[p.st]||'done'}"><span class="k"></span>${p.st}</span></td><td>${p.date}</td><td><span class="mono" style="font-size:12px">${p.id}</span></td><td>${p.cust}</td><td style="text-align:right"><span class="num">${p.amt}</span></td><td style="text-align:right">${p.settled?`<span class="num">${p.settled} UCoin</span>`:'<span class="num dim">-</span>'}</td><td><span class="net">${p.method}</span></td>${preview?'':`<td><span class="op-link" data-pay="${p.i}">Detail</span></td>`}</tr>`;}
   $('payBody').innerHTML=PAYMENTS.map(p=>payRow(p,false)).join('');
   const PAYASSETS=[
     {sym:'UCoin',net:'Polygon',ic:'U',color:'radial-gradient(circle at 32% 28%,#6E95FF,#2550E6)',avail:'500,500.00',un:'12,340.00',usd:'$500,500.00',acct:'512,840.00'},
@@ -5019,7 +5019,7 @@ curl https://api.vvbusiness.io/v1/channels \
     {st:'Won',opened:'01 Aug',id:'DP-A-7660',amt:'$980.00',reason:'Duplicate processing',by:'',type:'Chargeback',date:'01 Aug 2026',net:'Card',fee:'0.00',from:'Globex Vendor',to:'Card issuer',desc:'Dispute resolved in your favour'}
   ];
   DISPUTES.forEach((d,i)=>d.i=i);
-  $('dispBody').innerHTML=DISPUTES.map(d=>`<tr><td><span class="status ${stMap[d.st]}"><span class="k"></span>${d.st}</span></td><td>${d.opened}</td><td><span class="mono" style="font-size:12px">${d.id}</span></td><td style="text-align:right"><span class="num">${d.amt}</span></td><td><span class="reason">${d.reason}</span></td><td>${d.by?`<span class="deadline">${d.by}</span>`:'<span style="color:var(--muted)">&mdash;</span>'}</td><td><span class="op-link" data-disp="${d.i}">${d.st==='Needs response'?'Respond':'Detail'}</span></td></tr>`).join('');
+  $('dispBody').innerHTML=DISPUTES.map(d=>`<tr><td><span class="status ${stMap[d.st]}"><span class="k"></span>${d.st}</span></td><td>${d.opened}</td><td><span class="mono" style="font-size:12px">${d.id}</span></td><td style="text-align:right"><span class="num">${d.amt}</span></td><td><span class="reason">${d.reason}</span></td><td>${d.by?`<span class="deadline">${d.by}</span>`:'<span style="color:var(--muted)">-</span>'}</td><td><span class="op-link" data-disp="${d.i}">${d.st==='Needs response'?'Respond':'Detail'}</span></td></tr>`).join('');
   $('dispBody').querySelectorAll('[data-disp]').forEach(el=>el.addEventListener('click',()=>openOrder(DISPUTES[+el.dataset.disp])));
 
   const REFUNDS=[
@@ -5266,7 +5266,7 @@ curl https://api.vvbusiness.io/v1/channels \
     {st:'Completed',id:'RFQ-20260826-3391',dir:'sell',amt:'250,000.00 USDT',fiat:'EUR',rate:'1 USDT = 0.9180 EUR',fee:'0.20%',date:'14:20 26/08/2026',recv:'HSBC USD Settlement',recvAmt:'229,041.00 EUR'},
     {st:'Cancelled',id:'RFQ-20260826-3380',dir:'buy',amt:'15,000.00 USDT',fiat:'GBP',rate:'1 USDT = 0.7900 GBP',fee:'0.20%',date:'19:03 26/08/2026'},
     {st:'Expired',id:'RFQ-20260825-3370',dir:'sell',amt:'80,000.00 USDT',fiat:'HKD',rate:'1 USDT = 7.8200 HKD',fee:'0.20%',date:'16:12 25/08/2026'},
-    {st:'Rejected',id:'RFQ-20260825-3361',dir:'buy',amt:'9,000.00 USDC',fiat:'USD',rate:'—',fee:'—',date:'10:48 25/08/2026'}
+    {st:'Rejected',id:'RFQ-20260825-3361',dir:'buy',amt:'9,000.00 USDC',fiat:'USD',rate:'-',fee:'-',date:'10:48 25/08/2026'}
   ];
   const otcDirPill=d=>d==='sell'?'<span class="dir-pill sell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 19V5m0 0-6 6m6-6 6 6"/></svg>Sell</span>':'<span class="dir-pill buy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14m0 0 6-6m-6 6-6-6"/></svg>Buy</span>';
   const OTC_ONGOING=['Pending','Awaiting Quote','Action Required','Processing'];
@@ -5294,20 +5294,20 @@ curl https://api.vvbusiness.io/v1/channels \
     document.getElementById('odId').textContent=o.id;
     document.getElementById('odType').textContent=(o.dir==='buy'?'Buy':'Sell');
     document.getElementById('odAmt').textContent=o.amt;
-    var hasRate=o.rate&&o.rate!==''&&o.rate!=='Pending'&&o.rate!=='—';
-    document.getElementById('odRate').textContent=hasRate?o.rate:(o.st==='Awaiting Quote'?'Awaiting desk quote':'—');
-    document.getElementById('odFee').textContent=hasRate?(o.fee||'0.20%'):'—';
+    var hasRate=o.rate&&o.rate!==''&&o.rate!=='Pending'&&o.rate!=='-';
+    document.getElementById('odRate').textContent=hasRate?o.rate:(o.st==='Awaiting Quote'?'Awaiting desk quote':'-');
+    document.getElementById('odFee').textContent=hasRate?(o.fee||'0.20%'):'-';
     var act=document.getElementById('odAction');
     if(o.st==='Action Required'&&o.dir==='buy'&&o.pay){
       act.hidden=false;
       act.innerHTML='<div class="rfq-action"><div class="ra-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 9v4m0 4h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h16.9a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>Action required · transfer to complete your purchase</div><div class="va-strip" style="padding:2px 0 6px">'+bankRows(o.pay)+'</div><button class="mbtn" id="odActBtn">I’ve made the payment</button></div>';
     } else if(o.st==='Action Required'&&o.dir==='sell'){
       act.hidden=false;
-      act.innerHTML='<div class="rfq-action"><div class="ra-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg>Action required · review &amp; accept your quote</div><p>The desk quoted <b>'+o.rate+'</b>. You’ll receive about <b>'+(o.recvAmt||'—')+'</b> to <b>'+(o.recv||'your bank account')+'</b>. Accept to settle — the quote is held for a short window.</p><button class="mbtn" id="odActBtn">Accept quote &amp; settle</button></div>';
+      act.innerHTML='<div class="rfq-action"><div class="ra-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg>Action required · review &amp; accept your quote</div><p>The desk quoted <b>'+o.rate+'</b>. You’ll receive about <b>'+(o.recvAmt||'-')+'</b> to <b>'+(o.recv||'your bank account')+'</b>. Accept to settle. The quote is held for a short window.</p><button class="mbtn" id="odActBtn">Accept quote &amp; settle</button></div>';
     } else {
       act.hidden=true; act.innerHTML='';
     }
-    var b=document.getElementById('odActBtn'); if(b)b.addEventListener('click',function(){vvbToast(o.dir==='buy'?'Payment confirmation received — we’ll verify and release your crypto shortly.':'Quote accepted — we’re settling to your bank account.');advanceRfq(o.id);});
+    var b=document.getElementById('odActBtn'); if(b)b.addEventListener('click',function(){vvbToast(o.dir==='buy'?'Payment confirmation received. We’ll verify and release your crypto shortly.':'Quote accepted. We’re settling to your bank account.');advanceRfq(o.id);});
     overlay.classList.add('open'); document.getElementById('otcDrawer').classList.add('open');
   }
   function otcOpenDetail(o){openRfq(o);}
@@ -5367,8 +5367,8 @@ curl https://api.vvbusiness.io/v1/channels \
     OTCORDERS.unshift(order);
     $('otcRef').textContent=ref;
     $('otcDoneP').textContent = otcDir==='sell'
-      ? 'Request received to sell '+otcAmt.value+' '+otcCrypto+' ('+f+'). The desk is preparing a firm quote — when it’s ready the status becomes “Action Required” for you to accept, then we settle to '+(order.recv||'your bank account')+'.'
-      : 'Request received to buy '+otcAmt.value+' '+otcCrypto+' ('+f+'). The desk is setting up payment — when ready the status becomes “Action Required” with a bank account for you to transfer '+payAmt+' to.';
+      ? 'Request received to sell '+otcAmt.value+' '+otcCrypto+' ('+f+'). The desk is preparing a firm quote; when it’s ready the status becomes “Action Required” for you to accept, then we settle to '+(order.recv||'your bank account')+'.'
+      : 'Request received to buy '+otcAmt.value+' '+otcCrypto+' ('+f+'). The desk is setting up payment; when ready the status becomes “Action Required” with a bank account for you to transfer '+payAmt+' to.';
     renderOtc(); renderOtcAct();
     document.querySelectorAll('#moOtc .mstep').forEach(m=>m.classList.toggle('on',m.dataset.step==='done'));
     setTimeout(function(){ var o=OTCORDERS.find(function(x){return x.id===ref;}); if(!o)return;
@@ -5393,7 +5393,7 @@ curl https://api.vvbusiness.io/v1/channels \
   function renderRamp(){
     $('rampBody').innerHTML=RAMPORDERS.map((o,i)=>`<tr><td><span class="status ${RAMP_STMAP[o.st]||'pend'}"><span class="k"></span>${o.st}</span></td><td><span class="mono" style="font-size:12px">${o.id}</span></td><td>${rampPill(o.dir)}</td><td style="text-align:right"><span class="num">${o.pay}</span></td><td style="text-align:right"><span class="num">${o.recv}</span></td><td>${o.method}</td><td style="color:var(--muted)">${o.date}</td><td><span class="op-link" data-ramp="${i}">Detail</span></td></tr>`).join('');
     $('rampTotal').textContent=RAMPORDERS.length;
-    $('rampBody').querySelectorAll('[data-ramp]').forEach(el=>el.addEventListener('click',()=>{const o=RAMPORDERS[+el.dataset.ramp];openOrder({st:o.st,date:o.date,id:o.id,type:o.dir==='on'?'On-ramp':'Off-ramp',amt:o.pay,net:'Polygon',fee:'—',from:o.dir==='on'?o.method:'Merchant wallet',to:o.dir==='on'?'Merchant wallet':o.method,desc:(o.dir==='on'?'On-ramp ':'Off-ramp ')+o.pay+' → '+o.recv+' via '+o.method});}));
+    $('rampBody').querySelectorAll('[data-ramp]').forEach(el=>el.addEventListener('click',()=>{const o=RAMPORDERS[+el.dataset.ramp];openOrder({st:o.st,date:o.date,id:o.id,type:o.dir==='on'?'On-ramp':'Off-ramp',amt:o.pay,net:'Polygon',fee:'-',from:o.dir==='on'?o.method:'Merchant wallet',to:o.dir==='on'?'Merchant wallet':o.method,desc:(o.dir==='on'?'On-ramp ':'Off-ramp ')+o.pay+' → '+o.recv+' via '+o.method});}));
   }
   renderRamp();
 
@@ -5697,17 +5697,17 @@ curl https://api.vvbusiness.io/v1/channels \
       {n:'Wei Chen',e:'wei@meridiancommerce.com',r:'Finance',st:'Active',last:'Yesterday',av:'WC',bg:'linear-gradient(135deg,#C4740A,#E0932F)'},
       {n:'Maya K.',e:'maya@meridiancommerce.com',r:'Operator',st:'Active',last:'3d ago',av:'MK',bg:'linear-gradient(135deg,#7A5CFF,#9B7BFF)'},
       {n:'Alex L.',e:'alex@meridiancommerce.com',r:'Viewer',st:'Active',last:'1w ago',av:'AL',bg:'linear-gradient(135deg,#3264FF,#5C86FF)'},
-      {n:'finance2@meridiancommerce.com',e:'—',r:'Finance',st:'Invited',last:'—',av:'?',bg:'',pending:true}
+      {n:'finance2@meridiancommerce.com',e:'-',r:'Finance',st:'Invited',last:'-',av:'?',bg:'',pending:true}
     ];
     function esc(s){return (''+s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
     function rClass(r){return r==='Owner'?' owner':r==='Admin'?' admin':'';}
     function sClass(s){return s==='Active'?'done':s==='Suspended'?'crit':'pend';}
-    function openRole(i){var u=TEAM[i];editIdx=i;var av=document.getElementById('rdAv');av.textContent=u.av||'?';av.style.background=u.bg||'';document.getElementById('rdName').textContent=u.n;document.getElementById('rdBadge').innerHTML='<span class="status '+sClass(u.st)+'"><span class="k"></span>'+u.st+'</span>';document.getElementById('rdSub').textContent=(u.e==='—'?u.n:u.e)+' · '+u.r+(u.last&&u.last!=='—'?' · last active '+u.last:'');document.getElementById('rdRole').value=u.r;document.getElementById('rdSuspend').textContent=u.st==='Suspended'?'Reactivate user':'Suspend user';if(overlay)overlay.classList.add('open');roleDrawer.classList.add('open');}
+    function openRole(i){var u=TEAM[i];editIdx=i;var av=document.getElementById('rdAv');av.textContent=u.av||'?';av.style.background=u.bg||'';document.getElementById('rdName').textContent=u.n;document.getElementById('rdBadge').innerHTML='<span class="status '+sClass(u.st)+'"><span class="k"></span>'+u.st+'</span>';document.getElementById('rdSub').textContent=(u.e==='-'?u.n:u.e)+' · '+u.r+(u.last&&u.last!=='-'?' · last active '+u.last:'');document.getElementById('rdRole').value=u.r;document.getElementById('rdSuspend').textContent=u.st==='Suspended'?'Reactivate user':'Suspend user';if(overlay)overlay.classList.add('open');roleDrawer.classList.add('open');}
     function renderTeam(){
       urBody.innerHTML=TEAM.map(function(u,i){
-        var op=u.r==='Owner'?'<span class="op-link" style="color:var(--muted);cursor:default">—</span>':(u.st==='Invited'?'<span class="op-link">Resend</span>':'<span class="op-link" data-edit="'+i+'">'+(u.st==='Suspended'?'Restore':'Edit role')+'</span>');
+        var op=u.r==='Owner'?'<span class="op-link" style="color:var(--muted);cursor:default">-</span>':(u.st==='Invited'?'<span class="op-link">Resend</span>':'<span class="op-link" data-edit="'+i+'">'+(u.st==='Suspended'?'Restore':'Edit role')+'</span>');
         var av=u.pending?'<span class="avatar" style="width:28px;height:28px;font-size:11px;background:var(--inset);color:var(--muted)">?</span><b style="color:var(--muted);font-weight:600">'+esc(u.n)+'</b>':'<span class="avatar" style="width:28px;height:28px;font-size:11px'+(u.bg?';background:'+u.bg:'')+'">'+u.av+'</span><b style="color:var(--ink);font-weight:600">'+esc(u.n)+'</b>';
-        return '<tr><td><div class="prod-cell">'+av+'</div></td><td style="color:var(--'+(u.e==='—'?'muted':'body')+')">'+esc(u.e)+'</td><td><span class="role-tag'+rClass(u.r)+'">'+u.r+'</span></td><td><span class="status '+sClass(u.st)+'"><span class="k"></span>'+u.st+'</span></td><td style="color:var(--muted)">'+u.last+'</td><td style="text-align:right">'+op+'</td></tr>';
+        return '<tr><td><div class="prod-cell">'+av+'</div></td><td style="color:var(--'+(u.e==='-'?'muted':'body')+')">'+esc(u.e)+'</td><td><span class="role-tag'+rClass(u.r)+'">'+u.r+'</span></td><td><span class="status '+sClass(u.st)+'"><span class="k"></span>'+u.st+'</span></td><td style="color:var(--muted)">'+u.last+'</td><td style="text-align:right">'+op+'</td></tr>';
       }).join('');
       urBody.querySelectorAll('[data-edit]').forEach(function(el){el.addEventListener('click',function(){openRole(+el.dataset.edit);});});
       var inv=TEAM.filter(function(u){return u.st==='Invited';}).length;
@@ -5718,7 +5718,7 @@ curl https://api.vvbusiness.io/v1/channels \
     if(ib)ib.addEventListener('click',function(){var em=document.getElementById('invEmail');em.value='';em.closest('.fld2').classList.remove('err');document.getElementById('invRole').value='Finance';renderInvPerm();openMo('moInvite');setTimeout(function(){em.focus();},60);});
     document.getElementById('invRole').addEventListener('change',renderInvPerm);
     document.getElementById('invEmail').addEventListener('input',function(){this.closest('.fld2').classList.remove('err');});
-    document.getElementById('invSend').addEventListener('click',function(){var em=document.getElementById('invEmail'),v=em.value.trim();if(!v||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)){em.closest('.fld2').classList.add('err');em.focus();return;}TEAM.push({n:v,e:'—',r:document.getElementById('invRole').value,st:'Invited',last:'—',av:'?',bg:'',pending:true});renderTeam();closeMo(document.getElementById('moInvite'));});
+    document.getElementById('invSend').addEventListener('click',function(){var em=document.getElementById('invEmail'),v=em.value.trim();if(!v||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)){em.closest('.fld2').classList.add('err');em.focus();return;}TEAM.push({n:v,e:'-',r:document.getElementById('invRole').value,st:'Invited',last:'-',av:'?',bg:'',pending:true});renderTeam();closeMo(document.getElementById('moInvite'));});
     var overlay=document.getElementById('overlay'),roleDrawer=document.getElementById('roleDrawer'),editIdx=-1;
     function closeRole(){roleDrawer.classList.remove('open');if(overlay)overlay.classList.remove('open');}
     document.getElementById('roleDrawerX').addEventListener('click',closeRole);
