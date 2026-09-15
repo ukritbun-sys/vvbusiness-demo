@@ -3015,6 +3015,38 @@ curl https://api.vvbusiness.io/v1/channels \
   if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",init); else init();
 })();
 </script>
+
+<style>
+  /* password show/hide eye */
+  .pscope .ob-inwrap{position:relative;margin-bottom:16px}
+  .pscope .ob-inwrap .ob-in{margin-bottom:0;padding-right:44px}
+  .pscope .ob-eye{position:absolute;right:6px;top:50%;transform:translateY(-50%);width:34px;height:34px;border:0;background:none;color:var(--muted);cursor:pointer;display:grid;place-items:center;border-radius:8px;padding:0}
+  .pscope .ob-eye:hover{color:var(--ink)}
+  .pscope .ob-eye:focus-visible{outline:2px solid var(--brand);outline-offset:1px}
+  .pscope .ob-eye svg{width:19px;height:19px}
+  .pscope .ob-eye .eye-off{display:none}
+  .pscope .ob-eye.on .eye-on{display:none}
+  .pscope .ob-eye.on .eye-off{display:block}
+</style>
+<script>
+/* password field eye toggles */
+(function(){
+  function init(){
+    [["obEye1","obPw"],["obEye2","obPw2"]].forEach(function(pair){
+      var btn=document.getElementById(pair[0]), inp=document.getElementById(pair[1]);
+      if(!btn||!inp) return;
+      btn.addEventListener("click",function(){
+        var show = inp.type==="password";
+        inp.type = show ? "text" : "password";
+        btn.classList.toggle("on", show);
+        btn.setAttribute("aria-label", show ? "Hide password" : "Show password");
+        try{ inp.focus(); }catch(e){}
+      });
+    });
+  }
+  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",init); else init();
+})();
+</script>
 </main>
 
 <!-- ===== FOOTER ===== -->
@@ -3048,7 +3080,7 @@ curl https://api.vvbusiness.io/v1/channels \
   <a class="wn-logo" href="https://claude.ai/code/artifact/40d59e93-1e69-4cd1-b537-c2ad93e7c3af" target="_blank" rel="noopener">V<b>V</b>Business</a>
   <a class="wn-back" href="https://claude.ai/code/artifact/40d59e93-1e69-4cd1-b537-c2ad93e7c3af" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg><span>Back to website</span></a>
 </div>
-<div id="onboard" hidden><div class="ob-card"><div class="ob-progress" id="obProgress" hidden><span class="ob-dot"></span><span class="ob-dot"></span></div><div class="ob-step" data-step="password" hidden><div class="ob-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4.5" y="10.5" width="15" height="10" rx="2.2"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/><circle cx="12" cy="15.3" r="1.25"/></svg></div><h1>Create a password</h1><p>Secure your VVBusiness account. You&rsquo;ll use this with your email to sign in next time.</p><label class="ob-l" for="obPw">Password</label><input class="ob-in" id="obPw" type="password" placeholder="At least 8 characters" autocomplete="new-password"><label class="ob-l" for="obPw2">Confirm password</label><input class="ob-in" id="obPw2" type="password" placeholder="Re-enter password" autocomplete="new-password"><div class="ob-err" id="obPwErr" hidden></div><button class="ob-btn" id="obPwNext" type="button">Continue</button></div><div class="ob-step" data-step="merchant" hidden><div class="ob-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4.5 10.8V20h15v-9.2"/><path d="M3 6h18l-1.1 4a2.1 2.1 0 0 1-4.1-.2 2.1 2.1 0 0 1-4.4 0 2.1 2.1 0 0 1-4.4 0A2.1 2.1 0 0 1 4.1 10Z"/><path d="M10 20v-4.5h4V20"/></svg></div><h1>Name your business</h1><p>This is how your business appears across VVBusiness, shown on your dashboard, payment pages and payouts.</p><label class="ob-l" for="obName">Merchant name</label><input class="ob-in" id="obName" type="text" placeholder="e.g. Meridian Commerce" autocomplete="organization"><div class="ob-err" id="obNameErr" hidden></div><button class="ob-btn" id="obNameNext" type="button">Continue to dashboard</button></div></div></div>
+<div id="onboard" hidden><div class="ob-card"><div class="ob-progress" id="obProgress" hidden><span class="ob-dot"></span><span class="ob-dot"></span></div><div class="ob-step" data-step="password" hidden><div class="ob-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4.5" y="10.5" width="15" height="10" rx="2.2"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/><circle cx="12" cy="15.3" r="1.25"/></svg></div><h1>Create a password</h1><p>Secure your VVBusiness account. You&rsquo;ll use this with your email to sign in next time.</p><label class="ob-l" for="obPw">Password</label><div class="ob-inwrap"><input class="ob-in" id="obPw" type="password" placeholder="At least 8 characters" autocomplete="new-password"><button class="ob-eye" id="obEye1" type="button" aria-label="Show password"><svg class="eye-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><svg class="eye-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m3 3 18 18"/><path d="M10.6 5.1A10 10 0 0 1 12 5c6.5 0 10 7 10 7a15.7 15.7 0 0 1-3.4 4.1"/><path d="M6.6 6.6A15.6 15.6 0 0 0 2 12s3.5 7 10 7a9.8 9.8 0 0 0 4.3-1"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/></svg></button></div><label class="ob-l" for="obPw2">Confirm password</label><div class="ob-inwrap"><input class="ob-in" id="obPw2" type="password" placeholder="Re-enter password" autocomplete="new-password"><button class="ob-eye" id="obEye2" type="button" aria-label="Show password"><svg class="eye-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><svg class="eye-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m3 3 18 18"/><path d="M10.6 5.1A10 10 0 0 1 12 5c6.5 0 10 7 10 7a15.7 15.7 0 0 1-3.4 4.1"/><path d="M6.6 6.6A15.6 15.6 0 0 0 2 12s3.5 7 10 7a9.8 9.8 0 0 0 4.3-1"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/></svg></button></div><div class="ob-err" id="obPwErr" hidden></div><button class="ob-btn" id="obPwNext" type="button">Continue</button></div><div class="ob-step" data-step="merchant" hidden><div class="ob-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4.5 10.8V20h15v-9.2"/><path d="M3 6h18l-1.1 4a2.1 2.1 0 0 1-4.1-.2 2.1 2.1 0 0 1-4.4 0 2.1 2.1 0 0 1-4.4 0A2.1 2.1 0 0 1 4.1 10Z"/><path d="M10 20v-4.5h4V20"/></svg></div><h1>Name your business</h1><p>This is how your business appears across VVBusiness, shown on your dashboard, payment pages and payouts.</p><label class="ob-l" for="obName">Merchant name</label><input class="ob-in" id="obName" type="text" placeholder="e.g. Meridian Commerce" autocomplete="organization"><div class="ob-err" id="obNameErr" hidden></div><button class="ob-btn" id="obNameNext" type="button">Continue to dashboard</button></div></div></div>
 <div id="login">
   <div class="auth">
     <section class="hero">
