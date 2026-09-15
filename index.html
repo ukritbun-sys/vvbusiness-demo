@@ -2927,6 +2927,7 @@ curl https://api.vvbusiness.io/v1/channels \
 <style>
   /* ===== sign-up onboarding ===== */
   .pscope #onboard{position:fixed;inset:0;z-index:1100;background:var(--canvas);overflow-y:auto;display:flex;align-items:center;justify-content:center;padding:24px}
+  .pscope #onboard.gate{background:rgba(11,21,38,.55);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
   .pscope #onboard[hidden]{display:none}
   .pscope .ob-card{width:100%;max-width:412px;background:var(--surface);border:1px solid var(--line);border-radius:20px;box-shadow:0 24px 60px -20px rgba(12,23,50,.30);padding:32px 30px}
   .pscope .ob-progress{display:flex;gap:7px;justify-content:center;margin-bottom:22px}
@@ -2948,7 +2949,7 @@ curl https://api.vvbusiness.io/v1/channels \
   .pscope .ob-btn:hover{background:var(--brand-deep);transform:translateY(-1px)}
 </style>
 <script>
-/* sign-up onboarding: Gmail->password, all->merchant name, then homepage */
+/* sign-up onboarding: Gmail sets a password, then the app opens behind a Merchant Name gate that blocks use until filled */
 (function(){
   function init(){
     var loginEl=document.getElementById("login"), ob=document.getElementById("onboard");
@@ -2968,8 +2969,8 @@ curl https://api.vvbusiness.io/v1/channels \
       ["obPw","obPw2","obName"].forEach(function(id){ var e=document.getElementById(id); if(e)e.value=""; });
       ["obPwErr","obNameErr"].forEach(function(id){ var e=document.getElementById(id); if(e)e.hidden=true; });
       prog0();
-      ob.hidden=false; window.scrollTo(0,0);
-      showStep(m==="gmail" ? "password" : "merchant");
+      if(m==="gmail"){ ob.classList.remove("gate"); ob.hidden=false; window.scrollTo(0,0); showStep("password"); }
+      else { enterAppReal(); openMerchantGate(); }
     }
     function prog0(){ var p=document.getElementById("obProgress"); if(p){ p.querySelectorAll(".ob-dot").forEach(function(x){x.classList.remove("on");}); } }
     // intercept sign-up auth actions (capture phase, before enterApp)
@@ -2985,13 +2986,13 @@ curl https://api.vvbusiness.io/v1/channels \
       var pw=document.getElementById("obPw").value, pw2=document.getElementById("obPw2").value, err=document.getElementById("obPwErr");
       if(pw.length<8){ err.textContent="Use at least 8 characters."; err.hidden=false; return; }
       if(pw!==pw2){ err.textContent="Those passwords don\u2019t match."; err.hidden=false; return; }
-      err.hidden=true; showStep("merchant");
+      err.hidden=true; enterAppReal(); openMerchantGate();
     });
     var nameNext=document.getElementById("obNameNext");
     if(nameNext) nameNext.addEventListener("click", function(){
       var name=(document.getElementById("obName").value||"").trim(), err=document.getElementById("obNameErr");
       if(!name){ err.textContent="Please enter your business name."; err.hidden=false; return; }
-      err.hidden=true; applyMerchantName(name); finish();
+      err.hidden=true; applyMerchantName(name); ob.hidden=true; ob.classList.remove("gate");
     });
     ob.addEventListener("keydown", function(e){
       if(e.key!=="Enter") return; var st=e.target.closest(".ob-step"); if(!st) return;
@@ -3004,12 +3005,15 @@ curl https://api.vvbusiness.io/v1/channels \
         var ml=document.querySelector(".pscope [data-i18n=\"s_mname\"]"); if(ml && ml.nextElementSibling) ml.nextElementSibling.textContent=name;
       }catch(e){}
     }
-    function finish(){
-      ob.hidden=true;
+    function enterAppReal(){
       loginEl.classList.add("hidden");
-      setTimeout(function(){ loginEl.style.display="none"; }, 420);
+      setTimeout(function(){ loginEl.style.display="none"; }, 300);
       window.scrollTo(0,0);
       try{ document.dispatchEvent(new CustomEvent("vvb:enteredapp")); }catch(e){}
+    }
+    function openMerchantGate(){
+      ob.classList.add("gate"); ob.hidden=false; window.scrollTo(0,0);
+      showStep("merchant");
     }
   }
   if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",init); else init();
