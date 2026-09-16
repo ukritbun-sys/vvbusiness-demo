@@ -3832,7 +3832,7 @@ curl https://api.vvbusiness.io/v1/channels \
     <div class="ch-info">
       <h4>Channel Info</h4>
       <div class="ci"><label>Channel ID</label><b id="ciId">1140215805116889</b></div>
-      <div class="ci"><label>Receiving Account</label><b class="plain" id="ciAcct">CONVERT_ACCOUNT</b></div>
+      <div class="ci"><label>Receiving Account</label><b class="plain" id="ciAcct">Wallet</b></div>
       <div class="ci"><label>Currency</label><b class="plain" id="ciCur">USDT</b></div>
       <div class="ci"><label>Network</label><b class="plain" id="ciNet">Polygon</b></div>
     </div>
@@ -5484,7 +5484,7 @@ curl https://api.vvbusiness.io/v1/channels \
     const curCell=c=>'<span class="cur-cell"><img class="cur-ic ci-img" src="'+(coinImg(c,'')||'')+'" alt="">'+c+'</span>';
 
     const CONTACTS=[{av:'U',name:'Ukrit Bunuasunthon',type:'Individual',desc:'Test Deposit'}];
-    const CHANNELS=[{st:'Active',id:'1140215805116889',desc:'Test Deposit',contact:'Ukrit Bunuasunthon',av:'U',acct:'CONVERT_ACCOUNT',cur:'USDT',net:'Polygon',addr:'0xA2AF6D76d8b386B4227A7dFF8E6D2Ae99fd3ffd8'}];
+    const CHANNELS=[{st:'Active',id:'1140215805116889',desc:'Test Deposit',contact:'Ukrit Bunuasunthon',av:'U',acct:'Wallet',cur:'USDT',net:'Polygon',addr:'0xA2AF6D76d8b386B4227A7dFF8E6D2Ae99fd3ffd8'}];
 
     function renderChannels(){
       const b=$d('chBody'); if(!b)return;
@@ -5560,7 +5560,7 @@ curl https://api.vvbusiness.io/v1/channels \
     function randHex(n){let s='';for(let i=0;i<n;i++)s+='0123456789abcdef'[Math.floor(Math.random()*16)];return s;}
     $d('ccCreateChannel').addEventListener('click',()=>{
       const cur=csdGet('ccChCur')||'USDT';
-      const acct='CONVERT_ACCOUNT';
+      const acct='Wallet';
       const desc=($d('ccChDesc').value||'').trim()||(pending&&pending.desc)||'Deposit channel';
       const id=String(Math.floor(1e15+Math.random()*8.9e15));
       const ch={st:'Active',id:id,desc:desc,contact:pending?pending.name:'Contact',av:pending?pending.av:'C',acct:acct,cur:cur,net:csdGet('ccChNet')||'Polygon',addr:'0x'+randHex(40)};
